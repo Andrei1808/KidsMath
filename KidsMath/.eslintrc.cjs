@@ -11,6 +11,12 @@ module.exports = {
     "airbnb-typescript",
     "plugin:prettier/recommended",
   ],
+  "prettier/prettier": [
+    "error",
+    {
+      endOfLine: "auto"
+    },
+  ],
   overrides: [
     {
       env: {
