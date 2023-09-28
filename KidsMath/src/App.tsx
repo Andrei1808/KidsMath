@@ -1,13 +1,12 @@
-import './App.css'
+import "./App.css";
+import React from "react";
 
-function App() {
-
+function App(): React.ReactElement {
   return (
-    <>
-      <div>dddd
-        </div>
-    </>
-  )
+    <div>
+      <div>ddd</div>
+    </div>
+  );
 }
 
-export default App
+export default App;
