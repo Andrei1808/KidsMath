@@ -3,7 +3,8 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
+import 'firebase/compat/database';
+import { getDatabase, ref, push, set } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAwbkm1EGT7UYIJqoDnzyvSCBJIyGSlfNY",
@@ -17,9 +18,12 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-const database = firebase.database();
-console.log(database);
-
+const database = firebase.database().ref('Product');
+database.on('value', (e) => {
+  const data = e.val();
+  console.log(data)
+})
+console.log(database)
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
