@@ -8,7 +8,7 @@ export default function Card({data}) {
   return (
     <div className={s.container}>
       <div className={s.image}>
-        <img className={s.imageItem} src={data[0].img} alt="" />
+        <img className={s.imageItem} src={img} alt="" />
       </div>
       <div className={s.description}>
         <div className={s.productInfo}>
