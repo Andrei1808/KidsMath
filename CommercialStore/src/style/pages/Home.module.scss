@@ -1,0 +1,49 @@
+@import "../../style/sass/variables.scss";
+@import "../../style/sass/mixin";
+
+.heroSection {
+  height: calc(100vh - 6.875rem);
+}
+
+.heroContent {
+  width: 100%;
+  height: 100%;
+}
+
+.heroWrapper {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../images/imagesHome/home-shop-1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 9rem;
+  row-gap: 2.5rem;
+}
+
+.heroSubtitle {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+}
+
+.title {
+  font-size: 4.875rem;
+  font-weight: $font-weight-black;
+  font-family: $titlesFont;
+  color: $white;
+}
+
+.description {
+  font-size: 2rem;
+  font-weight: $font-weight-medium;
+  font-family: $textFont;
+  color: $white;
+}
+
+.heroBtn {
+  @include bigButton($white, $dark);
+}

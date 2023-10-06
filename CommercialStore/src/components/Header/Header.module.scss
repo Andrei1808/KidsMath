@@ -40,6 +40,12 @@
   font-family: $textFont;
   font-weight: $font-weight-normal;
   background-color: transparent;
+  height: 100%;
+}
+
+.searchInput::placeholder{
+  font-family: $textFont;
+  font-weight: $font-weight-normal;
 }
 
 .searchIcon {
