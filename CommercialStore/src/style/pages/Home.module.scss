@@ -44,6 +44,35 @@
   color: $white;
 }
 
+.btnWrapper{
+  width: fit-content;
+
+  :hover{
+   box-shadow: 3px 3px 15px rgb(111, 112, 115);
+  }
+
+  :active{
+    transform: scale(1.1);
+    transition-duration: .3s
+  }
+}
+
 .heroBtn {
   @include bigButton($white, $dark);
+
+  :hover{
+    box-shadow: none;
+   }
 }
+
+.subHeroSection{
+  padding-top: 130px;
+  width: 85%;
+  margin: 0 auto;
+}
+
+.subHeroSectionContent{
+  display: flex;
+  column-gap: 30px;
+}
+

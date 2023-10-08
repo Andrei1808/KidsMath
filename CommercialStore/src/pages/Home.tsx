@@ -1,7 +1,6 @@
 import React from "react";
 import Helmet from "../components/Helmet/Helmet";
 import s from "../style/pages/Home.module.scss";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 export default function Home() {
@@ -17,10 +16,36 @@ export default function Home() {
                 <p className={s.description}>cool / colorful / comfy</p>
               </div>
               <div className={s.btnWrapper}>
-                <motion.button  whileHover={{ scale: 1.1 }} className={s.heroBtn}><Link to='/shop'>Shop Now</Link></motion.button>
+                <button className={s.heroBtn}><Link to='/shop'>Shop Now</Link></button>
               </div>
             </div>
           </div> 
+        </section>
+
+        <section className={s.subHeroSection}>
+          <div className={s.subHeroSectionContent}>
+          <div className={s.subHeroWrapper}>
+              <div className={s.subHeroSubtitle}>
+                <p className={s.subHeroDescription}>T-shirt / Tops</p>
+                <h2 className={s.subHeroTitle}>Summer<br/> Value Pack</h2>
+                <p className={s.subHeroDescription}>cool / colorful / comfy</p>
+              </div>
+              <div className={s.subHeroBtnWrapper}>
+               <Link to='/shop' className={s.subHeroHeroBtn}>Explore Items</Link>
+              </div>
+            </div>
+
+            <div className={s.subHeroWrapper}>
+              <div className={s.subHeroSubtitle}>
+                <p className={s.subHeroDescription}>T-shirt / Tops</p>
+                <h2 className={s.subHeroTitle}>Summer<br/> Value Pack</h2>
+                <p className={s.subHeroDescription}>cool / colorful / comfy</p>
+              </div>
+              <div className={s.subHeroBtnWrapper}>
+               <Link to='/shop' className={s.subHeroHeroBtn}>Explore Items</Link>
+              </div>
+            </div>
+          </div>
         </section>
       </Helmet>
     </div>

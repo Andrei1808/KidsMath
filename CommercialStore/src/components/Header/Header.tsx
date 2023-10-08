@@ -6,6 +6,7 @@ import searchIcon from "../../images/icons/search-icon.png";
 import favoriteIcon from "../../images/icons/fav-icon.png";
 import userIcon from "../../images/icons/user-icon.png";
 import cartIcon from "../../images/icons/cart-icon.png";
+import { motion } from "framer-motion";
 
 export default function Header() {
   return (
@@ -43,7 +44,7 @@ export default function Header() {
           <span className={s.user}>
             <img src={userIcon} alt="search-icon" />
           </span>
-          <span className={s.cart}>
+          <span  className={s.cart}>
             <img src={cartIcon} alt="search-icon" />
           </span>
         </div>

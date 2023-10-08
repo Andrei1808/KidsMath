@@ -58,6 +58,15 @@
 .icons {
   display: flex;
   column-gap: 0.75rem;
+  cursor: pointer;
+
+  :hover{
+    box-shadow: 1px 1px 10px grey;
+  }
+
+  :active{
+    scale: 1.2;
+  }
 }
 
 .favorite,
@@ -70,4 +79,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 8px;
+
+  :hover{
+    box-shadow: none;
+  }
 }
