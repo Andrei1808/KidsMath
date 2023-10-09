@@ -32,9 +32,13 @@ export default function Home() {
         <section className={s.subHeroSection}>
           <div className={s.subHeroSectionContent}>
             {staticData.map((el) => (
-              <SubHeroCard data={el} key={el.id} />)
-            )}
+              <SubHeroCard data={el} key={el.id} />
+            ))}
           </div>
+        </section>
+
+        <section className={s.newArrival}>
+          <h2 className={s.sectionTitle}>New Arrival</h2>
         </section>
       </Helmet>
     </div>

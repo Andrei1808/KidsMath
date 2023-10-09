@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 85%;
+  width: $screenWidth;
   margin: 0 auto;
   padding: 2rem 0;
 }
@@ -31,7 +31,7 @@
   align-items: center;
   column-gap: 0.75rem;
   padding-left: 1.25rem;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 
 .searchInput {
@@ -49,8 +49,8 @@
 }
 
 .searchIcon {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   display: inline-block;
   cursor: pointer;
 }
@@ -72,13 +72,13 @@
 .favorite,
 .user,
 .cart {
-  width: 45px;
-  height: 45px;
+  width: 2.813rem;
+  height: 2.813rem;
   background-color: $whitegrey;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 
   :hover{
     box-shadow: none;
