@@ -1,12 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import s from "./Header.module.scss";
-import logo from "../../images/header-logo.png";
-import searchIcon from "../../images/icons/search-icon.png";
-import favoriteIcon from "../../images/icons/fav-icon.png";
-import userIcon from "../../images/icons/user-icon.png";
-import cartIcon from "../../images/icons/cart-icon.png";
-import { motion } from "framer-motion";
+import logo from "../../assets/images/header-logo.png";
+import searchIcon from "../../assets/images/icons/search-icon.png";
+import favoriteIcon from "../../assets/images/icons/fav-icon.png";
+import userIcon from "../../assets/images/icons/user-icon.png";
+import cartIcon from "../../assets/images/icons/cart-icon.png";
 
 export default function Header() {
   return (
