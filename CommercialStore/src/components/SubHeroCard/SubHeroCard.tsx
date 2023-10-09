@@ -5,7 +5,6 @@ import { staticDataCardInterface } from "../../assets/data/staticData";
 
 export default function SubHeroCard({ data }: staticDataCardInterface) {
   const { title, description, offer, img } = data;
-  console.log("daata", data);
   return (
     <div className={s.subHeroWrapper}>
       <div className={s.subHeroSubtitle}>
