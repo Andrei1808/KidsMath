@@ -11,6 +11,15 @@ export interface serverResponse {
   };
 }
 
+export interface productInterface {
+    id: number;
+    price: number;
+    title: string;
+    description: string;
+    img: string;
+    brand: string;
+}
+
 export interface helmetInterface{
   title?: string;
   children?: ReactNode | undefined;

@@ -2,7 +2,7 @@ import React from "react";
 import Helmet from "../components/Helmet/Helmet";
 import s from "../style/pages/Home.module.scss";
 import { Link } from "react-router-dom";
-import SubHeroCard from "../components/SubHeroCard/SubHeroCard";
+import SubHeroCard from "../components/UI/SubHeroCard/SubHeroCard";
 import { staticData } from "../assets/data/staticData";
 
 export default function Home() {
