@@ -12,15 +12,17 @@ export interface serverResponse {
 }
 
 export interface productInterface {
-    id: number;
-    price: number;
-    title: string;
-    description: string;
-    img: string;
-    brand: string;
+  id: number;
+  price: number;
+  title: string;
+  description: string;
+  img: string;
+  brand: string;
+  isNew: boolean;
+  category: string;
 }
 
-export interface helmetInterface{
+export interface helmetInterface {
   title?: string;
   children?: ReactNode | undefined;
 }

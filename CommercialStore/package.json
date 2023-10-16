@@ -27,6 +27,7 @@
     "sass": "^1.68.0",
     "sass-loader": "^13.3.2",
     "sass-resources-loader": "^2.2.5",
+    "slick-carousel": "^1.8.1",
     "style-loader": "^3.3.3",
     "uuid": "^9.0.1",
     "vite-tsconfig-paths": "^4.2.1"

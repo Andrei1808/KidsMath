@@ -17,10 +17,9 @@ export const useProducts = () => {
           });
     
           setProducts(products);
-          console.log(products);
         })
         .catch((error) => {
-          console.error('Ошибка при получении данных:', error);
+          console.error('Error', error);
         });
     }, []);
     return products;
