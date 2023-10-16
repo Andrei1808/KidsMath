@@ -3,8 +3,8 @@ import Helmet from "../components/Helmet/Helmet";
 import s from "../style/pages/Home.module.scss";
 import { Link } from "react-router-dom";
 import SubHeroCard from "../components/UI/SubHeroCard/SubHeroCard";
-import { staticData } from "../assets/data/staticData";
-import Carousel from "../components/Slider/Carousel";
+import { heroData } from "../assets/data/staticData";
+import Carousel from "../components/Carousel/Carousel";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -34,7 +34,7 @@ export default function Home() {
 
         <section className={s.subHeroSection}>
           <div className={s.subHeroSectionContent}>
-            {staticData.map((el) => (
+            {heroData.map((el) => (
               <SubHeroCard data={el} key={el.id} />
             ))}
           </div>

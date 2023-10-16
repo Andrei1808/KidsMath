@@ -19,6 +19,13 @@
     font-weight: $font-weight-bold;
   }
 
+  .brand{
+    font-family: $textFont;
+    font-size: 0.7rem;
+    font-weight: $font-weight-light;
+    color: $brands;
+  }
+
   .like {
     position: absolute;
     top: 0.5rem;
@@ -44,7 +51,7 @@
 
   .price{
     font-family: $textFont;
-    font-size: $font-size-normal;
+    font-size: $font-size-small;
     font-weight: $font-weight-bold;
     padding: 0.3rem 0.8rem;
     background-color: $whitegrey;

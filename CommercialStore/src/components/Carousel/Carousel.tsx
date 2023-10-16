@@ -33,7 +33,8 @@ export default function Carousel() {
             return (
               <div className={s.carouselItem} key={ product.id }>
                 <img src={product.img} alt={product.title} />
-               <div className={s.infoWrapper}> <p>{product.title}</p> <span className={s.price}>${product.price}</span></div>
+                <div className={s.infoWrapper}> <p>{product.title}</p> <span className={s.price}>${product.price}</span></div>
+                <p className={s.brand}>{product.brand} Brand</p>
                 <span className={s.like}>
                   <img src={fav} alt="fav" />
                 </span>
