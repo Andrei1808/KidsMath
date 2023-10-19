@@ -3,29 +3,42 @@
 .bigSavingZone {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: 10px;
   width: 100%;
 }
 
 .card {
-  min-width: 30%;
+  width: calc(33% - 0.313rem);
   position: relative;
 
   img {
+    width: 100%;
+    height: 100%;
     border-radius: 1.25rem;
+  }
+
+  &:nth-child(4),
+  &:nth-child(5) {
+    width: calc(50% - 0.313rem);
   }
 }
 
 .content {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 0;
+  transform: translate(0, -50%);
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.625rem;
 }
 
 .title {
   font-family: $titlesFont;
   font-size: $font-size-extra-large;
   font-weight: $font-weight-bold;
+  width: 50%;
+  line-height: 2.375rem;
 }
 
 .description {
@@ -48,4 +61,8 @@
 
 .light {
   color: white;
+}
+
+.arrow{
+  font-size: 3rem;
 }
