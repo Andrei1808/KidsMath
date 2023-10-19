@@ -45,6 +45,7 @@ export const bigSavingZoneData = [
     offer: "UPTO 50% OFF",
     img: "src/assets/images/imagesHome/hawaiian-shirts.png",
     limited: false,
+    theme: "light",
   },
   {
     id: 2,
@@ -53,6 +54,7 @@ export const bigSavingZoneData = [
     offer: "UPTO 40% OFF",
     img: "src/assets/images/imagesHome/printed-t-shirts.png",
     limited: true,
+    theme: "light",
   },
   {
     id: 3,
@@ -61,6 +63,7 @@ export const bigSavingZoneData = [
     offer: "UPTO 50% OFF",
     img: "src/assets/images/imagesHome/joggers.png",
     limited: false,
+    theme: "dark",
   },
   {
     id: 4,
@@ -69,6 +72,7 @@ export const bigSavingZoneData = [
     offer: "FLAT 60% OFF",
     img: "src/assets/images/imagesHome/urban-shirts.png",
     limited: false,
+    theme: "dark",
   },
   {
     id: 5,
@@ -77,5 +81,6 @@ export const bigSavingZoneData = [
     offer: "FLAT 60% OFF",
     img: "src/assets/images/imagesHome/oversized-shirts.png",
     limited: false,
+    theme: "dark",
   },
 ];

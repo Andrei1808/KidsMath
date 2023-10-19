@@ -2,11 +2,12 @@ import React from "react";
 import Helmet from "../components/Helmet/Helmet";
 import s from "../style/pages/Home.module.scss";
 import { Link } from "react-router-dom";
-import SubHeroCard from "../components/UI/SubHeroCard/SubHeroCard";
+import SubHeroCard from "../components/SubHeroCard/SubHeroCard";
 import { heroData } from "../assets/data/staticData";
 import Carousel from "../components/Carousel/Carousel";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import BigSavingZone from "../components/BigSavingZone/BigSavingZone";
 
 export default function Home() {
   return (
@@ -42,11 +43,12 @@ export default function Home() {
 
         <section className={s.newArrival}>
           <h2 className={s.sectionTitle}>New Arrival</h2>
-          <Carousel/>
+          <Carousel />
         </section>
 
         <section className={s.bigSavingZone}>
         <h2 className={s.sectionTitle}>Big Saving Zone</h2>
+          <BigSavingZone/>
         </section>
       </Helmet>
     </div>

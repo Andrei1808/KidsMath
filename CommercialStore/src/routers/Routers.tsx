@@ -15,6 +15,6 @@ export default function Routers() {
     <Route path='login' element={<Login/>}/>
     <Route path='productDetails' element={<ProductDetails/>}/>
     <Route path='shop' element={<Shop/>}/>
-    <Route path='signup' element={<Signup/>}/>
+    <Route path='signup' element={<Signup />} />
   </Routes>
 }

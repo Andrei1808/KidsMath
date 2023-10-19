@@ -1,0 +1,51 @@
+@import "../../style/sass/variables.scss";
+
+.bigSavingZone {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.card {
+  min-width: 30%;
+  position: relative;
+
+  img {
+    border-radius: 1.25rem;
+  }
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.title {
+  font-family: $titlesFont;
+  font-size: $font-size-extra-large;
+  font-weight: $font-weight-bold;
+}
+
+.description {
+  font-family: $textFont;
+  font-size: $font-size-small;
+  font-weight: $font-weight-medium;
+}
+
+.offer {
+  font-family: $textFont;
+  font-size: $font-size-medium;
+  font-weight: $font-weight-bold;
+}
+
+.button {
+}
+
+.limited {
+}
+
+.light {
+  color: white;
+}
