@@ -1,24 +1,5 @@
 import { ReactNode } from "react";
 
-export interface staticDataInterface {
-  id: number;
-  title: string;
-  description: string;
-  offer: string;
-  img?: string;
-  limited?: boolean;
-}
-
-export interface staticDataCardInterface {
-  data: {
-    id: number;
-    title: string;
-    description: string;
-    offer: string;
-    img?: string;
-    limited?: boolean;
-  };
-}
 
 export const heroData = [
   {
@@ -87,5 +68,28 @@ export const bigSavingZoneData = [
     limited: false,
     theme: "dark",
     contentPosition: "right",
+  },
+];
+
+export const categoriesForMen = [
+  {
+    id: 1,
+    title: "Shirts",
+    img: "src/assets/images/imagesHome/shirts.png",
+  },
+  {
+    id: 2,
+    title: "Hoodie",
+    img: "src/assets/images/imagesHome/hoodie.png",
+  },
+  {
+    id: 3,
+    title: "Jeans",
+    img: "src/assets/images/imagesHome/jeans.png",
+  },
+  {
+    id: 4,
+    title: "T-Shirts",
+    img: "src/assets/images/imagesHome/t-shirts.png",
   },
 ];

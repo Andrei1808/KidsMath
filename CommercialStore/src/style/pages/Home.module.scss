@@ -113,3 +113,9 @@
   width: $screenWidth;
   margin: 0 auto;
 }
+
+.categoriesWrapper{
+  display: flex;
+  justify-content: space-between;
+  margin: $betweenSectionMargin;
+}

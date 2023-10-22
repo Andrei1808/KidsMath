@@ -3,11 +3,12 @@ import Helmet from "../components/Helmet/Helmet";
 import s from "../style/pages/Home.module.scss";
 import { Link } from "react-router-dom";
 import SubHeroCard from "../components/SubHeroCard/SubHeroCard";
-import { heroData } from "../assets/data/staticData";
+import { categoriesForMen, heroData } from "../assets/data/staticData";
 import Carousel from "../components/Carousel/Carousel";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import BigSavingZone from "../components/BigSavingZone/BigSavingZone";
+import CategoriesMen from "../components/CategoriesMen/CategoriesMen";
 
 export default function Home() {
   return (
@@ -47,12 +48,17 @@ export default function Home() {
         </section>
 
         <section className={s.bigSavingZone}>
-        <h2 className={s.sectionTitle}>Big Saving Zone</h2>
-          <BigSavingZone/>
+          <h2 className={s.sectionTitle}>Big Saving Zone</h2>
+          <BigSavingZone />
         </section>
 
         <section className={s.categoriesForMen}>
         <h2 className={s.sectionTitle}>Categories For Men</h2>
+          <div className={s.categoriesWrapper}>
+            {categoriesForMen.map((el) => (
+              <CategoriesMen data={el} key={el.id} />
+            ))}
+          </div>
         </section>
       </Helmet>
     </div>
