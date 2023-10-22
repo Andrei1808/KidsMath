@@ -1,13 +1,7 @@
 @import "../../style/sass/variables.scss";
 
-@mixin bigButton($bg-color, $text-color) {
+@mixin button($bg-color, $text-color) {
     background-color: $bg-color;
     color: $text-color;
-    font-family: $textFont;
-    font-size: 1.5rem;
-    font-weight: $font-weight-black;
-    padding: 0.8rem 2.75rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+    width: fit-content;
   }

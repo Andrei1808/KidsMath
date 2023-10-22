@@ -50,6 +50,10 @@ export default function Home() {
         <h2 className={s.sectionTitle}>Big Saving Zone</h2>
           <BigSavingZone/>
         </section>
+
+        <section className={s.categoriesForMen}>
+        <h2 className={s.sectionTitle}>Categories For Men</h2>
+        </section>
       </Helmet>
     </div>
   );

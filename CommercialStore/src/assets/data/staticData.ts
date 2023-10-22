@@ -39,13 +39,14 @@ export const heroData = [
 
 export const bigSavingZoneData = [
   {
-    id: 1,
+    id: 1,  
     title: "Hawaiian Shirts",
     description: "Dress up in summer vibe",
     offer: "UPTO 50% OFF",
     img: "src/assets/images/imagesHome/hawaiian-shirts.png",
     limited: false,
     theme: "light",
+    contentPosition: "left",
   },
   {
     id: 2,
@@ -55,6 +56,7 @@ export const bigSavingZoneData = [
     img: "src/assets/images/imagesHome/printed-t-shirts.png",
     limited: true,
     theme: "light",
+    contentPosition: "right",
   },
   {
     id: 3,
@@ -64,6 +66,7 @@ export const bigSavingZoneData = [
     img: "src/assets/images/imagesHome/joggers.png",
     limited: false,
     theme: "dark",
+    contentPosition: "right",
   },
   {
     id: 4,
@@ -73,6 +76,7 @@ export const bigSavingZoneData = [
     img: "src/assets/images/imagesHome/urban-shirts.png",
     limited: false,
     theme: "dark",
+    contentPosition: "right",
   },
   {
     id: 5,
@@ -82,5 +86,6 @@ export const bigSavingZoneData = [
     img: "src/assets/images/imagesHome/oversized-shirts.png",
     limited: false,
     theme: "dark",
+    contentPosition: "right",
   },
 ];

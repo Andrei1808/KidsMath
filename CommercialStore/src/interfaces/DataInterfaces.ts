@@ -36,4 +36,5 @@ export interface cardsInterface{
   offer?: string;
   limited: boolean;
   theme: string;
+  contentPosition: string;
 }
