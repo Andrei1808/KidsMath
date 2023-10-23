@@ -79,7 +79,7 @@ export const categoriesForMen = [
   },
   {
     id: 2,
-    title: "Hoodie",
+    title: "Hoodies & Sweetshirt",
     img: "src/assets/images/imagesHome/hoodie.png",
   },
   {
@@ -91,5 +91,28 @@ export const categoriesForMen = [
     id: 4,
     title: "T-Shirts",
     img: "src/assets/images/imagesHome/t-shirts.png",
+  },
+];
+
+export const categoriesFoWomen = [
+  {
+    id: 1,
+    title: "Coats & Parkas",
+    img: "src/assets/images/imagesHome/coats.png",
+  },
+  {
+    id: 2,
+    title: "Hoodies & Sweetshirt",
+    img: "src/assets/images/imagesHome/hoodie-woman.png",
+  },
+  {
+    id: 3,
+    title: "Tees & T-Shirt",
+    img: "src/assets/images/imagesHome/t-shirts-woman.png",
+  },
+  {
+    id: 4,
+    title: "Boxers",
+    img: "src/assets/images/imagesHome/boxers.png",
   },
 ];
