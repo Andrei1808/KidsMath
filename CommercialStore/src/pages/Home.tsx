@@ -8,7 +8,7 @@ import Carousel from "../components/Carousel/Carousel";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import BigSavingZone from "../components/BigSavingZone/BigSavingZone";
-import CategoriesMen from "../components/CategoriesMen/CategoriesMen";
+import CategoriesMen from "../components/Categories/Categories";
 
 export default function Home() {
   return (

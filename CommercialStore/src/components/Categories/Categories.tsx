@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./CategoriesMen.module.scss";
+import s from "./Categories.module.scss";
 import { staticDataCardInterface } from "../../interfaces/DataInterfaces";
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -9,7 +9,9 @@ export default function CategoriesMen({ data }: staticDataCardInterface) {
   return (
     <div className={s.card}>
       <div className={s.image}>
-        <img src={img} alt={title} />
+      <Link to="/shop">
+      <img src={img} alt={title} />
+          </Link>
       </div>
       <div className={s.info}>
         <div className={s.content}>
