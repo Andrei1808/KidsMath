@@ -1,0 +1,23 @@
+@import '../sass/variables.scss';
+
+.products{
+    width: 100%;
+    background-color: $dark; 
+}
+
+.title{
+    width: 85%;
+    margin: 0 auto 4.375rem;
+    padding: 1.875rem 0;
+    display: grid;
+    grid-template-columns: 3.5fr 2fr 2fr 2fr 2fr 0.5fr;
+    text-transform: uppercase;
+
+    h5{
+        font-family: $textFont;
+        font-size: $font-size-medium;
+        font-weight: 600;
+        color: $white
+    }
+    
+}

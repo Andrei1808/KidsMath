@@ -1,12 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import s from "./Header.module.scss";
-import {FiShoppingCart} from "react-icons/fi"
-import {AiOutlineUser} from "react-icons/ai"
-import {MdFavoriteBorder} from "react-icons/md"
+import { FiShoppingCart } from "react-icons/fi";
+import { AiOutlineUser } from "react-icons/ai";
+import { MdFavoriteBorder } from "react-icons/md";
 import logo from "../../assets/images/header-logo.png";
 import searchIcon from "../../assets/images/icons/search-icon.png";
-
 
 export default function Header() {
   return (
@@ -39,14 +38,14 @@ export default function Header() {
 
         <div className={s.icons}>
           <span className={s.favorite}>
-            <MdFavoriteBorder/>
+            <MdFavoriteBorder />
           </span>
           <span className={s.user}>
-            <AiOutlineUser/>
+            <AiOutlineUser />
           </span>
-          <span  className={s.cart}>
-           <FiShoppingCart/>
-          </span>
+          <Link to="/cart" className={s.cart}>
+            <FiShoppingCart />
+          </Link>
         </div>
       </div>
     </header>
