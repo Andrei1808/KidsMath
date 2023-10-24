@@ -108,10 +108,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        <section className={s.feedback}>
-     
-        </section>
       </Helmet>
     </div>
   );

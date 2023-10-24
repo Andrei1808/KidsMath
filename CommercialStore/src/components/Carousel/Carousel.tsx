@@ -6,7 +6,7 @@ import { useProducts } from "../../hooks/useProducts";
 import s from "./Carousel.module.scss";
 import rightArrowImage from "../../assets/images/icons/arrow-right-line.png";
 import leftArrowImage from "../../assets/images/icons/arrow-left-line.png";
-import fav from "../../assets/images/icons/fav-icon.png";
+import {MdFavoriteBorder} from "react-icons/md"
 
 export default function Carousel() {
   const settings = {
@@ -44,7 +44,7 @@ export default function Carousel() {
                 </div>
                 <p className={s.brand}>{product.brand} Brand</p>
                 <span className={s.like}>
-                  <img src={fav} alt="fav" />
+                  <MdFavoriteBorder />
                 </span>
               </div>
             );

@@ -19,7 +19,7 @@
     font-weight: $font-weight-bold;
   }
 
-  .brand{
+  .brand {
     font-family: $textFont;
     font-size: 0.7rem;
     font-weight: $font-weight-light;
@@ -30,26 +30,26 @@
     position: absolute;
     top: 0.5rem;
     right: 1.75rem;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    cursor: pointer;
+    font-size: 1.5rem;
+    color: $steelGray;
 
-    img {
-      margin: 0;
-      padding: 0.5rem;
+    svg {
+      border-radius: 50%;
+      padding: 0.125rem;
+      background-color: rgba(0, 0, 0, 0.1);
     }
 
     &:active {
       scale: 1.1;
     }
 
-    &:hover {
-      background-color: rgba(0, 0, 0, 1);
-      opacity: 0.3;
+    svg:hover {
+      background-color:rgba($purple, 0.5);
+      color: $white;
     }
   }
 
-  .price{
+  .price {
     font-family: $textFont;
     font-size: $font-size-small;
     font-weight: $font-weight-bold;
@@ -67,7 +67,7 @@
   outline: none;
 }
 
-.infoWrapper{
+.infoWrapper {
   display: flex;
   justify-content: space-between;
 }
