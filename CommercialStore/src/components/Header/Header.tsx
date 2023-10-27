@@ -37,15 +37,17 @@ export default function Header() {
         </div>
 
         <div className={s.icons}>
-          <span className={s.favorite}>
-            <MdFavoriteBorder />
+          <span className={s.wishlist}>
+            <Link to="/wishlist" >
+              <MdFavoriteBorder />
+            </Link>
           </span>
           <span className={s.user}>
             <AiOutlineUser />
           </span>
-          <Link to="/cart" className={s.cart}>
+          <span className={s.cart}>
             <FiShoppingCart />
-          </Link>
+          </span>
         </div>
       </div>
     </header>

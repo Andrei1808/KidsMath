@@ -1,7 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { serverResponse } from "../../interfaces/DataInterfaces";
 
-interface wishListProduct {
+export interface wishListProduct {
   id: number;
   name: string;
   img: string;
@@ -10,32 +9,32 @@ interface wishListProduct {
   totalPrice: number;
 }
 
-interface wishListState {
-  cartItems: wishListProduct[];
+export interface wishListState {
+  wishListItems: wishListProduct[];
   totalAmount: number;
   totalQuantity: number;
 }
 
 const initialState: wishListState = {
-  cartItems: [],
+  wishListItems: [],
   totalAmount: 0,
   totalQuantity: 0,
 };
 
 const wishListSlice = createSlice({
-  name: "cart",
+  name: "wishList",
   initialState,
   reducers: {
     addItem: (state, action: PayloadAction<wishListProduct>) => {
       const newItem = action.payload;
-      const existingItem = state.cartItems.find(
+      const existingItem = state.wishListItems.find(
         (item: wishListProduct) => item.id === newItem.id
       );
 
       state.totalQuantity++;
 
       if (!existingItem) {
-        state.cartItems.push({
+        state.wishListItems.push({
           id: newItem.id,
           name: newItem.name,
           img: newItem.img,
@@ -49,14 +48,16 @@ const wishListSlice = createSlice({
           Number(existingItem.totalPrice) + Number(newItem.price);
       }
 
-      state.totalAmount = state.cartItems.reduce(
+      state.totalAmount = state.wishListItems.reduce(
         (acc, item) => acc + item.price * item.quantity,
         0
       );
+      console.log(state.totalQuantity);
+      console.log(newItem);
     },
   },
 });
 
-export const cartActions = wishListSlice.actions;
+export const wishListActions = wishListSlice.actions;
 
 export default wishListSlice.reducer;

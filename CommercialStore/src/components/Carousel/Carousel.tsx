@@ -6,7 +6,11 @@ import { useProducts } from "../../hooks/useProducts";
 import s from "./Carousel.module.scss";
 import rightArrowImage from "../../assets/images/icons/arrow-right-line.png";
 import leftArrowImage from "../../assets/images/icons/arrow-left-line.png";
-import {MdFavoriteBorder} from "react-icons/md"
+import { MdFavoriteBorder } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import {
+  wishListActions, wishListProduct,
+} from "../../redux/slices/wishListSlice";
 
 export default function Carousel() {
   const settings = {
@@ -26,24 +30,38 @@ export default function Carousel() {
     ),
   };
 
+  const dispatch = useDispatch();
   const products = useProducts();
-  console.log(products);
+
+  const addToWishList = (item: wishListProduct) => {
+    dispatch(
+      wishListActions.addItem({
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        img: item.img,
+        quantity: 0,
+        totalPrice: 0,
+      })
+    );
+  };
+
+
 
   return (
     <div className={s.slider}>
       <Slider {...settings}>
-        {products.map((product) => {
-          if (product.isNew === true) {
+        {products.map((item) => {
+          if (item.isNew === true) {
             return (
-              <div className={s.carouselItem} key={product.id}>
-                <img src={product.img} alt={product.title} />
+              <div className={s.carouselItem} key={item.id}>
+                <img src={item.img} alt={item.title} />
                 <div className={s.infoWrapper}>
-                  {" "}
-                  <p>{product.title}</p>{" "}
-                  <span className={s.price}>${product.price}</span>
+                  <p>{item.title}</p>
+                  <span className={s.price}>${item.price}</span>
                 </div>
-                <p className={s.brand}>{product.brand} Brand</p>
-                <span className={s.like}>
+                <p className={s.brand}>{item.brand} Brand</p>
+                <span className={s.like} onClick={addToWishList}>
                   <MdFavoriteBorder />
                 </span>
               </div>
@@ -54,3 +72,4 @@ export default function Carousel() {
     </div>
   );
 }
+
