@@ -37,11 +37,11 @@ export default function Header() {
         </div>
 
         <div className={s.icons}>
-          <span className={s.wishlist}>
-            <Link to="/wishlist" >
+          <Link to="/wishlist">
+            <span className={s.wishlist}>
               <MdFavoriteBorder />
-            </Link>
-          </span>
+            </span>{" "}
+          </Link>
           <span className={s.user}>
             <AiOutlineUser />
           </span>

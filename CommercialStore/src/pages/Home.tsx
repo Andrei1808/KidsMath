@@ -66,7 +66,6 @@ export default function Home() {
         <section className={s.newArrival}>
           <h2 className={s.sectionTitle}>New Arrival</h2>
           <Carousel products={products} />
-          <WishList />
         </section>
 
         <section className={s.bigSavingZone}>

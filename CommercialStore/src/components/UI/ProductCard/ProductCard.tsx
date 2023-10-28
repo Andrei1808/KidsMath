@@ -3,8 +3,9 @@ import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { wishListActions } from "../../../redux/slices/wishListSlice";
 import { MdFavoriteBorder } from "react-icons/md";
 import s from "./ProductCard.module.scss";
-import {  ItemProps } from "../../../interfaces/DataInterfaces";
-
+import { ItemProps } from "../../../interfaces/DataInterfaces";
+import { toast } from "react-toastify";
+ 
 export default function ProductCard({item}:ItemProps) {
   const dispatch = useDispatch();
 
@@ -19,7 +20,8 @@ export default function ProductCard({item}:ItemProps) {
         totalPrice: 0,
       })
     );
-    alert('ADD!');
+    
+    toast.success('Product added successfully to your wish list');
   };
   return (
     item ?

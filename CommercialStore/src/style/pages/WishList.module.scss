@@ -11,7 +11,7 @@
     width: 100%;
 }
 
-.userPanel{
+.sidebar{
 width: 30%;
 }
 
@@ -21,7 +21,11 @@ display: flex;
 flex-direction: column;
 }
 
-.productItem{
+.product{
     display: flex;
     justify-content: space-between;
+
+    img{
+        height: 110px;
+    }
 }
