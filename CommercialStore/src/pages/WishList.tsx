@@ -4,11 +4,16 @@ import Helmet from "../components/Helmet/Helmet";
 import { IoMdClose } from "react-icons/io";
 import ProductCard from "../components/UI/ProductCard/ProductCard";
 import { CarouselProps, wishListState } from "../interfaces/DataInterfaces";
-import { useSelector } from "react-redux";
+import { TypedUseSelectorHook, useSelector } from "react-redux";
+import store from "../redux/store";
+
+
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 export default function WishList() {
 
-  const wishListItems = useSelector((state: wishListState)=> state.wishList.wishListItems)
+  const wishListItems = useAppSelector((state) => state.wishList.wishListItems)
+console.log(wishListItems);
   return (
     <Helmet title="WishList">
       <>
