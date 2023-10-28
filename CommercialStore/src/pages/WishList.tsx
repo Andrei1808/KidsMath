@@ -2,13 +2,21 @@ import React from "react";
 import s from "../style/pages/WishList.module.scss";
 import Helmet from "../components/Helmet/Helmet";
 import { IoMdClose } from "react-icons/io";
-import { useProducts } from "../hooks/useProducts";
+import ProductCard from "../components/UI/ProductCard/ProductCard";
+import { CarouselProps, wishListState } from "../interfaces/DataInterfaces";
+import { useSelector } from "react-redux";
 
 export default function WishList() {
-  const products = useProducts();
+
+  const wishListItems = useSelector((state: wishListState)=> state.wishList.wishListItems)
   return (
     <Helmet title="WishList">
-      <div className={s.wrapper}>
+      <>
+      {wishListItems.map((item, index) => {
+        <div>{item.id}</div>
+      })}
+        </>
+      {/* <div className={s.wrapper}>
         <section className={s.path}>Path name</section>
         <section className={s.userPanel}>
           <div className={s.userName}>
@@ -25,6 +33,7 @@ export default function WishList() {
         <section className={s.wishList}>
           <h2>Wishlist</h2>
           <div className={s.products}>
+           
             <div className={s.productItem}>
               <IoMdClose />
               <img src="" alt="" />
@@ -33,12 +42,12 @@ export default function WishList() {
                 <p>2</p>
                 <p>3</p>
               </div>
-              <div className={s.price}>29</div>
+              <div className={s.price}>{item.price}</div>
               <button>DDD</button>
             </div>
           </div>
         </section>
-      </div>
+      </div> */}
     </Helmet>
   );
 }

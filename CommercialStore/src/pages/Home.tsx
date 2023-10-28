@@ -23,8 +23,15 @@ import hm from "../assets/images/imagesHome/brand-icon/hm.png";
 import levis from "../assets/images/imagesHome/brand-icon/levis.png";
 import polo from "../assets/images/imagesHome/brand-icon/polo.png";
 import puma from "../assets/images/imagesHome/brand-icon/puma.png";
+import { useProducts } from "../hooks/useProducts";
+import WishList from "./WishList";
+import ProductCard from "../components/UI/ProductCard/ProductCard";
 
 export default function Home() {
+
+  const products = useProducts();
+  console.log('aaa',products);
+  
   return (
     <div>
       <Helmet title={"Home"}>
@@ -58,7 +65,8 @@ export default function Home() {
 
         <section className={s.newArrival}>
           <h2 className={s.sectionTitle}>New Arrival</h2>
-          <Carousel />
+          <Carousel products={products} />
+          <WishList />
         </section>
 
         <section className={s.bigSavingZone}>

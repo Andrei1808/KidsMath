@@ -1,25 +1,15 @@
 import { ReactNode } from "react";
 
-export interface serverResponse {
-  item: {
-    id: number;
-    price: number;
-    title: string;
-    description: string;
-    img: string;
-    brand: string;
-  };
-}
 
 export interface productInterface {
   id: number;
-  price?: number;
-  title?: string;
-  description?: string;
-  img?: string;
-  brand?: string;
-  isNew?: boolean;
-  category?: string;
+  price: number;
+  title: string;
+  description: string;
+  img: string;
+  brand: string;
+  isNew: boolean;
+  category: string;
 }
 
 export interface helmetInterface {
@@ -57,4 +47,32 @@ export interface staticDataCardInterface {
     img: string;
     limited?: boolean;
   };
+}
+
+
+export interface wishListProduct {
+  id: number;
+  name: string;
+  img: string;
+  price: number;
+  quantity: number;
+  totalPrice: number;
+}
+
+export interface wishListState {
+  wishListItems: wishListProduct[];
+  totalAmount: number;
+  totalQuantity: number;
+}
+
+export interface CarouselProps {
+  products: productInterface[];
+}
+
+export interface ProductCardsProps {
+  item: wishListProduct;
+}
+
+export interface ItemProps{
+  item: productInterface;
 }
