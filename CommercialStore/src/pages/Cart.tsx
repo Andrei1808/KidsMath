@@ -4,9 +4,9 @@ import s from '../style/pages/Cart.module.scss'
 
 export default function Cart() {
   return (
-    
+
     <Helmet title="Cart">
-      <div>
+      <main>
         <section className={s.path}></section>
         <section className={s.products}>
           <div className={s.title}>
@@ -19,7 +19,7 @@ export default function Cart() {
           </div>
         </section>
         <section className={s.totalPrice}></section>
-      </div>
+      </main>
     </Helmet>
   )
 }

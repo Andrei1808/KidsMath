@@ -37,3 +37,13 @@ div:focus{
     border: none;
     cursor: pointer;
  }
+
+ .layout{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+ }
+
+ .main{
+    flex-grow: 1;
+ }

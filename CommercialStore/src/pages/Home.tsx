@@ -24,13 +24,10 @@ import levis from "../assets/images/imagesHome/brand-icon/levis.png";
 import polo from "../assets/images/imagesHome/brand-icon/polo.png";
 import puma from "../assets/images/imagesHome/brand-icon/puma.png";
 import { useProducts } from "../hooks/useProducts";
-import WishList from "./WishList";
-import ProductCard from "../components/UI/ProductCard/ProductCard";
 
 export default function Home() {
 
   const products = useProducts();
-  console.log('aaa',products);
   
   return (
     <div>

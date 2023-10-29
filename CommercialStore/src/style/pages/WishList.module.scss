@@ -34,15 +34,8 @@
   }
 }
 
-.userName{
-    h2{
-        @include sectionTitle($font-size-extra-large, $font-weight-bold);
-        color: $dark;
-    }
-}
-
 .products {
-    padding-bottom: 6.25rem;
+  padding-bottom: 6.25rem;
 }
 
 .product {
@@ -99,7 +92,7 @@
   font-size: $font-size-medium;
   font-weight: $font-weight-medium;
 
-  &:active{
+  &:active {
     scale: 1.1;
   }
 }

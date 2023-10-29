@@ -35,7 +35,7 @@ export default function Carousel({products}: CarouselProps) {
         {products ? products.map((item) => {
           if (item.isNew === true) {
             return (
-              <ProductCard item={item} />
+              <ProductCard item={item} key={item.id} />
             );
           }
         }) : "Wwww"}

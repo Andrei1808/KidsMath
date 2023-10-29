@@ -4,37 +4,18 @@ import { TypedUseSelectorHook, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import s from "../style/pages/WishList.module.scss";
 import { IoMdClose } from "react-icons/io";
+import Sidebar from "../components/SIdebar/Sidebar";
 
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 export default function WishList() {
   const wishListItems = useAppSelector((state) => state.wishList.wishListItems);
-  console.log(wishListItems);
   return (
     <Helmet title="WishList">
       <div className={s.wrapper}>
         <section className={s.path}>Path name</section>
 
-        <section className={s.sidebar}>
-          <div className={s.userName}>
-            <h2>Hello Andrei</h2>
-            <p>Welcome to your Account</p>
-          </div>
-          <ul className={s.navigate}>
-            <li>
-              <button>My orders</button>
-            </li>
-            <li>
-              <button>Wishlist</button>
-            </li>
-            <li>
-              <button>My info</button>
-            </li>
-            <li>
-              <button>Sign out</button>
-            </li>
-          </ul>
-        </section>
+        <Sidebar />
 
         <section className={s.wishList}>
           <h2>Wishlist</h2>
