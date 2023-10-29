@@ -38,25 +38,34 @@ export default function WishList() {
 
         <section className={s.wishList}>
           <h2>Wishlist</h2>
-          {wishListItems.length !==0 ? wishListItems.map((item, index) => {
-            return (
-              <div className={s.products}>
-                <div className={s.product}>
-                  <button>
-                    <IoMdClose />
-                  </button>
-                  <img src={item.img} alt={item.name} />
-                  <div className={s.productDesc}>
-                    <p>{item.name}</p>
-                    <p>2</p>
-                    <p>Quntity: {item.quantity}</p>
-                  </div>
-                  <div className={s.price}>{item.price}$</div>
-                  <button>Add to cart</button>
-                </div>
-              </div>
-            );
-          }) : 'Your wish list is empty!'}
+          <div className={s.products}>
+            {wishListItems.length !== 0
+              ? wishListItems.map((item, index) => {
+                  return (
+                    <div className={s.product}>
+                      <button className={s.delete}>
+                        <IoMdClose />
+                      </button>
+                      <img src={item.img} alt={item.name} />
+                      <div className={s.productDesc}>
+                        <p>{item.name}</p>
+                        <p>
+                          Price for one: <span>{item.price}$</span>
+                        </p>
+                        <p>
+                          Quntity: <span>{item.quantity}</span>
+                        </p>
+                      </div>
+                      <div className={s.price}>
+                        Total price: <br />
+                        <span>{item.totalPrice}$</span>
+                      </div>
+                      <button className={s.addBtn}>Add to cart</button>
+                    </div>
+                  );
+                })
+              : "Your wish list is empty!"}
+          </div>
         </section>
       </div>
     </Helmet>
