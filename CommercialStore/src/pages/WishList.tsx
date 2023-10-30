@@ -5,6 +5,7 @@ import { RootState } from "../redux/store";
 import s from "../style/pages/WishList.module.scss";
 import { IoMdClose } from "react-icons/io";
 import Sidebar from "../components/SIdebar/Sidebar";
+import EmptyWishlist from "../components/UI/Empty wishlist/EmptyWishlist";
 
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
@@ -45,7 +46,7 @@ export default function WishList() {
                     </div>
                   );
                 })
-              : "Your wish list is empty!"}
+              : <EmptyWishlist/>}
           </div>
         </section>
       </div>
