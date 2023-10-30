@@ -3,7 +3,7 @@ import Helmet from "../components/Helmet/Helmet";
 import s from "../style/pages/Home.module.scss";
 import { Link } from "react-router-dom";
 
-import SubHeroCard from "../components/SubHeroCard/SubHeroCard";
+import SubHeroCard from "../components/UI/SubHeroCard/SubHeroCard";
 import Carousel from "../components/Carousel/Carousel";
 
 import {
@@ -15,8 +15,8 @@ import {
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import BigSavingZone from "../components/BigSavingZone/BigSavingZone";
-import CategoriesMen from "../components/Categories/Categories";
+import BigSavingZone from "../components/UI/BigSavingZone/BigSavingZone";
+import CategoriesMen from "../components/UI/Categories/Categories";
 
 import nike from "../assets/images/imagesHome/brand-icon/nike.png";
 import hm from "../assets/images/imagesHome/brand-icon/hm.png";
@@ -26,9 +26,8 @@ import puma from "../assets/images/imagesHome/brand-icon/puma.png";
 import { useProducts } from "../hooks/useProducts";
 
 export default function Home() {
-
   const products = useProducts();
-  
+
   return (
     <div>
       <Helmet title={"Home"}>
@@ -94,19 +93,30 @@ export default function Home() {
               </p>
               <div className={s.brandsContainer}>
                 <div className={s.brand}>
-                  <Link to='https://www.nike.com' target="_blank"> <img src={nike} alt="brand-nike" /></Link>
+                  <Link to="https://www.nike.com" target="_blank">
+                    {" "}
+                    <img src={nike} alt="brand-nike" />
+                  </Link>
                 </div>
                 <div className={s.brand}>
-                <Link to='https://www.hm.com' target="_blank"><img src={hm} alt="brand-hm" /></Link>
+                  <Link to="https://www.hm.com" target="_blank">
+                    <img src={hm} alt="brand-hm" />
+                  </Link>
                 </div>
                 <div className={s.brand}>
-                   <Link to='https://www.levis.com' target="_blank"><img src={levis} alt="brand-levis" /></Link>
+                  <Link to="https://www.levis.com" target="_blank">
+                    <img src={levis} alt="brand-levis" />
+                  </Link>
                 </div>
                 <div className={s.brand}>
-                   <Link to='https://www.polo.com' target="_blank"><img src={polo} alt="brand-polo" /></Link>
+                  <Link to="https://www.polo.com" target="_blank">
+                    <img src={polo} alt="brand-polo" />
+                  </Link>
                 </div>
                 <div className={s.brand}>
-                   <Link to='https://www.puma.com' target="_blank"><img src={puma} alt="brand-puma" /></Link>
+                  <Link to="https://www.puma.com" target="_blank">
+                    <img src={puma} alt="brand-puma" />
+                  </Link>
                 </div>
               </div>
             </div>

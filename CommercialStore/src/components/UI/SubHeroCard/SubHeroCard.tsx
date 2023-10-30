@@ -1,8 +1,7 @@
 import React from "react";
 import s from "./SubHeroCard.module.scss";
 import { Link } from "react-router-dom";
-import { staticDataCardInterface } from "../../interfaces/DataInterfaces";
-
+import { staticDataCardInterface } from "../../../interfaces/DataInterfaces";
 
 export default function SubHeroCard({ data }: staticDataCardInterface) {
   const { title, description, offer, img } = data;

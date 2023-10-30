@@ -1,12 +1,12 @@
 import React from "react";
-import { bigSavingZoneData } from "../../assets/data/staticData";
-import { cardsInterface } from "../../interfaces/DataInterfaces";
+import { bigSavingZoneData } from "../../../assets/data/staticData";
+import { cardsInterface } from "../../../interfaces/DataInterfaces";
 import s from "./BigSavingZone.module.scss";
 import clsx from "clsx";
 import { GoArrowDown } from "react-icons/go";
 import { Link } from "react-router-dom";
-import fashion1 from "../../assets/images/imagesHome/fashion1.png";
-import fashion2 from "../../assets/images/imagesHome/fashion2.png";
+import fashion1 from "../../../assets/images/imagesHome/fashion1.png";
+import fashion2 from "../../../assets/images/imagesHome/fashion2.png";
 
 export default function BigSavingZone() {
   return (
