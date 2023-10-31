@@ -1,5 +1,33 @@
 @import '../sass/variables.scss';
 
+.wrapper {
+    display: grid;
+    grid-template-areas:
+      "path path"
+      "sidebar cart"
+      "sidebar totalPrice";
+    grid-template-columns: 1fr 4fr;
+    width: $screenWidth;
+    margin: 0 auto;
+    column-gap: 3.125rem;
+  }
+
+  .path{
+    grid-area: path;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+  }
+
+  .products{
+    grid-area: cart;
+  }
+
+  .totalPrice{
+    grid-area: totalPrice;
+  }
+
 .products{
     width: 100%;
     background-color: $dark; 

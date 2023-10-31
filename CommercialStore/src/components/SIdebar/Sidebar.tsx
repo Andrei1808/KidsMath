@@ -7,9 +7,8 @@ import { Link, useLocation } from "react-router-dom";
 import clsx from "clsx";
 
 export default function Sidebar() {
-
   const location = useLocation();
-
+  const path = location.pathname;
 
   return (
     <section className={s.sidebar}>
@@ -18,35 +17,52 @@ export default function Sidebar() {
         <p>Welcome to your Account</p>
       </div>
       <ul className={s.navigate}>
-        <li>
-          <button><Link to='/cart'>
-            <p className={s.navigateItem}>
-              <span>
-                <PiHandbagSimple />
-              </span>
-              My orders
-            </p>
+        <li
+          className={clsx({
+            [s.active]: path === "/cart",
+          })}
+        >
+          <button>
+            <Link to="/cart">
+              <p className={s.navigateItem}>
+                <span>
+                  <PiHandbagSimple />
+                </span>
+                My orders
+              </p>
             </Link>
           </button>
         </li>
-        <li>
-          <button><Link to='/wishlist'>
-            <p className={s.navigateItem}>
-              <span>
-                <MdFavoriteBorder />
-              </span>
-              Wishlist
-            </p> </Link>
+        <li
+          className={clsx({
+            [s.active]: path === "/wishlist",
+          })}
+        >
+          <button>
+            <Link to="/wishlist">
+              <p className={s.navigateItem}>
+                <span>
+                  <MdFavoriteBorder />
+                </span>
+                Wishlist
+              </p>{" "}
+            </Link>
           </button>
         </li>
-        <li>
-          <button><Link to='/wishlist'>
-            <p className={s.navigateItem}>
-              <span>
-                <AiOutlineUser />
-              </span>
-              My info
-            </p></Link>
+        <li
+          className={clsx({
+            [s.active]: path === "/info",
+          })}
+        >
+          <button>
+            <Link to="/cart">
+              <p className={s.navigateItem}>
+                <span>
+                  <AiOutlineUser />
+                </span>
+                My info
+              </p>
+            </Link>
           </button>
         </li>
         <li>
@@ -63,4 +79,3 @@ export default function Sidebar() {
     </section>
   );
 }
-

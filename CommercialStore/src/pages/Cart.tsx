@@ -1,13 +1,16 @@
 import React from 'react'
 import Helmet from '../components/Helmet/Helmet'
 import s from '../style/pages/Cart.module.scss'
+import Sidebar from '../components/SIdebar/Sidebar'
 
 export default function Cart() {
   return (
 
     <Helmet title="Cart">
       <main>
-        <section className={s.path}></section>
+        <div className={s.wrapper}>
+        <section className={s.path}>path</section>
+        <Sidebar/>
         <section className={s.products}>
           <div className={s.title}>
             <h5>product details</h5>
@@ -18,7 +21,8 @@ export default function Cart() {
             <h5>action</h5>
           </div>
         </section>
-        <section className={s.totalPrice}></section>
+          <section className={s.totalPrice}>Total price Area</section>
+          </div>
       </main>
     </Helmet>
   )
