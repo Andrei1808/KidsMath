@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { MdFavoriteBorder } from "react-icons/md";
 import { PiHandbagSimple, PiSignOut } from "react-icons/pi";
 import s from "./Sidebar.module.scss";
+import { Link, useLocation } from "react-router-dom";
+import clsx from "clsx";
 
 export default function Sidebar() {
+
+  const location = useLocation();
+
+
   return (
     <section className={s.sidebar}>
       <div className={s.userName}>
@@ -13,33 +19,34 @@ export default function Sidebar() {
       </div>
       <ul className={s.navigate}>
         <li>
-          <button>
+          <button><Link to='/cart'>
             <p className={s.navigateItem}>
               <span>
                 <PiHandbagSimple />
               </span>
               My orders
             </p>
+            </Link>
           </button>
         </li>
         <li>
-          <button>
+          <button><Link to='/wishlist'>
             <p className={s.navigateItem}>
               <span>
                 <MdFavoriteBorder />
               </span>
               Wishlist
-            </p>
+            </p> </Link>
           </button>
         </li>
         <li>
-          <button>
+          <button><Link to='/wishlist'>
             <p className={s.navigateItem}>
               <span>
                 <AiOutlineUser />
               </span>
               My info
-            </p>
+            </p></Link>
           </button>
         </li>
         <li>
@@ -56,3 +63,4 @@ export default function Sidebar() {
     </section>
   );
 }
+

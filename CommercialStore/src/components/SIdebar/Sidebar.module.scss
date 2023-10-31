@@ -37,6 +37,13 @@
     }
 }
 
+.active{
+  background-color: $whitegrey;
+  border-top-right-radius: 0.625rem;
+  border-bottom-right-radius:  0.625rem;
+  border-left: 2px solid $dark;
+}
+
 .navigateItem {
   font-family: $textFont;
   font-size: $font-size-medium;
