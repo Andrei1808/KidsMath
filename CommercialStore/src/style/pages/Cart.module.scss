@@ -12,8 +12,9 @@
     column-gap: 3.125rem;
   }
 
-  .path{
+  .path {
     grid-area: path;
+    margin-bottom: 2.875rem;
   }
 
   .sidebar {
@@ -31,6 +32,7 @@
 .products{
     width: 100%;
     background-color: $dark; 
+    height: fit-content;
 }
 
 .title{
