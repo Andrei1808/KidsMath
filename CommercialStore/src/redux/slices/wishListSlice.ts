@@ -1,11 +1,14 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { wishListState, wishListProduct } from "../../interfaces/DataInterfaces";
-
+import {
+  wishListState,
+  wishListProduct,
+} from "../../interfaces/DataInterfaces";
 
 const initialState: wishListState = {
   wishListItems: [],
   totalAmount: 0,
   totalQuantity: 0,
+  totalProducts: 0,
 };
 
 const wishListSlice = createSlice({
@@ -29,6 +32,8 @@ const wishListSlice = createSlice({
           quantity: 1,
           totalPrice: newItem.price,
         });
+
+        state.totalProducts++;
       } else {
         existingItem.quantity++;
         existingItem.totalPrice =
@@ -39,8 +44,14 @@ const wishListSlice = createSlice({
         (acc, item) => acc + item.price * item.quantity,
         0
       );
-      console.log(state.totalQuantity);
-      console.log(newItem);
+    },
+
+    removeItem: (state, action) => {
+      const removeItem = action.payload;
+      state.wishListItems = state.wishListItems.filter(
+        (item) => item.id !== removeItem
+      );
+      state.totalProducts--;
     },
   },
 });
