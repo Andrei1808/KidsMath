@@ -63,6 +63,7 @@ export interface wishListState {
   wishListItems: wishListProduct[];
   totalAmount: number;
   totalQuantity: number;
+  totalProducts: number;
 }
 
 export interface CarouselProps {

@@ -6,8 +6,12 @@ import { AiOutlineUser } from "react-icons/ai";
 import { MdFavoriteBorder } from "react-icons/md";
 import logo from "../../assets/images/header-logo.png";
 import searchIcon from "../../assets/images/icons/search-icon.png";
+import { useAppSelector } from "../../hooks/typedHooks";
 
 export default function Header() {
+
+  const totalProducts = useAppSelector((state) => state.wishList.totalProducts);
+
   return (
     <header className={s.header}>
       <div className={s.wrapper}>
@@ -40,7 +44,8 @@ export default function Header() {
           <Link to="/wishlist">
             <span className={s.wishlist}>
               <MdFavoriteBorder />
-            </span>{" "}
+              <span>{ totalProducts}</span>
+            </span>
           </Link>
           <span className={s.user}>
             <AiOutlineUser />
