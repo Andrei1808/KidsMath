@@ -1,0 +1,279 @@
+[33mcommit dc320b9fd877c04c314786898bc95acee19d870e[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 20b33de 99d70f9
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Wed Nov 1 23:58:12 2023 +0200
+
+    Merge branch 'main' of https://github.com/Andrei1808/CommercialStore
+
+[33mcommit 20b33deff7ff294a6ccebe5db61ce0bb51425a2c[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Wed Nov 1 23:33:31 2023 +0200
+
+    feat: add counter for wishlist icon
+
+[33mcommit 99d70f9136a9dfc0abe6bb7f5144df295b439553[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Wed Nov 1 23:33:31 2023 +0200
+
+    feat: add 'removeItem' feature for wishList. Add counter for wishlist icon
+
+[33mcommit 047b52d5570df7f82aa4c97a48f72a70ead90815[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Wed Nov 1 23:31:55 2023 +0200
+
+    feat: add 'removeItem' feature from wishlist.
+
+[33mcommit 98b76cbd63aaa708137e4a2cf30c33754ba1b4de[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Tue Oct 31 22:28:25 2023 +0200
+
+    refactor: add grid to page Cart
+
+[33mcommit 80619eceb2033c7d7664f81b5e2198cff12cca35[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Tue Oct 31 22:06:06 2023 +0200
+
+    feat: add hover effect for header menu
+
+[33mcommit 7acddb6a78129f751ff514dba9655c19f914a37e[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Mon Oct 30 23:16:58 2023 +0200
+
+    feat: add empty wishlist page
+
+[33mcommit a51c792732cc2ef5baecae264ec5e401c30084e9[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Mon Oct 30 22:17:26 2023 +0200
+
+    refactor:  move components to UI folder
+
+[33mcommit 519cab4e79ba4a464baddbc1c0362c2f4784a543[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Mon Oct 30 22:07:24 2023 +0200
+
+    feat: add hover effect for sidebar
+
+[33mcommit 5cfe5159c43ce69e3b7053343de96cd52ceb7586[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Mon Oct 30 01:06:14 2023 +0200
+
+    feat: add sidebar
+
+[33mcommit c48c4a475b538d4d7f91661fe867b5557d943876[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Sun Oct 29 23:02:05 2023 +0200
+
+    feat: add wish list
+
+[33mcommit 4c205c23ccc03ef7a9d90bc9986c4c3b63b36f5c[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Sun Oct 29 02:02:13 2023 +0300
+
+    feat: add toastify
+
+[33mcommit 3f60aa551e7458c07378d110aa6c9ba74dda4cce[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Sun Oct 29 00:43:40 2023 +0300
+
+    feat: add typed hooks
+
+[33mcommit bc9a8e1839a1790f6a455ac1cc576e81adcb4f6d[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Sat Oct 28 23:48:43 2023 +0300
+
+    refactor: refactor carousel items
+
+[33mcommit 3ad224ee0d0fa2a625e3a75fef06b32bfb3fe333[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Fri Oct 27 23:40:03 2023 +0300
+
+    feat: add wishlist page
+
+[33mcommit 9be17900ccfcdac24a98ec36f354245c46878ac7[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Thu Oct 26 23:32:48 2023 +0300
+
+    refactro: rename cart to wishlist
+
+[33mcommit f8aac8ab7ccda863f77f19d7d10f86bd72a1b95b[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Thu Oct 26 22:33:14 2023 +0300
+
+    feat: add redux/toolkit
+
+[33mcommit ed163c4971044f12d290e98dddc79598607eaff8[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Wed Oct 25 00:07:35 2023 +0300
+
+    feat: add cart page
+
+[33mcommit 62a42875dd9af25888709d32153300843b6787ed[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Tue Oct 24 22:41:23 2023 +0300
+
+    refactor: add icns from react-icons
+
+[33mcommit 88cb243bce3d45f4ecf3bbec8f8a8585c73f8996[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Mon Oct 23 23:15:59 2023 +0300
+
+    feat: add categories for women section and brands
+
+[33mcommit 84afa6105de6a468408e720735ae559cce98b862[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Mon Oct 23 20:42:49 2023 +0300
+
+    refactor: refactor margin value for carousel
+
+[33mcommit 043490eb168950e8e883c363f99356158163fd2d[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Mon Oct 23 00:00:31 2023 +0300
+
+    feat: add section 'categories for men'
+
+[33mcommit 2af379d5420131d834442d611f99bb089c01bd08[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Sun Oct 22 14:01:13 2023 +0300
+
+    feat: big saving zone section done
+
+[33mcommit 781e1b657358ece1ac9cfee21cebddd6a0c92fa8[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Fri Oct 20 01:01:32 2023 +0300
+
+    feat: add react-icons
+
+[33mcommit d7986df2c11cad25972c182928b538aaa78b1747[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Thu Oct 19 23:52:10 2023 +0300
+
+    feat: add cards for big save zone
+
+[33mcommit 416be116a2056ae74085280cd9976a12032b6c30[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Tue Oct 17 00:16:29 2023 +0300
+
+    feat: add static data for section big saving zone
+
+[33mcommit 778770635612317dd8f15017b8261ee105452bcd[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Mon Oct 16 23:05:06 2023 +0300
+
+    feat: add features for slider
+
+[33mcommit c04a38de013d0b379e4c7d16d0b4f09eb0ff1dfc[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Sat Oct 14 13:45:28 2023 +0300
+
+    feat: add slick-slider
+
+[33mcommit 20fbecda8868d01ace57a65707588caf64ad4b35[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Sat Oct 14 01:09:00 2023 +0300
+
+    feat: add footer
+
+[33mcommit 7fa47eed24200a216d18117d0111c199668ecbc9[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Mon Oct 9 23:10:02 2023 +0300
+
+    feat: add ProductCard
+
+[33mcommit add757e7a63245f1338bac03268bd93d3aa2b9eb[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Mon Oct 9 21:54:04 2023 +0300
+
+    refactor: fix image
+
+[33mcommit a5336f517ca949222e0d1e38380305036721ab77[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Mon Oct 9 21:52:09 2023 +0300
+
+    feat: add subHeroCards
+
+[33mcommit 3c2deac4f50e7d9c982cb3f5033f878a38ecc18b[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Sun Oct 8 22:54:21 2023 +0300
+
+    refactor: transfer images folder
+
+[33mcommit dbff4bbef2716289b130fceaa59d4295cef365c4[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Sat Oct 7 00:27:16 2023 +0300
+
+    feat: add Home page
+
+[33mcommit dee139b5dbecf8a4a7ce6a280903cb7d5a0c1a06[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Fri Oct 6 00:18:52 2023 +0300
+
+    feat: add header
+
+[33mcommit 086599ccd3abffc01fdc563e558b1fe300672e71[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Thu Oct 5 21:47:55 2023 +0300
+
+    feat: add mixin, variables
+
+[33mcommit bf6556fd9f139cc1b575f900e51282d05973185c[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Thu Oct 5 00:19:46 2023 +0300
+
+    feat: add routes, fonts
+
+[33mcommit 73a5bb669588cee87ae1f359f6034e9eba61be43[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Wed Oct 4 00:15:38 2023 +0300
+
+    feat: connected firebase with frontend
+
+[33mcommit af4fb4957aac5ed8d5881886ba7c9c3a6f186039[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Sun Oct 1 00:34:52 2023 +0300
+
+    feat: connected database
+
+[33mcommit 4c7b05c56ba7f2756a638b52b7930f137ecf4a05[m
+Merge: f141e75 bd08b00
+Author: Andrei Kaliarovich <85843872+Andrei1808@users.noreply.github.com>
+Date:   Sat Sep 30 23:07:52 2023 +0300
+
+    Merge pull request #1 from Andrei1808/development
+    
+    Development
+
+[33mcommit bd08b005096763896857576215e8e1ffd51bb518[m[33m ([m[1;31morigin/development[m[33m)[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Sat Sep 30 22:50:53 2023 +0300
+
+    refactor: replace firebase files
+
+[33mcommit 4c9aeac7ce3e81193ea13e87e2f09e0664afb437[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Sat Sep 30 00:51:25 2023 +0300
+
+    feat: add firebase
+
+[33mcommit c016879587803e24924105a2837e48f92dd339c7[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Fri Sep 29 00:37:33 2023 +0300
+
+    feat: add images for cards
+
+[33mcommit d81b612385e15944ac672afdd56843c78d15181c[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Thu Sep 28 23:21:17 2023 +0300
+
+    refactor: move prettier file to KidsMath folder
+
+[33mcommit 1de2774cc4f2201490141c658f19a3080a985907[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Thu Sep 28 23:18:04 2023 +0300
+
+    feat: setting up the environment
+
+[33mcommit f141e75ddfb0d786c431b60d47d6aa3d931b6723[m
+Author: kalia <kaliarovich93@gmail.com>
+Date:   Thu Sep 28 22:35:56 2023 +0300
+
+    in
