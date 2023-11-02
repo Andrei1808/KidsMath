@@ -49,7 +49,6 @@ export interface staticDataCardInterface {
   };
 }
 
-
 export interface wishListProduct {
   id: number;
   name: string;

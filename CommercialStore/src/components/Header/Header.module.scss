@@ -22,7 +22,7 @@
   font-weight: $font-weight-medium;
   color: $steelGray;
 
-  li:hover{
+  li:hover {
     color: $dark;
   }
 }
@@ -48,7 +48,7 @@
   height: 100%;
 }
 
-.searchInput::placeholder{
+.searchInput::placeholder {
   font-family: $textFont;
   font-weight: $font-weight-normal;
 }
@@ -67,18 +67,37 @@
   font-size: 1.25rem;
   color: $steelGray;
 
-  :hover{
-   color: white;
-   background-color:  $purple;
+  :hover {
+    color: white;
+    background-color: $purple;
+
+    .counter {
+      color: $steelGray;
+      background-color: $whitegrey;
+    }
   }
 
-  :active{
+  :active {
     scale: 1.1;
   }
 
-  a{
+  a {
     border-radius: 50%;
   }
+}
+
+.counter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: $textFont;
+  font-size: $font-size-small;
+  padding: 0.175rem;
+  font-size: 0.7rem;
+  background-color: $purple;
+  color: $white;
+  border-top-right-radius: 0.5em;
+  border-bottom-left-radius: 0.75em;
 }
 
 .wishlist,
@@ -91,10 +110,9 @@
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
+  position: relative;
 
-  :hover{
+  :hover {
     box-shadow: none;
   }
 }
-
-

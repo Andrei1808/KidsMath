@@ -6,17 +6,15 @@ import s from "../style/pages/WishList.module.scss";
 import { IoMdClose } from "react-icons/io";
 import Sidebar from "../components/SIdebar/Sidebar";
 import EmptyWishlist from "../components/UI/Empty wishlist/EmptyWishlist";
-import { ItemProps, wishListProduct } from "../interfaces/DataInterfaces";
 import { wishListActions } from "../redux/slices/wishListSlice";
 import { toast } from "react-toastify";
+import { cartActions } from "../redux/slices/cartSlice";
 
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 export default function WishList() {
   const dispatch = useDispatch();
   const wishListItems = useAppSelector((state) => state.wishList.wishListItems);
-
-
 
   return (
     <Helmet title="WishList">
@@ -30,13 +28,24 @@ export default function WishList() {
           <div className={s.products}>
             {wishListItems.length !== 0 ? (
               wishListItems.map((item, index) => {
-
                 const removeFromWishList = () => {
-                  dispatch(
-                    wishListActions.removeItem(item.id)
-                  );
-              
+                  dispatch(wishListActions.removeItem(item.id));
+
                   toast.success("Product removed from your wish list");
+                };
+
+                const addToCart = () => {
+                  dispatch(
+                    cartActions.addItem({
+                      id: item.id,
+                      name: item.name,
+                      img: item.img,
+                      price: item.price,
+                      quantity: item.quantity,
+                      totalPrice: item.totalPrice,
+                    }),
+                  );
+                  removeFromWishList();
                 };
                 return (
                   <div className={s.product}>
@@ -57,7 +66,9 @@ export default function WishList() {
                       Total price: <br />
                       <span>{item.totalPrice}$</span>
                     </div>
-                    <button className={s.addBtn}>Add to cart</button>
+                    <button className={s.addBtn} onClick={addToCart}>
+                      Add to cart
+                    </button>
                   </div>
                 );
               })

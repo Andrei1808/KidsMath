@@ -7,9 +7,9 @@ import { MdFavoriteBorder } from "react-icons/md";
 import logo from "../../assets/images/header-logo.png";
 import searchIcon from "../../assets/images/icons/search-icon.png";
 import { useAppSelector } from "../../hooks/typedHooks";
+import { clsx } from "clsx";
 
 export default function Header() {
-
   const totalProducts = useAppSelector((state) => state.wishList.totalProducts);
 
   return (
@@ -44,7 +44,11 @@ export default function Header() {
           <Link to="/wishlist">
             <span className={s.wishlist}>
               <MdFavoriteBorder />
-              <span>{ totalProducts}</span>
+              {totalProducts > 0 ? (
+                <span className={s.counter}>{totalProducts}</span>
+              ) : (
+                ""
+              )}
             </span>
           </Link>
           <span className={s.user}>
