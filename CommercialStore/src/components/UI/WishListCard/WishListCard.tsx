@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { wishListActions } from "../../../redux/slices/wishListSlice";
 import { MdFavoriteBorder } from "react-icons/md";
-import s from "./ProductCard.module.scss";
+import s from "./WishListCard.module.scss";
 import { ItemProps } from "../../../interfaces/DataInterfaces";
 import { toast } from "react-toastify";
  
