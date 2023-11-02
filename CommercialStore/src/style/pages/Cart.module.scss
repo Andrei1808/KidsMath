@@ -1,53 +1,61 @@
-@import '../sass/variables.scss';
+@import "../sass/variables.scss";
 
 .wrapper {
-    display: grid;
-    grid-template-areas:
-      "path path"
-      "sidebar cart"
-      "sidebar totalPrice";
-    grid-template-columns: 1fr 4fr;
-    width: $screenWidth;
-    margin: 0 auto;
-    column-gap: 3.125rem;
-  }
-
-  .path {
-    grid-area: path;
-    margin-bottom: 2.875rem;
-  }
-
-  .sidebar {
-    grid-area: sidebar;
-  }
-
-  .products{
-    grid-area: cart;
-  }
-
-  .totalPrice{
-    grid-area: totalPrice;
-  }
-
-.products{
-    width: 100%;
-    background-color: $dark; 
-    height: fit-content;
+  display: grid;
+  grid-template-areas:
+    "path path"
+    "sidebar cart"
+    "sidebar totalPrice";
+  grid-template-columns: 1fr 4fr;
+  width: $screenWidth;
+  margin: 0 auto;
+  column-gap: 3.125rem;
 }
 
-.title{
-    width: 85%;
-    margin: 0 auto 4.375rem;
-    padding: 1.875rem 0;
-    display: grid;
-    grid-template-columns: 3.5fr 2fr 2fr 2fr 2fr 0.5fr;
-    text-transform: uppercase;
+.path {
+  grid-area: path;
+  margin-bottom: 2.875rem;
+}
 
-    h5{
-        font-family: $textFont;
-        font-size: $font-size-medium;
-        font-weight: 600;
-        color: $white
-    }
-    
+.sidebar {
+  grid-area: sidebar;
+}
+
+.products {
+  grid-area: cart;
+}
+
+.totalPrice {
+  grid-area: totalPrice;
+}
+
+.products {
+  width: 100%;
+  height: fit-content;
+}
+
+.title {
+  text-align: center;
+  margin: 0 auto;
+  padding: 1.875rem 0;
+  display: grid;
+  grid-template-columns: 3fr 1fr 1.5fr 1fr 1fr 1fr;
+  background-color: $dark;
+  text-transform: uppercase;
+
+  h5 {
+    font-family: $textFont;
+    font-size: $font-size-medium;
+    font-weight: 600;
+    color: $white;
+  }
+}
+
+.product{
+  text-align: center;
+  margin: 0 auto;
+  padding: 1.875rem 0;
+  display: grid;
+  grid-template-columns: 3fr 1fr 1.5fr 1fr 1fr 1fr;
+  align-items: center;
 }
