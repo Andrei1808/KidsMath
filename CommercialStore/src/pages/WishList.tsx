@@ -48,7 +48,7 @@ export default function WishList() {
                   removeFromWishList();
                 };
                 return (
-                  <div className={s.product}>
+                  <div className={s.product} key={index}>
                     <button className={s.delete} onClick={removeFromWishList}>
                       <IoMdClose />
                     </button>

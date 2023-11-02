@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Helmet from "../components/Helmet/Helmet";
 import s from "../style/pages/Cart.module.scss";
 import Sidebar from "../components/SIdebar/Sidebar";
@@ -7,6 +7,7 @@ import { useAppSelector } from "../hooks/typedHooks";
 
 export default function Cart() {
   const cartItems = useAppSelector((state) => state.cart.cartItems);
+
   
   return (
     <Helmet title="Cart">
@@ -25,8 +26,23 @@ export default function Cart() {
             </div>
             {
               cartItems.map((item, index) => {
+                const [quantity, setQuantity] = useState(item.quantity);
+                const [totalPrice, setTotalPrice] = useState(item.totalPrice);
+
+                const increment = () => {
+                  setQuantity(quantity + 1);
+                  setTotalPrice(totalPrice + item.price);
+                }
+
+                const decrement = () => {
+                  if (quantity > 1) {
+                    setQuantity(quantity - 1);
+                    setTotalPrice(totalPrice - item.price);
+                  }
+                };
+
                 return (
-                  <div className={s.product}>
+                  <div className={s.product} key={index}>
                   <div className={s.productInfo}>
                     <img src="{item.img}" alt="{item.name}" />
                     <div className={s.productDesc}>
@@ -36,9 +52,9 @@ export default function Cart() {
                     </div>
                   </div>
                     <div className={s.productPrice}>{item.price}</div>
-                    <div className={s.productQuantity}>{item.quantity}</div>
+                    <div className={s.productQuantity}><button onClick={increment}>plus</button>{quantity}<button onClick={decrement}>minus</button></div>
                   <div className={s.productShipping}>free</div>
-                    <div className={s.productSubtotal}>{ item.totalPrice}</div>
+                    <div className={s.productSubtotal}>{totalPrice}</div>
                   <button className={s.removeProduct}>
                     <RiDeleteBinLine />
                   </button>
