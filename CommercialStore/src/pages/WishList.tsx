@@ -8,7 +8,7 @@ import Sidebar from "../components/SIdebar/Sidebar";
 import EmptyWishlist from "../components/UI/Empty wishlist/EmptyWishlist";
 import { wishListActions } from "../redux/slices/wishListSlice";
 import { toast } from "react-toastify";
-import { cartActions, cartSliceProduct } from "../redux/slices/cartSlice";
+import { cartActions } from "../redux/slices/cartSlice";
 
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 

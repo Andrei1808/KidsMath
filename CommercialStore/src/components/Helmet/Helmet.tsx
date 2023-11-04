@@ -1,5 +1,9 @@
-import React from 'react'
-import { helmetInterface } from '../../interfaces/DataInterfaces'
+import React, { ReactNode } from 'react'
+
+export interface helmetInterface {
+  title?: string;
+  children?: ReactNode | undefined;
+}
 
 export default function Helmet(props: helmetInterface) {
     document.title = 'Euphoria - ' + props.title

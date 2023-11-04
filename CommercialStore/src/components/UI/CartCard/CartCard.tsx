@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { cartActions } from "../../../redux/slices/cartSlice";
 import { toast } from "react-toastify";
 
-interface cartCard {
+export interface cartCard {
   item: {
     id: number;
     name: string;

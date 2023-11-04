@@ -5,13 +5,28 @@ import "slick-carousel/slick/slick-theme.css";
 import s from "./Carousel.module.scss";
 import rightArrowImage from "../../assets/images/icons/arrow-right-line.png";
 import leftArrowImage from "../../assets/images/icons/arrow-left-line.png";
-import { MdFavoriteBorder } from "react-icons/md";
-import { CarouselProps } from "../../interfaces/DataInterfaces";
-import WishListCardard from "../UI/WishListCard/WishListCard";
+import CarouselCard from "../UI/CarouselCard/CarouselCard";
 
 
+export interface productInterface {
+  id: number;
+  price: number;
+  name: string;
+  description: string;
+  img: string;
+  brand: string;
+  isNew: boolean;
+  category: string;
+  totalPrice: number;
+  quantity: number
 
-export default function Carousel({products}: CarouselProps) {
+}
+
+export interface carouselInterface {
+  products: productInterface[];
+}
+
+export default function Carousel({products}: carouselInterface) {
   const settings = {
     dots: false,
     infinite: true,
@@ -35,7 +50,7 @@ export default function Carousel({products}: CarouselProps) {
         {products ? products.map((item) => {
           if (item.isNew === true) {
             return (
-              <WishListCardard item={item} key={item.id} />
+              <CarouselCard item={item} key={item.id} />
             );
           }
         }) : "Wwww"}

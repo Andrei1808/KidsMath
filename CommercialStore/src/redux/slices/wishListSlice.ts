@@ -1,8 +1,21 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import {
-  wishListState,
-  wishListProduct,
-} from "../../interfaces/DataInterfaces";
+
+
+export interface wishListProduct {
+  id: number;
+  name: string;
+  img: string;
+  price: number;
+  quantity: number;
+  totalPrice: number;
+}
+
+export interface wishListState {
+  wishListItems: wishListProduct[];
+  totalAmount: number;
+  totalQuantity: number;
+  totalProducts: number;
+}
 
 const initialState: wishListState = {
   wishListItems: [],

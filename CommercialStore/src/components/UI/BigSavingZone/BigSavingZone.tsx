@@ -1,6 +1,5 @@
 import React from "react";
 import { bigSavingZoneData } from "../../../assets/data/staticData";
-import { cardsInterface } from "../../../interfaces/DataInterfaces";
 import s from "./BigSavingZone.module.scss";
 import clsx from "clsx";
 import { GoArrowDown } from "react-icons/go";
@@ -11,7 +10,7 @@ import fashion2 from "../../../assets/images/imagesHome/fashion2.png";
 export default function BigSavingZone() {
   return (
     <div className={s.bigSavingZone}>
-      {bigSavingZoneData.map((elem: cardsInterface) => {
+      {bigSavingZoneData.map((elem) => {
         return (
           <div className={s.card} key={elem.id}>
             <img src={elem.img} alt={elem.title} />
