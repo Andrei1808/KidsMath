@@ -6,7 +6,7 @@ import s from "./WishListCard.module.scss";
 import { ItemProps } from "../../../interfaces/DataInterfaces";
 import { toast } from "react-toastify";
  
-export default function ProductCard({item}:ItemProps) {
+export default function WishListCardard({item}:ItemProps) {
   const dispatch = useDispatch();
 
   const addToWishList = () => {

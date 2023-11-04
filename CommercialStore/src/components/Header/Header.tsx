@@ -10,7 +10,8 @@ import { useAppSelector } from "../../hooks/typedHooks";
 import { clsx } from "clsx";
 
 export default function Header() {
-  const totalProducts = useAppSelector((state) => state.wishList.totalProducts);
+  const totaWishListProducts = useAppSelector((state) => state.wishList.totalProducts);
+  const totCartProducts = useAppSelector((state) => state.cart.totalProducts);
 
   return (
     <header className={s.header}>
@@ -44,8 +45,8 @@ export default function Header() {
           <Link to="/wishlist">
             <span className={s.wishlist}>
               <MdFavoriteBorder />
-              {totalProducts > 0 ? (
-                <span className={s.counter}>{totalProducts}</span>
+              {totaWishListProducts > 0 ? (
+                <span className={s.counter}>{totaWishListProducts}</span>
               ) : (
                 ""
               )}
@@ -54,9 +55,16 @@ export default function Header() {
           <span className={s.user}>
             <AiOutlineUser />
           </span>
-          <span className={s.cart}>
+          <Link to="/cart">
+            <span className={s.cart}>
             <FiShoppingCart />
-          </span>
+              {totCartProducts > 0 ? (
+                <span className={s.counter}>{totCartProducts}</span>
+              ) : (
+                ""
+              )}
+            </span>
+          </Link>
         </div>
       </div>
     </header>

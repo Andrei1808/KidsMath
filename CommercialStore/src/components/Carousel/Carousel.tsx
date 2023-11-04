@@ -7,7 +7,7 @@ import rightArrowImage from "../../assets/images/icons/arrow-right-line.png";
 import leftArrowImage from "../../assets/images/icons/arrow-left-line.png";
 import { MdFavoriteBorder } from "react-icons/md";
 import { CarouselProps } from "../../interfaces/DataInterfaces";
-import ProductCard from "../UI/WishListCard/WishListCard";
+import WishListCardard from "../UI/WishListCard/WishListCard";
 
 
 
@@ -35,7 +35,7 @@ export default function Carousel({products}: CarouselProps) {
         {products ? products.map((item) => {
           if (item.isNew === true) {
             return (
-              <ProductCard item={item} key={item.id} />
+              <WishListCardard item={item} key={item.id} />
             );
           }
         }) : "Wwww"}

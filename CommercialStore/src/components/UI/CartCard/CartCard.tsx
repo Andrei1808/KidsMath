@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
 import s from "./CartCard.module.scss";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../../redux/slices/cartSlice";
+import { toast } from "react-toastify";
 
 interface cartCard {
   item: {
@@ -15,6 +18,7 @@ interface cartCard {
 }
 
 export default function CartCard({ item }: cartCard, index: number) {
+  const dispatch = useDispatch();
 
   const [quantity, setQuantity] = useState(item.quantity);
   const [totalPrice, setTotalPrice] = useState(item.totalPrice);
@@ -29,6 +33,11 @@ export default function CartCard({ item }: cartCard, index: number) {
       setQuantity(quantity - 1);
       setTotalPrice(totalPrice - item.price);
     }
+  };
+
+  const removeItem = () => {
+    dispatch(cartActions.removeItem(item.id));
+    toast.success("Product removed from your cart");
   };
 
   return (
@@ -49,7 +58,7 @@ export default function CartCard({ item }: cartCard, index: number) {
       </div>
       <div className={s.productShipping}>free</div>
       <div className={s.productSubtotal}>${totalPrice}</div>
-      <button className={s.removeProduct}>
+      <button className={s.removeProduct} onClick={removeItem}>
         <RiDeleteBinLine />
       </button>
     </div>

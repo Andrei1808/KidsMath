@@ -58,6 +58,14 @@ const cartSlice = createSlice({
         0
       );
     },
+
+    removeItem: (state, action) => {
+      const removeItem = action.payload;
+      state.cartItems = state.cartItems.filter(
+        (item) => item.id !== removeItem
+      );
+      state.totalProducts--;
+    },
   },
 });
 
