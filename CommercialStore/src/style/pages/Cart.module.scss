@@ -4,8 +4,9 @@
   display: grid;
   grid-template-areas:
     "path path"
+    "login login"
     "sidebar cart"
-    "sidebar totalPrice";
+    "totalPriceInfo totalPriceInfo";
   grid-template-columns: 1fr 4fr;
   width: $screenWidth;
   margin: 0 auto;
@@ -17,6 +18,23 @@
   margin-bottom: 2.875rem;
 }
 
+.login{
+  grid-area: login;
+  margin-bottom: 2.875rem;
+
+  p{
+    font-family: $textFont;
+    font-size: $font-size-small;
+    font-weight: $font-weight-normal;
+    color: $steelGray;
+  }
+
+  a{
+    color: $purple;
+    font-weight: $font-weight-bold;
+  }
+}
+
 .sidebar {
   grid-area: sidebar;
 }
@@ -25,8 +43,12 @@
   grid-area: cart;
 }
 
-.totalPrice {
-  grid-area: totalPrice;
+.totalPriceInfo {
+  grid-area: totalPriceInfo;
+  display: flex;
+  justify-content: space-between;
+  background-color: $whitegrey;
+  padding: 1.25rem 5rem;
 }
 
 .products {
@@ -51,3 +73,8 @@
   }
 }
 
+// .totalPriceInfo{
+//   width: 100%;
+//   display: flex;
+//   justify-content: space-between;
+// }

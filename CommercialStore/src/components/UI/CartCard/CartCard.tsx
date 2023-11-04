@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 export interface cartCard {
   item: {
     id: number;
-    name: string;
+    title: string;
     img: string;
     price: number;
     quantity: number;
@@ -43,9 +43,9 @@ export default function CartCard({ item }: cartCard, index: number) {
   return (
     <div className={s.product} key={index}>
       <div className={s.productInfo}>
-        <img src={item.img} alt={item.name} />
+        <img src={item.img} alt={item.title} />
         <div className={s.productDesc}>
-          <h5 className={s.productName}>{item.name}</h5>
+          <h5 className={s.productName}>{item.title}</h5>
           <p className={s.productSize}>Size</p>
           <p className={s.productColor}>color</p>
         </div>
