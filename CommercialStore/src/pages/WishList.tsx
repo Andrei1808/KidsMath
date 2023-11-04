@@ -8,7 +8,7 @@ import Sidebar from "../components/SIdebar/Sidebar";
 import EmptyWishlist from "../components/UI/Empty wishlist/EmptyWishlist";
 import { wishListActions } from "../redux/slices/wishListSlice";
 import { toast } from "react-toastify";
-import { cartActions } from "../redux/slices/cartSlice";
+import { cartActions, cartSliceProduct } from "../redux/slices/cartSlice";
 
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
@@ -28,24 +28,16 @@ export default function WishList() {
           <div className={s.products}>
             {wishListItems.length !== 0 ? (
               wishListItems.map((item, index) => {
+                
                 const removeFromWishList = () => {
                   dispatch(wishListActions.removeItem(item.id));
-
                   toast.success("Product removed from your wish list");
                 };
 
                 const addToCart = () => {
-                  dispatch(
-                    cartActions.addItem({
-                      id: item.id,
-                      name: item.name,
-                      img: item.img,
-                      price: item.price,
-                      quantity: item.quantity,
-                      totalPrice: item.totalPrice,
-                    }),
-                  );
-                  removeFromWishList();
+                  dispatch(cartActions.addItem(item));
+                  dispatch(wishListActions.removeItem(item.id));
+                  toast.success("Product add to your cart");
                 };
                 return (
                   <div className={s.product} key={index}>
