@@ -3,7 +3,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export interface cartSliceProduct {
   id: number;
-  name: string;
+  title: string;
   img: string;
   price: number;
   quantity: number;
@@ -39,7 +39,7 @@ const cartSlice = createSlice({
       if (!existingItem) {
         state.cartItems.push({
           id: newItem.id,
-          name: newItem.name,
+          title: newItem.title,
           img: newItem.img,
           price: newItem.price,
           quantity: newItem.quantity,

@@ -3,7 +3,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export interface wishListProduct {
   id: number;
-  name: string;
+  title: string;
   img: string;
   price: number;
   quantity: number;
@@ -39,7 +39,7 @@ const wishListSlice = createSlice({
       if (!existingItem) {
         state.wishListItems.push({
           id: newItem.id,
-          name: newItem.name,
+          title: newItem.title,
           img: newItem.img,
           price: newItem.price,
           quantity: 1,

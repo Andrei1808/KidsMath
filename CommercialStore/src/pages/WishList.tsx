@@ -44,9 +44,9 @@ export default function WishList() {
                     <button className={s.delete} onClick={removeFromWishList}>
                       <IoMdClose />
                     </button>
-                    <img src={item.img} alt={item.name} />
+                    <img src={item.img} alt={item.title} />
                     <div className={s.productDesc}>
-                      <p>{item.name}</p>
+                      <p>{item.title}</p>
                       <p>
                         Price for one: <span>{item.price}$</span>
                       </p>

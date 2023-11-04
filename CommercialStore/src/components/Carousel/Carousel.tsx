@@ -11,7 +11,7 @@ import CarouselCard from "../UI/CarouselCard/CarouselCard";
 export interface productInterface {
   id: number;
   price: number;
-  name: string;
+  title: string;
   description: string;
   img: string;
   brand: string;

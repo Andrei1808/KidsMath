@@ -12,7 +12,8 @@ import { productInterface } from "../../Carousel/Carousel";
 export interface carouselCard {
   item: {
     id: number;
-    name: string;
+    title: string;
+    brand: string;
     img: string;
     price: number;
     quantity: number;
@@ -36,7 +37,7 @@ export default function CarouselCard({ item }: carouselCard) {
     dispatch(
       cartActions.addItem({
         id: item.id,
-        name: item.name,
+        title: item.title,
         price: item.price,
         img: item.img,
         quantity: 1,
@@ -48,12 +49,12 @@ export default function CarouselCard({ item }: carouselCard) {
   };
   return item ? (
     <div className={s.carouselItem} key={item.id}>
-      <img src={item.img} alt={item.name} />
+      <img src={item.img} alt={item.title} />
       <div className={s.infoWrapper}>
-        <p>{item.name}</p>
+        <p>{item.title}</p>
         <span className={s.price}>${item.price}</span>
       </div>
-      <p className={s.brand}>{item.price} Brand</p>
+      <p className={s.brand}>{item.brand} Brand</p>
       <div className={s.buttonContainer}>
         <button className={s.like} onClick={addToWishList}>
           <MdFavoriteBorder />
