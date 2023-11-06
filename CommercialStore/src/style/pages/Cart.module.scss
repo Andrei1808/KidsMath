@@ -1,4 +1,5 @@
 @import "../sass/variables.scss";
+@import "../sass/mixin";
 
 .wrapper {
   display: grid;
@@ -18,18 +19,18 @@
   margin-bottom: 2.875rem;
 }
 
-.login{
+.login {
   grid-area: login;
   margin-bottom: 2.875rem;
 
-  p{
+  p {
     font-family: $textFont;
     font-size: $font-size-small;
     font-weight: $font-weight-normal;
     color: $steelGray;
   }
 
-  a{
+  a {
     color: $purple;
     font-weight: $font-weight-bold;
   }
@@ -48,7 +49,7 @@
   display: flex;
   justify-content: space-between;
   background-color: $whitegrey;
-  padding: 1.25rem 5rem;
+  padding: 2.5rem 5rem;
 }
 
 .products {
@@ -73,8 +74,77 @@
   }
 }
 
-// .totalPriceInfo{
-//   width: 100%;
-//   display: flex;
-//   justify-content: space-between;
-// }
+.couponField {
+  input {
+    border: none;
+    border-top-left-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+    padding: 0.75rem 2rem;
+  }
+
+  button {
+    @include button($purple, $white);
+    border-top-right-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+    padding: 0.75rem 2rem;
+  }
+}
+
+.discount {
+  h2 {
+    font-family: $textFont;
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    color: $dark;
+    border-top: 2rem;
+  }
+
+  p {
+    font-family: $textFont;
+    font-size: $font-size-normal;
+    font-weight: $font-weight-normal;
+    color: $steelGray;
+    margin: 0.625rem auto 2.5rem;
+  }
+
+  .shoppingBtn {
+    @include button($white, $dark);
+    border-radius: 0.5rem;
+    border: solid $steelGray 1px;
+    padding: 0.75rem 3rem;
+    margin-top: 2.25rem;
+  }
+}
+
+.totalPrice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  button {
+    @include button($purple, $white);
+    border-radius: 0.75rem;
+    padding: 0.75rem 2rem;
+    margin-top: 3rem;
+  }
+}
+
+.priceInfo {
+  padding: 0 5.625rem 3rem;
+  border-bottom: 1px solid $steelGray;
+
+  p {
+    font-family: $textFont;
+    font-size: $font-size-large;
+    font-weight: $font-weight-medium;
+    color: $dark;
+  }
+
+  p:nth-child(2){
+    margin: 1rem 0 2.5rem;
+  }
+
+  .grandTotal {
+    font-weight: $font-weight-bold;
+  }
+}

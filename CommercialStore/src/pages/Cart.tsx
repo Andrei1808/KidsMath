@@ -21,7 +21,7 @@ export default function Cart() {
               Please fill in the fields below and click place order to complete
               your purchase!
               <br />
-              Already registered? <Link to='/login'>Please login here</Link>
+              Already registered? <Link to="/login">Please login here</Link>
             </p>
           </section>
 
@@ -44,19 +44,22 @@ export default function Cart() {
 
           <section className={s.totalPriceInfo}>
             <div className={s.discount}>
-              <h2>Discount  Codes</h2>
+              <h2>Discount Codes</h2>
               <p>Enter your coupon code if you have one</p>
               <div className={s.couponField}>
                 <input type="text" />
                 <button>Apply Coupon</button>
               </div>
-              <button>Continue Shopping</button>
+              <Link to="/shop">
+                <button className={s.shoppingBtn}>Continue Shopping</button>
+              </Link>
             </div>
             <div className={s.totalPrice}>
               <div className={s.priceInfo}>
-              <p>Sub Total: {totalAmount} </p>
-              <p>Shipping</p>
-              <p>Grand Total</p></div>
+                <p>Sub Total: ${totalAmount} </p>
+                <p>Shipping: $</p>
+                <p className={s.grandTotal}>Grand Total: $</p>
+              </div>
               <button>Proceed To Checkout</button>
             </div>
           </section>
