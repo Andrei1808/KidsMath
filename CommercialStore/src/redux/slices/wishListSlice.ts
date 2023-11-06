@@ -8,6 +8,7 @@ export interface wishListProduct {
   price: number;
   quantity: number;
   totalPrice: number;
+  size: string;
 }
 
 export interface wishListState {
@@ -44,6 +45,7 @@ const wishListSlice = createSlice({
           price: newItem.price,
           quantity: 1,
           totalPrice: newItem.price,
+          size: newItem.size,
         });
 
         state.totalProducts++;

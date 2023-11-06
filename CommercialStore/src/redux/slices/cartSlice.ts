@@ -1,6 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-
 export interface cartSliceProduct {
   id: number;
   title: string;
@@ -8,6 +7,7 @@ export interface cartSliceProduct {
   price: number;
   quantity: number;
   totalPrice: number;
+  size: string;
 }
 
 export interface cartSliceState {
@@ -44,6 +44,7 @@ const cartSlice = createSlice({
           price: newItem.price,
           quantity: newItem.quantity,
           totalPrice: newItem.totalPrice,
+          size: newItem.size,
         });
 
         state.totalProducts++;
@@ -60,12 +61,37 @@ const cartSlice = createSlice({
       );
     },
 
-    removeItem: (state, action) => {
+    removeItem: (state, action: PayloadAction<cartSliceProduct>) => {
       const removeItem = action.payload;
       state.cartItems = state.cartItems.filter(
-        (item) => item.id !== removeItem
+        (item: cartSliceProduct) => item.id !== removeItem.id
       );
       state.totalProducts--;
+      state.totalAmount = state.totalAmount - removeItem.totalPrice;
+    },
+
+    increment: (state, action: PayloadAction<cartSliceProduct>) => {
+      const increaseItem = action.payload;
+      state.cartItems.filter((item: cartSliceProduct) => {
+        if (item.id === increaseItem.id) {
+          item.quantity = Number(increaseItem.quantity) + 1;
+          item.totalPrice =
+            Number(increaseItem.totalPrice) + Number(increaseItem.price);
+          state.totalAmount = state.totalAmount + increaseItem.price;
+        }
+      });
+    },
+
+    decrement: (state, action: PayloadAction<cartSliceProduct>) => {
+      const decreaseItem = action.payload;
+      state.cartItems.filter((item: cartSliceProduct) => {
+        if (item.id === decreaseItem.id && item.quantity > 1) {
+          item.quantity = Number(decreaseItem.quantity) - 1;
+          item.totalPrice =
+            Number(decreaseItem.totalPrice) - Number(decreaseItem.price);
+          state.totalAmount = state.totalAmount - decreaseItem.price;
+        }
+      });
     },
   },
 });

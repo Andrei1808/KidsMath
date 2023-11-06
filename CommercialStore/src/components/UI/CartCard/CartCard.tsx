@@ -13,30 +13,27 @@ export interface cartCard {
     price: number;
     quantity: number;
     totalPrice: number;
+    size: string;
   };
   index: number;
 }
 
 export default function CartCard({ item }: cartCard, index: number) {
+
+  const [size, setSize] = useState("L");
+
   const dispatch = useDispatch();
-
-  const [quantity, setQuantity] = useState(item.quantity);
-  const [totalPrice, setTotalPrice] = useState(item.totalPrice);
-
+  
   const increment = () => {
-    setQuantity(quantity + 1);
-    setTotalPrice(totalPrice + item.price);
+    dispatch(cartActions.increment(item))
   };
 
   const decrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-      setTotalPrice(totalPrice - item.price);
-    }
+    dispatch(cartActions.decrement(item))
   };
 
   const removeItem = () => {
-    dispatch(cartActions.removeItem(item.id));
+    dispatch(cartActions.removeItem(item));
     toast.success("Product removed from your cart");
   };
 
@@ -46,18 +43,30 @@ export default function CartCard({ item }: cartCard, index: number) {
         <img src={item.img} alt={item.title} />
         <div className={s.productDesc}>
           <h5 className={s.productName}>{item.title}</h5>
-          <p className={s.productSize}>Size</p>
-          <p className={s.productColor}>color</p>
+          <p className={s.productSize}>
+            Size:{size}
+            <span
+              onClick={(e) => {
+                setSize((e.target as HTMLButtonElement).value);
+              }}
+            >
+              <button value="S">S</button>
+              <button value="M">M</button>
+              <button value="L">L</button>
+              <button value="XL">XL</button>
+              <button value="XXL">XXL</button>
+            </span>
+          </p>
         </div>
       </div>
       <div className={s.productPrice}>${item.price}</div>
       <div className={s.productQuantity}>
         <button onClick={decrement}>-</button>
-        {quantity}
+        {item.quantity}
         <button onClick={increment}>+</button>
       </div>
       <div className={s.productShipping}>free</div>
-      <div className={s.productSubtotal}>${totalPrice}</div>
+      <div className={s.productSubtotal}>${item.totalPrice}</div>
       <button className={s.removeProduct} onClick={removeItem}>
         <RiDeleteBinLine />
       </button>

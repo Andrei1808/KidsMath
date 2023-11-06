@@ -28,7 +28,6 @@ export default function WishList() {
           <div className={s.products}>
             {wishListItems.length !== 0 ? (
               wishListItems.map((item, index) => {
-                
                 const removeFromWishList = () => {
                   dispatch(wishListActions.removeItem(item.id));
                   toast.success("Product removed from your wish list");
