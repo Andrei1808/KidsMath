@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Helmet from "../components/Helmet/Helmet";
 import s from "../style/pages/Cart.module.scss";
 import Sidebar from "../components/SIdebar/Sidebar";
@@ -37,7 +37,7 @@ export default function Cart() {
               <h5>action</h5>
             </div>
             {cartItems.map((item, index) => {
-              console.log(cartItems);
+       
               return <CartCard item={item} index={index} key={item.id} />;
             })}
           </section>

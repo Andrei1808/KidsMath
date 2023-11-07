@@ -20,21 +20,27 @@ export interface cartCard {
 
 export default function CartCard({ item }: cartCard, index: number) {
 
-  const [size, setSize] = useState("L");
+  const [size, setSize] = useState(item.size);
+
 
   const dispatch = useDispatch();
-  
+
   const increment = () => {
-    dispatch(cartActions.increment(item))
+    dispatch(cartActions.increment(item));
   };
 
   const decrement = () => {
-    dispatch(cartActions.decrement(item))
+    dispatch(cartActions.decrement(item));
   };
 
   const removeItem = () => {
     dispatch(cartActions.removeItem(item));
     toast.success("Product removed from your cart");
+  };
+
+  const selectSize = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setSize((event.target as HTMLButtonElement).value);
+    dispatch(cartActions.setSize({ ...item, size: (event.target as HTMLButtonElement).value }));
   };
 
   return (
@@ -45,11 +51,7 @@ export default function CartCard({ item }: cartCard, index: number) {
           <h5 className={s.productName}>{item.title}</h5>
           <p className={s.productSize}>
             Size:{size}
-            <span
-              onClick={(e) => {
-                setSize((e.target as HTMLButtonElement).value);
-              }}
-            >
+            <span onClick={selectSize}>
               <button value="S">S</button>
               <button value="M">M</button>
               <button value="L">L</button>

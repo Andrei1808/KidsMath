@@ -93,6 +93,20 @@ const cartSlice = createSlice({
         }
       });
     },
+
+    setSize: (state, action: PayloadAction<cartSliceProduct>) => { 
+      const setSizeItem = action.payload;
+      state.cartItems.filter((item: cartSliceProduct) => {
+        if (item.id === setSizeItem.id) {
+          console.log(setSizeItem.size);
+          console.log(setSizeItem);
+        }
+      });
+
+
+     
+      
+    }
   },
 });
 
