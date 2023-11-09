@@ -30,6 +30,7 @@
   flex-direction: column;
   align-items: start;
   text-align: start;
+  row-gap: 0.75rem;
 
   h5 {
     font-family: $textFont;
@@ -97,13 +98,16 @@
   font-family: $textFont;
   font-size: $font-size-normal;
   font-weight: $font-weight-medium;
+  color: $steelGray;
 }
 
 .sizeValue {
   padding: 0.75rem 0;
-  display: flex;
+  display: grid;
   column-gap: 0.5rem;
   width: fit-content;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  text-align: center;
 
   input[type="radio"] {
     display: none;
@@ -114,15 +118,21 @@
     font-size: $font-size-small;
     font-weight: $font-weight-normal;
     border-radius: 0.25rem;
-    background-color: $whitegrey;
+    background-color: rgba($purple, 0.5);
     padding: 0.25rem 0.25rem;
     vertical-align: middle;
     cursor: pointer;
+    color: $white;
 
     &:hover{
-      background-color: $steelGray;
-      color: $white;
+      background-color: $white;
+      transition-duration: 0.25s;
+      color: $purple;
       scale: 1.2;
+    }
+
+    &:active{
+      scale: 0.9;
     }
   }
 

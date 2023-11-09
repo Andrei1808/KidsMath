@@ -53,7 +53,7 @@ export default function CartCard({ item }: cartCard, index: number) {
         <div className={s.productDesc}>
           <h5 className={s.productName}>{item.title}</h5>
           <div className={s.productSize}>
-            Size:{size}
+            Size: {size}
             <div className={s.sizeValue}>
               <label>
                 <input
