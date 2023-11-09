@@ -19,9 +19,7 @@ export interface cartCard {
 }
 
 export default function CartCard({ item }: cartCard, index: number) {
-
-  const [size, setSize] = useState(item.size);
-
+  const [size, setSize] = useState('S');
 
   const dispatch = useDispatch();
 
@@ -38,9 +36,14 @@ export default function CartCard({ item }: cartCard, index: number) {
     toast.success("Product removed from your cart");
   };
 
-  const selectSize = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setSize((event.target as HTMLButtonElement).value);
-    dispatch(cartActions.setSize({ ...item, size: (event.target as HTMLButtonElement).value }));
+  const selectSize = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSize(event.target.value);
+    dispatch(
+      cartActions.setSize({
+        ...item,
+        size,
+      })
+    );
   };
 
   return (
@@ -49,16 +52,65 @@ export default function CartCard({ item }: cartCard, index: number) {
         <img src={item.img} alt={item.title} />
         <div className={s.productDesc}>
           <h5 className={s.productName}>{item.title}</h5>
-          <p className={s.productSize}>
+          <div className={s.productSize}>
             Size:{size}
-            <span onClick={selectSize}>
-              <button value="S">S</button>
-              <button value="M">M</button>
-              <button value="L">L</button>
-              <button value="XL">XL</button>
-              <button value="XXL">XXL</button>
-            </span>
-          </p>
+            <div className={s.sizeValue}>
+              <label>
+                <input
+                  type="radio"
+                  name="size"
+                  value="S"
+                  checked={size === "S"}
+                  onChange={selectSize}
+                />
+                S
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  name="size"
+                  value="M"
+                  checked={size === "M"}
+                  onChange={selectSize}
+                />
+                M
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  name="size"
+                  value="L"
+                  checked={size === "L"}
+                  onChange={selectSize}
+                />
+                L
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  name="size"
+                  value="XL"
+                  checked={size === "XL"}
+                  onChange={selectSize}
+                />
+                XL
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  name="size"
+                  value="XXL"
+                  checked={size === "XXL"}
+                  onChange={selectSize}
+                />
+                XXL
+              </label>
+            </div>
+          </div>
         </div>
       </div>
       <div className={s.productPrice}>${item.price}</div>

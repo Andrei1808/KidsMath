@@ -91,3 +91,16 @@
   font-size: 1.5rem;
   color: $purple;
 }
+
+.sizeValue{
+
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  label{
+    border: 1px solid red;
+    background-color: purple;
+  }
+}
