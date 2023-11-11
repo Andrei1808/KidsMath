@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
 import s from "./CartCard.module.scss";
 import { useDispatch } from "react-redux";
@@ -19,9 +19,9 @@ export interface cartCard {
 }
 
 export default function CartCard({ item }: cartCard, index: number) {
-  const [size, setSize] = useState('S');
-
   const dispatch = useDispatch();
+
+  const [size, setSize] = useState(item.size);
 
   const increment = () => {
     dispatch(cartActions.increment(item));
@@ -37,13 +37,17 @@ export default function CartCard({ item }: cartCard, index: number) {
   };
 
   const selectSize = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSize(event.target.value);
+    const newSize = event.target.value;
+
+    setSize(newSize);
+  
     dispatch(
       cartActions.setSize({
         ...item,
-        size,
+        size: newSize,
       })
     );
+
   };
 
   return (

@@ -7,7 +7,7 @@ export interface cartSliceProduct {
   price: number;
   quantity: number;
   totalPrice: number;
-  size: string;
+  size: string|null;
 }
 
 export interface cartSliceState {
@@ -44,7 +44,7 @@ const cartSlice = createSlice({
           price: newItem.price,
           quantity: newItem.quantity,
           totalPrice: newItem.totalPrice,
-          size: newItem.size,
+          size: 'S',
         });
 
         state.totalProducts++;
@@ -94,19 +94,15 @@ const cartSlice = createSlice({
       });
     },
 
-    setSize: (state, action: PayloadAction<cartSliceProduct>) => { 
+    setSize: (state, action: PayloadAction<cartSliceProduct>) => {
       const setSizeItem = action.payload;
-      state.cartItems.filter((item: cartSliceProduct) => {
-        if (item.id === setSizeItem.id) {
-          console.log(setSizeItem.size);
-          console.log(setSizeItem);
-        }
+      state.cartItems.find((item: cartSliceProduct) => {
+        item.size = setSizeItem.size;
+        console.log(setSizeItem.size);
+        console.log(item.size)
+        console.log(setSizeItem);
       });
-
-
-     
-      
-    }
+    },
   },
 });
 
