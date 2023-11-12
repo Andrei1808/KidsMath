@@ -1,7 +1,3 @@
-import { ReactNode } from "react";
-
-
-
 export interface staticDataInterface{
   id: number;
   price?: number;

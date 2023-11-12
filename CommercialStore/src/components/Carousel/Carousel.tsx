@@ -44,17 +44,18 @@ export default function Carousel({products}: carouselInterface) {
     ),
   };
 
+  const renderCarouselCards = () => {
+    return products
+      .filter((item) => item.isNew)
+      .map((item) => (
+        <CarouselCard item={item} key={item.id} />
+      ));
+  };
+
   return (
     <div className={s.slider}>
-      <Slider {...settings}>
-        {products ? products.map((item) => {
-          if (item.isNew === true) {
-            return (
-              <CarouselCard item={item} key={item.id} />
-            );
-          }
-        }) : "Wwww"}
-      </Slider>
+      <Slider {...settings}>{renderCarouselCards()}</Slider>
     </div>
   );
-}
+};
+

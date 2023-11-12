@@ -98,9 +98,6 @@ const cartSlice = createSlice({
       const setSizeItem = action.payload;
       state.cartItems.find((item: cartSliceProduct) => {
         item.size = setSizeItem.size;
-        console.log(setSizeItem.size);
-        console.log(item.size)
-        console.log(setSizeItem);
       });
     },
   },
