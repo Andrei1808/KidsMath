@@ -5,7 +5,7 @@ import emptyCart from "../../../assets/images/empty-cart.png";
 
 export default function EmptyCart() {
   return (
-    <div className={s.EmptyCart}>
+    <div className={s.emptyCart}>
       <div className={s.wrapper}>
         <div>
           <img src={emptyCart} alt="empty-cart" />
