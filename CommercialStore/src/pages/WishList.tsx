@@ -34,8 +34,7 @@ export default function WishList() {
                 };
 
                 const addToCart = () => {
-                  dispatch(cartActions.addItem(item));
-                  dispatch(wishListActions.removeItem(item.id));
+                  dispatch(cartActions.addItem(item));        
                   toast.success("Product add to your cart");
                 };
                 return (

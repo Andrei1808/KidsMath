@@ -5,6 +5,7 @@ import Sidebar from "../components/SIdebar/Sidebar";
 import { useAppSelector } from "../hooks/typedHooks";
 import CartCard from "../components/UI/CartCard/CartCard";
 import { Link } from "react-router-dom";
+import EmptyCart from "../components/UI/Empty cart/EmptyCart";
 
 export default function Cart() {
   const cartItems = useAppSelector((state) => state.cart.cartItems);
@@ -12,7 +13,8 @@ export default function Cart() {
 
   return (
     <Helmet title="Cart">
-      <main>
+      {
+        cartItems.length ?       <main>
         <div className={s.wrapper}>
           <section className={s.path}>path</section>
 
@@ -64,7 +66,9 @@ export default function Cart() {
             </div>
           </section>
         </div>
-      </main>
+      </main> : <EmptyCart/>
+      }
+
     </Helmet>
   );
 }

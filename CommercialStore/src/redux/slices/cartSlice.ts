@@ -7,7 +7,7 @@ export interface cartSliceProduct {
   price: number;
   quantity: number;
   totalPrice: number;
-  size: string|null;
+  size: string;
 }
 
 export interface cartSliceState {
