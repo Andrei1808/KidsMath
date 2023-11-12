@@ -11,6 +11,7 @@ import { productInterface } from "../../Carousel/Carousel";
 
 export interface carouselCard {
   item: {
+    size: string;
     id: number;
     title: string;
     brand: string;
@@ -42,6 +43,7 @@ export default function CarouselCard({ item }: carouselCard) {
         img: item.img,
         quantity: 1,
         totalPrice: item.price,
+        size: item.size,
       })
     );
 

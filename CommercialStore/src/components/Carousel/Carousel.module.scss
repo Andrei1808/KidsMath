@@ -3,3 +3,14 @@
 .slider {
     margin: $betweenSectionMargin;
   }
+
+
+
+
+  .customArrow{
+    
+    &:active{
+      scale: 1.2;
+      
+    }
+  }

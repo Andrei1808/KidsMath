@@ -7,7 +7,6 @@ import rightArrowImage from "../../assets/images/icons/arrow-right-line.png";
 import leftArrowImage from "../../assets/images/icons/arrow-left-line.png";
 import CarouselCard from "../UI/CarouselCard/CarouselCard";
 
-
 export interface productInterface {
   id: number;
   price: number;
@@ -18,15 +17,29 @@ export interface productInterface {
   isNew: boolean;
   category: string;
   totalPrice: number;
-  quantity: number
+  quantity: number;
+  size: string;
+}
 
+interface SlickButtonFix {
+  children: JSX.Element;
+  slideCount?: number;
+  currentSlide?: number;
 }
 
 export interface carouselInterface {
   products: productInterface[];
 }
 
-export default function Carousel({products}: carouselInterface) {
+export default function Carousel({ products }: carouselInterface) {
+
+  const SlickButtonFix = ({
+    currentSlide,
+    slideCount,
+    children,
+    ...props
+  }: SlickButtonFix) => <span {...props}>{children}</span>;
+  
   const settings = {
     dots: false,
     infinite: true,
@@ -37,19 +50,21 @@ export default function Carousel({products}: carouselInterface) {
     slidesToScroll: 1,
     focusOnSelect: false,
     prevArrow: (
-      <img src={leftArrowImage} alt="previous" className={s.customArrow} />
+      <SlickButtonFix>
+        <img src={leftArrowImage} alt="previous" className={s.customArrow} />
+      </SlickButtonFix>
     ),
     nextArrow: (
-      <img src={rightArrowImage} alt="next" className={s.customArrow} />
+      <SlickButtonFix>
+        <img src={rightArrowImage} alt="next" className={s.customArrow} />
+      </SlickButtonFix>
     ),
   };
 
   const renderCarouselCards = () => {
     return products
       .filter((item) => item.isNew)
-      .map((item) => (
-        <CarouselCard item={item} key={item.id} />
-      ));
+      .map((item) => <CarouselCard item={item} key={item.id} />);
   };
 
   return (
@@ -57,5 +72,4 @@ export default function Carousel({products}: carouselInterface) {
       <Slider {...settings}>{renderCarouselCards()}</Slider>
     </div>
   );
-};
-
+}

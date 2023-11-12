@@ -47,3 +47,8 @@ div:focus{
  .main{
     flex-grow: 1;
  }
+
+ body .slick-prev::before,
+ body .slick-next::before {
+   display: none;
+ }
