@@ -13,6 +13,7 @@ export interface productInterface {
   category: string;
   totalPrice: number;
   quantity: number;
+  size: string;
 }
 
 export const useProducts = () => {
