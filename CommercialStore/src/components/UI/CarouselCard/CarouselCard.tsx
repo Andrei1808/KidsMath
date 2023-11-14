@@ -6,8 +6,7 @@ import s from "./CarouselCard.module.scss";
 import { toast } from "react-toastify";
 import { FiShoppingCart } from "react-icons/fi";
 import { cartActions } from "../../../redux/slices/cartSlice";
-import { productInterface } from "../../Carousel/Carousel";
-
+import { Link } from "react-router-dom";
 
 export interface carouselCard {
   item: {
@@ -22,9 +21,9 @@ export interface carouselCard {
   };
 }
 
-export interface ItemProps{
-  item: productInterface;
-}
+// export interface ItemProps{
+//   item: productInterface;
+// }
 
 export default function CarouselCard({ item }: carouselCard) {
   const dispatch = useDispatch();
@@ -51,20 +50,22 @@ export default function CarouselCard({ item }: carouselCard) {
   };
   return item ? (
     <div className={s.carouselItem} key={item.id}>
-      <img src={item.img} alt={item.title} />
-      <div className={s.infoWrapper}>
-        <p>{item.title}</p>
-        <span className={s.price}>${item.price}</span>
-      </div>
-      <p className={s.brand}>{item.brand} Brand</p>
-      <div className={s.buttonContainer}>
-        <button className={s.like} onClick={addToWishList}>
-          <MdFavoriteBorder />
-        </button>
-        <button className={s.cart} onClick={addToCart}>
-          <FiShoppingCart />
-        </button>
-      </div>
+      <Link to={`/shop/${item.id}`}>
+        <img src={item.img} alt={item.title} />
+        <div className={s.infoWrapper}>
+          <p>{item.title}</p>
+          <span className={s.price}>${item.price}</span>
+        </div>
+        <p className={s.brand}>{item.brand} Brand</p>
+        <div className={s.buttonContainer}>
+          <button className={s.like} onClick={addToWishList}>
+            <MdFavoriteBorder />
+          </button>
+          <button className={s.cart} onClick={addToCart}>
+            <FiShoppingCart />
+          </button>
+        </div>
+      </Link>
     </div>
   ) : (
     "No item!"

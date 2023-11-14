@@ -6,20 +6,8 @@ import s from "./Carousel.module.scss";
 import rightArrowImage from "../../assets/images/icons/arrow-right-line.png";
 import leftArrowImage from "../../assets/images/icons/arrow-left-line.png";
 import CarouselCard from "../UI/CarouselCard/CarouselCard";
+import { productInterface } from "../../hooks/useProducts";
 
-export interface productInterface {
-  id: number;
-  price: number;
-  title: string;
-  description: string;
-  img: string;
-  brand: string;
-  isNew: boolean;
-  category: string;
-  totalPrice: number;
-  quantity: number;
-  size: string;
-}
 
 interface SlickButtonFix {
   children: JSX.Element;

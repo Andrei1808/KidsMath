@@ -25,12 +25,15 @@ import polo from "../assets/images/imagesHome/brand-icon/polo.png";
 import puma from "../assets/images/imagesHome/brand-icon/puma.png";
 import { useProducts } from "../hooks/useProducts";
 
+
 export default function Home() {
-  const products = useProducts();
+
+ const products = useProducts(); 
 
   return (
     <div>
       <Helmet title={"Home"}>
+
         <section className={s.heroSection}>
           <div className={s.heroContent}>
             <div className={s.heroWrapper}>
