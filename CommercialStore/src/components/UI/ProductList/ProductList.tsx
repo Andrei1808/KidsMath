@@ -2,16 +2,20 @@ import React from "react";
 import { useProducts } from "../../../hooks/useProducts";
 import Helmet from "../../Helmet/Helmet";
 import s from "./ProductList.module.scss";
-import { FiShoppingCart } from "react-icons/fi";
 import { MdFavoriteBorder } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 export default function ProductList() {
   const products = useProducts();
   return (
-    <div>
-      <Helmet title={"Shop"}>
-        <section className={s.filters}></section>
+    <Helmet title={"Shop"}>
+      <div className={s.wrapper}>
+        <section className={s.filters}>
+          <div className={s.priceFilter}>
+          <div id="rangeSlider">
+</div>
+          </div>
+        </section>
 
         <section className={s.productsList}>
           {products.map((item) => {
@@ -27,15 +31,12 @@ export default function ProductList() {
                   <button className={s.like}>
                     <MdFavoriteBorder />
                   </button>
-                  <button className={s.cart}>
-                    <FiShoppingCart />
-                  </button>
                 </div>
-            </div>
-            )
+              </div>
+            );
           })}
         </section>
-      </Helmet>
-    </div>
+      </div>
+    </Helmet>
   );
 }
