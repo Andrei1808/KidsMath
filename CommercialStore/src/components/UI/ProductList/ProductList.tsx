@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useProducts } from "../../../hooks/useProducts";
 import Helmet from "../../Helmet/Helmet";
 import s from "./ProductList.module.scss";
 import { MdFavoriteBorder } from "react-icons/md";
-import { Link } from "react-router-dom";
+import Loader from "../../Loader/Loader";
 
 export default function ProductList() {
+  const [loading, setLoading] = useState(false);
   const products = useProducts();
+
+  useEffect(() => {
+    if (products.length > 0) {
+      setLoading(true);
+    }
+  }, [products]);
+  
   return (
     <Helmet title={"Shop"}>
       <div className={s.wrapper}>
@@ -18,7 +26,7 @@ export default function ProductList() {
         </section>
 
         <section className={s.productsList}>
-          {products.map((item) => {
+          {loading ? products.map((item) => {
             return (
               <div className={s.product} key={item.id}>
                 <img src={item.img} alt={item.title} />
@@ -34,7 +42,7 @@ export default function ProductList() {
                 </div>
               </div>
             );
-          })}
+          }) : <Loader/>}
         </section>
       </div>
     </Helmet>

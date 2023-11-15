@@ -5,6 +5,7 @@
     grid-template-columns: 1fr 4fr;
     width: $screenWidth;
     margin: 0 auto;
+    min-height: calc(100vh - 6.875rem);;
 }
 
 .filters{
