@@ -52,3 +52,8 @@ div:focus{
  body .slick-next::before {
    display: none;
  }
+
+ input[type="radio"] {
+    display: none;
+  }
+

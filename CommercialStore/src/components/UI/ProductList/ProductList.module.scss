@@ -1,38 +1,45 @@
 @import "../../../style/sass/variables.scss";
 
-.wrapper{
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    width: $screenWidth;
-    margin: 0 auto;
-    min-height: calc(100vh - 6.875rem);;
+.wrapper {
+  min-height: calc(100vh - 6.875rem);
 }
 
-.filters{
-   
+.filters {
+}
+
+.category {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 1.5rem;
+  margin: 3rem 0;
+  font-family: $textFont;
+  font-size: $font-size-large;
+  font-weight: $font-weight-bold;
+
+  label {
+    cursor: pointer;
+    color: $dark;
+  }
 }
 
 .productsList {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 20%;
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(20%, 1fr));
+  gap: 2rem;
 }
 
 .product {
-  padding: 0 1.25rem;
   position: relative;
 
-
-  &:hover{
+  &:hover {
     scale: 1.05;
     transition-duration: 0.3s;
     cursor: pointer;
-}
+  }
 
   img {
     width: 100%;
-    height: 75%;
     object-fit: cover;
     border-radius: 0.75rem;
     margin-bottom: 1rem;
@@ -51,8 +58,7 @@
     color: $steelGray;
   }
 
-  .like,
-  .cart {
+  .like {
     font-size: 1rem;
     color: $steelGray;
     cursor: pointer;
@@ -71,34 +77,37 @@
 }
 
 .productDetails {
-    display: flex;
-    justify-content: space-between;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+}
 
 .buttonContainer {
-    position: absolute;
-    top: 0.75rem;
-    right: 2rem;
+  position: absolute;
+  top: 0.75rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+
+  button {
+    border-radius: 50%;
+    padding: 0.25rem;
+    background-color: rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column;
-    row-gap: 0.5rem;
-  
-    button {
-      border-radius: 50%;
-      padding: 0.25rem;
-      background-color: rgba(0, 0, 0, 0.1);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    button:active {
-      scale: 1.1;
-    }
-  
-    button:hover {
-      background-color: rgba($purple, 0.5);
-      color: $white;
-    }
+    justify-content: center;
+    align-items: center;
   }
+
+  button:active {
+    scale: 1.1;
+  }
+
+  button:hover {
+    background-color: rgba($purple, 0.5);
+    color: $white;
+  }
+}
+
+label.active {
+  color: $purple;
+}
