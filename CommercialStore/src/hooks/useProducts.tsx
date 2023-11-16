@@ -41,3 +41,4 @@ useEffect(() => {
 }, []);
   return products;
 };
+
