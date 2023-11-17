@@ -1,4 +1,5 @@
 @import '../sass/variables.scss';
+@import '../sass/mixin';
 
 .wrapper{
     display: grid;
@@ -119,4 +120,23 @@
 
 label.active {
   color: $purple;
+}
+
+
+.sectionTitle{
+  @include sectionTitle($font-size-heading, $font-weight-bold);
+  margin: 6.5rem 0 2rem;
+}
+
+.shopDescr{
+  margin-bottom: 6.5rem;
+  p{
+    font-family: $textFont;
+    font-size: $font-size-medium;
+    font-weight: $font-weight-normal;
+    line-height: 2rem;
+    letter-spacing: 2%;
+    color: $steelGray;
+    text-align: justify;
+  }
 }
