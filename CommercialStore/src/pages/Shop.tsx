@@ -3,8 +3,8 @@ import Helmet from "../components/Helmet/Helmet";
 import { useProducts } from "../hooks/useProducts";
 import ProductList from "../components/UI/ProductList/ProductList";
 import s from "../style/pages/Shop.module.scss";
-import { useDispatch } from "react-redux";
 import Loader from "../components/Loader/Loader";
+import DoubleRange from "../components/DoubleRange/DoubleRange";
 
 export default function Shop() {
   const products = useProducts();
@@ -41,7 +41,9 @@ export default function Shop() {
         <div className={s.wrapper}>
           <section className={s.filters}>
             <div className={s.priceFilter}>
-              <div id="rangeSlider">reerer</div>
+              <div id="rangeSlider">
+                <DoubleRange />
+              </div>
             </div>
           </section>
 
