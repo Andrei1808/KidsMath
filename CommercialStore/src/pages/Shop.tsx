@@ -6,6 +6,8 @@ import s from "../style/pages/Shop.module.scss";
 import Loader from "../components/Loader/Loader";
 import ReactSlider from "react-slider";
 
+import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
+
 export default function Shop() {
   const products = useProducts();
 
@@ -13,6 +15,8 @@ export default function Shop() {
   const [productsData, setProductsData] = useState(products);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [value, setValue] = useState<number[]>([0, 200]);
+  const [isVisible, setIsVisible] = useState(true);
+  const [isInitialLoad, setIsInitialLoad] = useState(false);
 
   const categoryHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
     const categoryValue = e.target.value;
@@ -22,16 +26,19 @@ export default function Shop() {
     if (categoryValue === "new") {
       const filteredProducts = products.filter((item) => item.isNew === true);
       setProductsData(filteredProducts);
+      setValue([0, 200]);
+      setIsInitialLoad(true);
     }
 
-    if (categoryValue === "all") {
+    if (categoryValue === "all" && isInitialLoad) {
       setProductsData(products);
+      setValue([0, 200]);
     }
   };
 
   const priceHandle = (newValue: number[]) => {
     const filteredProducts = products.filter(
-      (item) => (newValue[0]) < item.price && item.price < (newValue[1])
+      (item) => newValue[0] <= item.price && item.price <= newValue[1]
     );
     setProductsData(filteredProducts);
   };
@@ -47,27 +54,31 @@ export default function Shop() {
     <Helmet title={"Shop"}>
       {loading ? (
         <div className={s.wrapper}>
-
           <section className={s.filters}>
             <div className={s.priceFilter}>
-              <h4>Price:</h4>
-              <div>
-                <ReactSlider
-                  max={200}
-                  min={0}
-                  className={s.horizontalSlider}
-                  thumbClassName={s.thumb}
-                  trackClassName={s.track}
-                  withTracks={true}
-                  defaultValue={[0, 200]}
-                  minDistance={10}
-                  onChange={(newValue) => {
-                    setValue(newValue);
-                    priceHandle(newValue);
-                  }}
-                />
-                <div>{value[0]}, {value[1]}</div>
-              </div>
+              <h4 onClick={() => setIsVisible(!isVisible)}>Price <span>{isVisible? <IoIosArrowDown/> : <IoIosArrowUp/> }</span></h4>
+              {isVisible && (
+                <div className={s.range}>
+                  <ReactSlider
+                    key={selectedCategory}
+                    max={200}
+                    min={0}
+                    className={s.horizontalSlider}
+                    thumbClassName={s.thumb}
+                    trackClassName={s.track}
+                    withTracks={true}
+                    defaultValue={[0, 200]}
+                    minDistance={10}
+                    onChange={(newValue) => {
+                      setValue(newValue);
+                      priceHandle(newValue);
+                    }}
+                  />
+                  <div className={s.rangeValue}>
+                    <p>${value[0]}</p> <p>${value[1]}</p>
+                  </div>
+                </div>
+              )}
             </div>
           </section>
 
