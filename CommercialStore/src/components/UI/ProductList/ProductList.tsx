@@ -15,10 +15,10 @@ export default function ProductList({ products }: productData) {
   const dispatch = useDispatch();
 
   return (
-    <Helmet title={"Shop"}>
       <div className={s.wrapper}>
         <div className={s.productsList}>
-          {products ? (
+          {products.length ? (
+            
             products.map((item) => {
               const addItemToFavorite = () => {
                 dispatch(wishListActions.addItem(item));
@@ -41,10 +41,9 @@ export default function ProductList({ products }: productData) {
               );
             })
           ) : (
-            <Loader />
+           <div>No matches!</div>
           )}
         </div>
       </div>
-    </Helmet>
   );
 }

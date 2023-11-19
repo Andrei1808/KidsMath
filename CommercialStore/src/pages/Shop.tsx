@@ -4,7 +4,7 @@ import { useProducts } from "../hooks/useProducts";
 import ProductList from "../components/UI/ProductList/ProductList";
 import s from "../style/pages/Shop.module.scss";
 import Loader from "../components/Loader/Loader";
-import DoubleRange from "../components/DoubleRange/DoubleRange";
+import ReactSlider from "react-slider";
 
 export default function Shop() {
   const products = useProducts();
@@ -12,6 +12,7 @@ export default function Shop() {
   const [loading, setLoading] = useState(false);
   const [productsData, setProductsData] = useState(products);
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [value, setValue] = useState<number[]>([0, 200]);
 
   const categoryHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
     const categoryValue = e.target.value;
@@ -28,6 +29,13 @@ export default function Shop() {
     }
   };
 
+  const priceHandle = (newValue: number[]) => {
+    const filteredProducts = products.filter(
+      (item) => (newValue[0]) < item.price && item.price < (newValue[1])
+    );
+    setProductsData(filteredProducts);
+  };
+
   useEffect(() => {
     if (products.length > 0) {
       setLoading(true);
@@ -39,10 +47,26 @@ export default function Shop() {
     <Helmet title={"Shop"}>
       {loading ? (
         <div className={s.wrapper}>
+
           <section className={s.filters}>
             <div className={s.priceFilter}>
-              <div id="rangeSlider">
-                <DoubleRange />
+              <h4>Price:</h4>
+              <div>
+                <ReactSlider
+                  max={200}
+                  min={0}
+                  className={s.horizontalSlider}
+                  thumbClassName={s.thumb}
+                  trackClassName={s.track}
+                  withTracks={true}
+                  defaultValue={[0, 200]}
+                  minDistance={10}
+                  onChange={(newValue) => {
+                    setValue(newValue);
+                    priceHandle(newValue);
+                  }}
+                />
+                <div>{value[0]}, {value[1]}</div>
               </div>
             </div>
           </section>
