@@ -14,6 +14,7 @@ export interface productInterface {
   totalPrice: number;
   quantity: number;
   size: string;
+  gender: string;
 }
 
 export const useProducts = () => {
