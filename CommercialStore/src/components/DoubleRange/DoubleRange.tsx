@@ -1,26 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import s from "./DoubleRange.module.scss";
 import ReactSlider from "react-slider";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
-export default function DoubleRange() {
-  const [value, setValue] = useState([0, 300]);
+interface PriceFilterProps {
+  onChange: (newValue: number[]) => void;
+  selectedCategory: string;
+}
 
+export const DoubleRange: React.FC<PriceFilterProps> = ({
+  onChange,
+  selectedCategory,
+}) => {
+  const [value, setValue] = useState<number[]>([0, 200]);
+  const [isVisible, setIsVisible] = useState(true);
+
+  const handleSliderChange = (newValue: number[]) => {
+    setValue(newValue);
+    onChange(newValue);
+  };
+
+  useEffect(() => {
+    setValue([0, 200]);
+  }, [selectedCategory]);
 
   return (
-    <div>
-      <ReactSlider
-        max={300}
-        min={0}
-        className={s.horizontalSlider}
-        thumbClassName={s.thumb}
-        trackClassName={s.track}
-        withTracks={true}
-        defaultValue={[0, 300]}
-        minDistance={10}
-        onChange={(value, index) => setValue(value)}
-      />
-
-      RESULT: {value[0]} - {value[1]}
+    <div className={s.priceFilter}>
+      <h4 onClick={() => setIsVisible(!isVisible)}>
+        Price <span>{isVisible ? <IoIosArrowDown /> : <IoIosArrowUp />}</span>
+      </h4>
+      {isVisible && (
+        <div className={s.range}>
+          <ReactSlider
+            key={selectedCategory}
+            max={200}
+            min={0}
+            className={s.horizontalSlider}
+            thumbClassName={s.thumb}
+            trackClassName={s.track}
+            withTracks={true}
+            defaultValue={[0, 200]}
+            minDistance={10}
+            onChange={(newValue) => {
+              handleSliderChange(newValue);
+            }}
+          />
+          <div className={s.rangeValue}>
+            <p>${value[0]}</p> <p>${value[1]}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
-}
+};

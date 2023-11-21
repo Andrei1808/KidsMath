@@ -4,9 +4,8 @@ import { useProducts } from "../hooks/useProducts";
 import ProductList from "../components/UI/ProductList/ProductList";
 import s from "../style/pages/Shop.module.scss";
 import Loader from "../components/Loader/Loader";
-import ReactSlider from "react-slider";
 
-import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
+import { DoubleRange } from "../components/DoubleRange/DoubleRange";
 
 export default function Shop() {
   const products = useProducts();
@@ -14,8 +13,6 @@ export default function Shop() {
   const [loading, setLoading] = useState(false);
   const [productsData, setProductsData] = useState(products);
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [value, setValue] = useState<number[]>([0, 200]);
-  const [isVisible, setIsVisible] = useState(true);
   const [isInitialLoad, setIsInitialLoad] = useState(false);
 
   const categoryHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,13 +23,11 @@ export default function Shop() {
     if (categoryValue === "new") {
       const filteredProducts = products.filter((item) => item.isNew === true);
       setProductsData(filteredProducts);
-      setValue([0, 200]);
       setIsInitialLoad(true);
     }
 
     if (categoryValue === "all" && isInitialLoad) {
       setProductsData(products);
-      setValue([0, 200]);
     }
   };
 
@@ -41,6 +36,7 @@ export default function Shop() {
       (item) => newValue[0] <= item.price && item.price <= newValue[1]
     );
     setProductsData(filteredProducts);
+    
   };
 
   useEffect(() => {
@@ -55,31 +51,7 @@ export default function Shop() {
       {loading ? (
         <div className={s.wrapper}>
           <section className={s.filters}>
-            <div className={s.priceFilter}>
-              <h4 onClick={() => setIsVisible(!isVisible)}>Price <span>{isVisible? <IoIosArrowDown/> : <IoIosArrowUp/> }</span></h4>
-              {isVisible && (
-                <div className={s.range}>
-                  <ReactSlider
-                    key={selectedCategory}
-                    max={200}
-                    min={0}
-                    className={s.horizontalSlider}
-                    thumbClassName={s.thumb}
-                    trackClassName={s.track}
-                    withTracks={true}
-                    defaultValue={[0, 200]}
-                    minDistance={10}
-                    onChange={(newValue) => {
-                      setValue(newValue);
-                      priceHandle(newValue);
-                    }}
-                  />
-                  <div className={s.rangeValue}>
-                    <p>${value[0]}</p> <p>${value[1]}</p>
-                  </div>
-                </div>
-              )}
-            </div>
+            <DoubleRange onChange={priceHandle} selectedCategory={selectedCategory} />
           </section>
 
           <div className={s.category}>
