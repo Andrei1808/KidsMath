@@ -5,7 +5,7 @@ import ProductList from "../components/UI/ProductList/ProductList";
 import s from "../style/pages/Shop.module.scss";
 import Loader from "../components/Loader/Loader";
 
-import { DoubleRange } from "../components/DoubleRange/DoubleRange";
+import { DoubleRange } from "../components/UI/DoubleRange/DoubleRange";
 
 export default function Shop() {
   const products = useProducts();

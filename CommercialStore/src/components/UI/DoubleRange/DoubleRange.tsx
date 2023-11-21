@@ -21,12 +21,14 @@ export const DoubleRange: React.FC<PriceFilterProps> = ({
   };
 
   useEffect(() => {
-    setValue([0, 200]);
-  }, [selectedCategory]);
+    setValue([0,200]);
+  }, [selectedCategory ]);
 
   return (
     <div className={s.priceFilter}>
-      <h4 onClick={() => setIsVisible(!isVisible)}>
+      <h4 onClick={() => {
+        setIsVisible(!isVisible)
+      }}>
         Price <span>{isVisible ? <IoIosArrowDown /> : <IoIosArrowUp />}</span>
       </h4>
       {isVisible && (
@@ -39,7 +41,7 @@ export const DoubleRange: React.FC<PriceFilterProps> = ({
             thumbClassName={s.thumb}
             trackClassName={s.track}
             withTracks={true}
-            defaultValue={[0, 200]}
+            value={value}
             minDistance={10}
             onChange={(newValue) => {
               handleSliderChange(newValue);
