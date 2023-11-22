@@ -14,17 +14,24 @@ export default function Shop() {
   const [loading, setLoading] = useState(false);
   const [productsData, setProductsData] = useState(products);
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [isInitialLoad, setIsInitialLoad] = useState(false);
 
   const categoryHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
     const categoryValue = e.target.value;
     setSelectedCategory(categoryValue);
+
     if (categoryValue === "new") {
       const filteredProducts = products.filter((item) => item.isNew === true);
       setProductsData(filteredProducts);
-      setIsInitialLoad(true);
     }
-    if (categoryValue === "all" && isInitialLoad) {
+    if (categoryValue === "men") {
+      const filteredProducts = products.filter((item) => item.gender === "man");
+      setProductsData(filteredProducts);
+    }
+    if (categoryValue === "women") {
+      const filteredProducts = products.filter((item) => item.gender === "women");
+      setProductsData(filteredProducts);
+    }
+    if (categoryValue === "all") {
       setProductsData(products);
     }
   };
@@ -61,28 +68,13 @@ export default function Shop() {
     setProductsData(filteredProducts);
   };
 
-  const genderFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const categoryValue = e.target.value;
-    setSelectedCategory(categoryValue);
-
-    if (categoryValue === "men") {
-      const filteredProducts = products.filter((item) => item.gender === "man");
-      setProductsData(filteredProducts);
-    }
-    if (categoryValue === "women") {
-      const filteredProducts = products.filter(
-        (item) => item.gender === "women"
-      );
-      setProductsData(filteredProducts);
-    }
-  };
 
   useEffect(() => {
-    if (products.length > 0) {
+    if (products.length > 0 && !loading) {
       setLoading(true);
       setProductsData(products);
     }
-  }, [products]);
+  }, [products, loading]);
 
   return (
     <Helmet title={"Shop"}>
@@ -95,7 +87,7 @@ export default function Shop() {
             />
 
             <GenderFilter
-              onChange={genderFilter}
+              onChange={categoryHandle}
               selectedCategory={selectedCategory}
             />
           </section>
