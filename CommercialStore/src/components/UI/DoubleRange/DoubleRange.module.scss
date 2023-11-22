@@ -13,7 +13,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      opacity: 0.8;
+
+      &:hover{
+        opacity:1;
+      }
     }
+
+
   }
 
   
@@ -22,17 +29,29 @@
   display: flex;
   justify-content: space-between;
   margin: 1.25rem 0;
+
   
   
-    p{
+    span{
       font-family: $textFont;
       font-size: $font-size-normal;
       font-weight: $font-weight-medium;
       width: 35%;
       padding: 0.5rem 0;
-      border: 0.125rem solid $steelGray;
       border-radius: 0.75rem;
+      border: 0.125rem solid $white;
       text-align: center;
+      background-color: rgba($purple, 0.5);
+      color: $white;
+      cursor: default;
+      box-sizing: border-box;
+      
+      &:hover{
+        background-color: rgba($white, 1);
+        border: 0.125rem solid rgba($purple, 0.5);
+        color: rgba($purple, 0.8);
+        transition-duration: 0.5s;
+      }
     }
   
   }

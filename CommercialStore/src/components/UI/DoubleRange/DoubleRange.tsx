@@ -48,7 +48,7 @@ export const DoubleRange: React.FC<PriceFilterProps> = ({
             }}
           />
           <div className={s.rangeValue}>
-            <p>${value[0]}</p> <p>${value[1]}</p>
+            <span>${value[0]}</span> <span>${value[1]}</span>
           </div>
         </div>
       )}
