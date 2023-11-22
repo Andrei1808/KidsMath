@@ -12,7 +12,6 @@ export const GenderFilter: React.FC<GenderFilterProps> = ({
   selectedCategory,
 }) => {
   const [isVisible, setIsVisible] = useState(true);
-console.log(selectedCategory);
   return (
     <div className={s.genderFilter}>
       <h4
@@ -24,13 +23,23 @@ console.log(selectedCategory);
       </h4>
       {isVisible && (
         <div className={s.filterValues}>
-          <label className={ ""}>
-            <input type="radio" name="category" value="men" onChange={onChange} />
+          <label className={selectedCategory === 'men' ? s.active : ""}>
+            <input
+              type="radio"
+              name="category"
+              value="men"
+              onChange={onChange}
+            />
             Men
           </label>
 
-          <label className={""}>
-            <input type="radio" name="category" value="women" onChange={onChange} />
+          <label className={selectedCategory === 'women' ? s.active : ""}>
+            <input
+              type="radio"
+              name="category"
+              value="women"
+              onChange={onChange}
+            />
             Women
           </label>
         </div>
