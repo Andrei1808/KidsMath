@@ -18,6 +18,7 @@ export const DoubleRange: React.FC<PriceFilterProps> = ({
   const handleSliderChange = (newValue: number[]) => {
     setValue(newValue);
     onChange(newValue);
+    console.log(selectedCategory);
   };
 
   useEffect(() => {

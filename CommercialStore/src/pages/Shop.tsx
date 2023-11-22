@@ -17,41 +17,67 @@ export default function Shop() {
 
   const categoryHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
     const categoryValue = e.target.value;
-
     setSelectedCategory(categoryValue);
-
     if (categoryValue === "new") {
       const filteredProducts = products.filter((item) => item.isNew === true);
       setProductsData(filteredProducts);
       setIsInitialLoad(true);
     }
-
     if (categoryValue === "all" && isInitialLoad) {
       setProductsData(products);
     }
   };
 
+
   const priceFilter = (newValue: number[]) => {
+    if (selectedCategory === "men") {
+      const filteredProducts = products
+        .filter((item) => item.gender === "man")
+        .filter(
+          (item) => newValue[0] <= item.price && item.price <= newValue[1]
+        );
+      return setProductsData(filteredProducts);
+    }
+    if (selectedCategory === "women") {
+      const filteredProducts = products
+        .filter((item) => item.gender === "women")
+        .filter(
+          (item) => newValue[0] <= item.price && item.price <= newValue[1]
+        );
+      return setProductsData(filteredProducts);
+    }
+    if (selectedCategory === "new") {
+      const filteredProducts = products 
+        .filter((item) => item.isNew === true)
+        .filter(
+          (item) => newValue[0] <= item.price && item.price <= newValue[1]
+        );
+      return setProductsData(filteredProducts);
+    }
+
+
     const filteredProducts = products.filter(
       (item) => newValue[0] <= item.price && item.price <= newValue[1]
     );
     setProductsData(filteredProducts);
-    
   };
+
 
   const genderFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
     const categoryValue = e.target.value;
+    setSelectedCategory(categoryValue);
 
-    if (categoryValue === "man") {
-      const filteredProducts = products.filter((item) => item.gender === 'man');
+    if (categoryValue === "men") {
+      const filteredProducts = products.filter((item) => item.gender === "man");
       setProductsData(filteredProducts);
     }
-
     if (categoryValue === "women") {
-      const filteredProducts = products.filter((item) => item.gender === 'women');
+      const filteredProducts = products.filter(
+        (item) => item.gender === "women"
+      );
       setProductsData(filteredProducts);
     }
-  }
+  };
 
   useEffect(() => {
     if (products.length > 0) {
@@ -65,28 +91,31 @@ export default function Shop() {
       {loading ? (
         <div className={s.wrapper}>
           <section className={s.filters}>
-            <DoubleRange onChange={priceFilter} selectedCategory={selectedCategory} />
+            <DoubleRange
+              onChange={priceFilter}
+              selectedCategory={selectedCategory}
+            />
 
             <div className={s.genderFilter}>
-            <label className={selectedCategory === "new" ? s.active : ""}>
-              <input
-                type="radio"
-                name="male"
-                value="man"
-                onChange={genderFilter}
-              />
-             Man
-            </label>
+              <label className={selectedCategory === "new" ? s.active : ""}>
+                <input
+                  type="radio"
+                  name="male"
+                  value="men"
+                  onChange={genderFilter}
+                />
+                Men
+              </label>
 
-            <label className={selectedCategory === "all" ? s.active : ""}>
-              <input
-                type="radio"
-                name="male"
-                value="women"
-                onChange={genderFilter}
-              />
-              Women
-            </label>
+              <label className={selectedCategory === "all" ? s.active : ""}>
+                <input
+                  type="radio"
+                  name="male"
+                  value="women"
+                  onChange={genderFilter}
+                />
+                Women
+              </label>
             </div>
           </section>
 
