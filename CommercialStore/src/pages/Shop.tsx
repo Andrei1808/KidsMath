@@ -6,6 +6,7 @@ import s from "../style/pages/Shop.module.scss";
 import Loader from "../components/Loader/Loader";
 
 import { DoubleRange } from "../components/UI/DoubleRange/DoubleRange";
+import { GenderFilter } from "../components/UI/GenderFilter/GenderFilter";
 
 export default function Shop() {
   const products = useProducts();
@@ -28,7 +29,6 @@ export default function Shop() {
     }
   };
 
-
   const priceFilter = (newValue: number[]) => {
     if (selectedCategory === "men") {
       const filteredProducts = products
@@ -47,7 +47,7 @@ export default function Shop() {
       return setProductsData(filteredProducts);
     }
     if (selectedCategory === "new") {
-      const filteredProducts = products 
+      const filteredProducts = products
         .filter((item) => item.isNew === true)
         .filter(
           (item) => newValue[0] <= item.price && item.price <= newValue[1]
@@ -55,13 +55,11 @@ export default function Shop() {
       return setProductsData(filteredProducts);
     }
 
-
     const filteredProducts = products.filter(
       (item) => newValue[0] <= item.price && item.price <= newValue[1]
     );
     setProductsData(filteredProducts);
   };
-
 
   const genderFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
     const categoryValue = e.target.value;
@@ -96,27 +94,10 @@ export default function Shop() {
               selectedCategory={selectedCategory}
             />
 
-            <div className={s.genderFilter}>
-              <label className={selectedCategory === "new" ? s.active : ""}>
-                <input
-                  type="radio"
-                  name="male"
-                  value="men"
-                  onChange={genderFilter}
-                />
-                Men
-              </label>
-
-              <label className={selectedCategory === "all" ? s.active : ""}>
-                <input
-                  type="radio"
-                  name="male"
-                  value="women"
-                  onChange={genderFilter}
-                />
-                Women
-              </label>
-            </div>
+            <GenderFilter
+              onChange={genderFilter}
+              selectedCategory={selectedCategory}
+            />
           </section>
 
           <div className={s.category}>
