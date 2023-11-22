@@ -1,0 +1,30 @@
+@import '../../../style/sass/mixin';
+
+
+.genderFilter{
+    h4{
+      font-family: $textFont;
+      font-size: $font-size-large;
+      font-weight: $font-weight-bold;
+      color: $steelGray;
+      margin-bottom: 1.25rem;
+      cursor: pointer;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .filterValues{
+    display: flex;
+    flex-direction: column;
+  }
+
+.active {
+    color: $purple;
+  }
+  
+
+  
+  
