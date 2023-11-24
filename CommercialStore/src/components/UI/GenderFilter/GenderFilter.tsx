@@ -20,8 +20,6 @@ export const GenderFilter= ({products}: productsProps) => {
   const setCategory = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(filterActions.setCategory(e.target.value));
     dispatch(filterActions.setProducts(products));
-    console.log('products gender', products);
-   
   }
   
   return (

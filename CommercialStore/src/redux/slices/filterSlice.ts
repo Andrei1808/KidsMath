@@ -4,11 +4,13 @@ import { productInterface } from "../../hooks/useProducts";
 interface filterSliceState {
   selectedCategory: string;
   products: productInterface[];
+  selectedPrice: number[];
 }
 
 const initialState: filterSliceState = {
   selectedCategory: "all",
   products: [],
+  selectedPrice: [0, 200],
 };
 
 const filterSlice = createSlice({
@@ -21,26 +23,24 @@ const filterSlice = createSlice({
 
     setProducts: (state, action) => {
       state.products = action.payload;
-      console.log("state.products", state.products);
-      console.log("selected category", state.selectedCategory);
 
       if (state.selectedCategory === "new") {
         state.products = state.products.filter((item) => item.isNew === true);
-        console.log('new', state.products);
       }
       if (state.selectedCategory === "men") {
         state.products = state.products.filter((item) => item.gender === "man");
-        console.log('men', state.products);
       }
       if (state.selectedCategory === "women") {
         state.products = state.products.filter(
           (item) => item.gender === "women"
         );
       }
-      if (state.selectedCategory === "all") {
-        console.log("wooomen!!!!");
-      }
     },
+
+    setPrice: (state, action) => {
+      state.selectedPrice = action.payload;
+
+    }
   },
 });
 
