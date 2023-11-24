@@ -8,7 +8,6 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
         <ToastContainer
@@ -21,5 +20,4 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <App />
       </Provider>
     </BrowserRouter>
-  </React.StrictMode>
 );
