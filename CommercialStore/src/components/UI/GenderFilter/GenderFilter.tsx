@@ -1,17 +1,29 @@
 import React, { useState } from "react";
 import s from "./GenderFilter.module.scss";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { useAppSelector } from "../../../hooks/typedHooks";
+import { useDispatch } from "react-redux";
+import { filterActions } from "../../../redux/slices/filterSlice";
+import { productInterface } from "../../../hooks/useProducts";
 
-interface GenderFilterProps {
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  selectedCategory: string;
+
+interface productsProps{
+  products: productInterface[]
 }
 
-export const GenderFilter: React.FC<GenderFilterProps> = ({
-  onChange,
-  selectedCategory,
-}) => {
+export const GenderFilter= ({products}: productsProps) => {
+  
   const [isVisible, setIsVisible] = useState(true);
+
+  const dispatch = useDispatch();
+
+  const setCategory = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(filterActions.setCategory(e.target.value));
+    dispatch(filterActions.setProducts(products));
+    console.log('products gender', products);
+   
+  }
+  
   return (
     <div className={s.genderFilter}>
       <h4
@@ -23,22 +35,22 @@ export const GenderFilter: React.FC<GenderFilterProps> = ({
       </h4>
       {isVisible && (
         <div className={s.filterValues}>
-          <label className={selectedCategory === 'men' ? s.active : ""}>
+          <label className={""}>
             <input
               type="radio"
               name="category"
               value="men"
-              onChange={onChange}
+              onChange={setCategory}
             />
             Men
           </label>
 
-          <label className={selectedCategory === 'women' ? s.active : ""}>
+          <label className={""}>
             <input
               type="radio"
               name="category"
               value="women"
-              onChange={onChange}
+              onChange={setCategory}
             />
             Women
           </label>
@@ -47,3 +59,5 @@ export const GenderFilter: React.FC<GenderFilterProps> = ({
     </div>
   );
 };
+
+
