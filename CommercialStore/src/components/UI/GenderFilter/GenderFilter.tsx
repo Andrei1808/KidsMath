@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import s from "./GenderFilter.module.scss";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import { useAppSelector } from "../../../hooks/typedHooks";
 import { useDispatch } from "react-redux";
 import { filterActions } from "../../../redux/slices/filterSlice";
 import { productInterface } from "../../../hooks/useProducts";

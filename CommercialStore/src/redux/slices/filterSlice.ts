@@ -40,7 +40,33 @@ const filterSlice = createSlice({
     setPrice: (state, action) => {
       state.selectedPrice = action.payload;
 
-    }
+      let filtered
+      if (state.selectedCategory === "men") {
+        filtered = state.products
+          .filter((item) => item.gender === "man")
+          .filter(
+            (item) =>
+              state.selectedPrice[0] <= item.price &&
+              item.price <= state.selectedPrice[1]
+          );
+      } else if (state.selectedCategory === "women") {
+        filtered = state.products
+          .filter((item) => item.gender === "women")
+          .filter(
+            (item) =>
+              state.selectedPrice[0] <= item.price &&
+              item.price <= state.selectedPrice[1]
+          );
+      } else if (state.selectedCategory === "new") {
+        filtered = state.products
+          .filter((item) => item.isNew === true)
+          .filter(
+            (item) =>
+              state.selectedPrice[0] <= item.price &&
+              item.price <= state.selectedPrice[1]
+          );
+      }
+    },
   },
 });
 

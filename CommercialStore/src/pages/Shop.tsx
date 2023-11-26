@@ -18,12 +18,9 @@ export default function Shop() {
   const categoryValue = useAppSelector(
     (state) => state.filter.selectedCategory
   );
-  const productsData = useAppSelector(
-    (state) => state.filter.products
-  );
+  const productsData = useAppSelector((state) => state.filter.products);
 
   const [loading, setLoading] = useState(false);
-
 
   const setCategory = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(filterActions.setCategory(e.target.value));
@@ -61,7 +58,6 @@ export default function Shop() {
   //   );
   //   setProductsData(filteredProducts);
   // };
-  const priceFilter = () => {};
 
   useEffect(() => {
     if (products.length > 0 && !loading) {
@@ -75,10 +71,7 @@ export default function Shop() {
       {loading ? (
         <div className={s.wrapper}>
           <section className={s.filters}>
-            <DoubleRange
-              onChange={priceFilter}
-              selectedCategory={categoryValue}
-            />
+            <DoubleRange  />
             <GenderFilter products={products} />
           </section>
 
