@@ -5,9 +5,14 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useAppSelector } from "../../../hooks/typedHooks";
 import { useDispatch } from "react-redux";
 import { filterActions } from "../../../redux/slices/filterSlice";
+import { productInterface } from "../../../hooks/useProducts";
 
 
-export const DoubleRange = () => {
+interface productsProps{
+  products: productInterface[]
+}
+
+export const DoubleRange = ({products}: productsProps) => {
   
   const dispatch = useDispatch();
 
@@ -18,6 +23,7 @@ export const DoubleRange = () => {
 
   const handleSliderChange = (newValue: number[]) => {
     dispatch(filterActions.setPrice(newValue))
+    dispatch(filterActions.setPriceFilteredProducts(products))
   };
 
   useEffect(() => {

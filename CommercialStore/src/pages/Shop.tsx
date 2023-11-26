@@ -15,54 +15,20 @@ export default function Shop() {
   const products = useProducts();
   const dispatch = useDispatch();
 
-  const categoryValue = useAppSelector(
-    (state) => state.filter.selectedCategory
-  );
+  const categoryValue = useAppSelector( (state) => state.filter.selectedCategory);
   const productsData = useAppSelector((state) => state.filter.products);
 
   const [loading, setLoading] = useState(false);
 
   const setCategory = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(filterActions.setCategory(e.target.value));
-    dispatch(filterActions.setProducts(products));
+    dispatch(filterActions.setGenderFilteredProducts(products));
   };
-
-  // const priceFilter = (newValue: number[]) => {
-  //   if (selectedCategory === "men") {
-  //     const filteredProducts = products
-  //       .filter((item) => item.gender === "man")
-  //       .filter(
-  //         (item) => newValue[0] <= item.price && item.price <= newValue[1]
-  //       );
-  //     return setProductsData(filteredProducts);
-  //   }
-  //   if (selectedCategory === "women") {
-  //     const filteredProducts = products
-  //       .filter((item) => item.gender === "women")
-  //       .filter(
-  //         (item) => newValue[0] <= item.price && item.price <= newValue[1]
-  //       );
-  //     return setProductsData(filteredProducts);
-  //   }
-  //   if (selectedCategory === "new") {
-  //     const filteredProducts = products
-  //       .filter((item) => item.isNew === true)
-  //       .filter(
-  //         (item) => newValue[0] <= item.price && item.price <= newValue[1]
-  //       );
-  //     return setProductsData(filteredProducts);
-  //   }
-
-  //   const filteredProducts = products.filter(
-  //     (item) => newValue[0] <= item.price && item.price <= newValue[1]
-  //   );
-  //   setProductsData(filteredProducts);
-  // };
 
   useEffect(() => {
     if (products.length > 0 && !loading) {
       setLoading(true);
-      dispatch(filterActions.setProducts(products));
+      dispatch(filterActions.setGenderFilteredProducts(products));
     }
   }, [loading, products, productsData]);
 
@@ -71,7 +37,7 @@ export default function Shop() {
       {loading ? (
         <div className={s.wrapper}>
           <section className={s.filters}>
-            <DoubleRange  />
+            <DoubleRange products={products} />
             <GenderFilter products={products} />
           </section>
 

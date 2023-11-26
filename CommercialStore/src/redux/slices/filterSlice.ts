@@ -20,8 +20,12 @@ const filterSlice = createSlice({
     setCategory: (state, action) => {
       state.selectedCategory = action.payload;
     },
+    
+    setPrice: (state, action) => {
+      state.selectedPrice = action.payload;
+    },
 
-    setProducts: (state, action) => {
+    setGenderFilteredProducts: (state, action) => {
       state.products = action.payload;
 
       if (state.selectedCategory === "new") {
@@ -31,41 +35,46 @@ const filterSlice = createSlice({
         state.products = state.products.filter((item) => item.gender === "man");
       }
       if (state.selectedCategory === "women") {
-        state.products = state.products.filter(
-          (item) => item.gender === "women"
-        );
+        state.products = state.products.filter((item) => item.gender === "women");
       }
     },
 
-    setPrice: (state, action) => {
-      state.selectedPrice = action.payload;
+    setPriceFilteredProducts: (state, action) => {
+      state.products = action.payload;
 
-      let filtered
       if (state.selectedCategory === "men") {
-        filtered = state.products
+        state.products = state.products
           .filter((item) => item.gender === "man")
           .filter(
             (item) =>
               state.selectedPrice[0] <= item.price &&
               item.price <= state.selectedPrice[1]
-          );
-      } else if (state.selectedCategory === "women") {
-        filtered = state.products
+        );
+      }
+      if (state.selectedCategory === "women") {
+        state.products = state.products
           .filter((item) => item.gender === "women")
-          .filter(
-            (item) =>
-              state.selectedPrice[0] <= item.price &&
+          .filter((item) => 
+            state.selectedPrice[0] <= item.price &&
               item.price <= state.selectedPrice[1]
           );
-      } else if (state.selectedCategory === "new") {
-        filtered = state.products
+      }
+      if (state.selectedCategory === "new") {
+        state.products = state.products
           .filter((item) => item.isNew === true)
           .filter(
             (item) =>
               state.selectedPrice[0] <= item.price &&
               item.price <= state.selectedPrice[1]
-          );
+        );
+      } else {
+        state.products = state.products.filter(
+          (item) =>
+            state.selectedPrice[0] <= item.price &&
+            item.price <= state.selectedPrice[1]
+        );
       }
+      
     },
   },
 });
