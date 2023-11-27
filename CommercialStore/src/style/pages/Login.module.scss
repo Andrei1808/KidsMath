@@ -1,0 +1,97 @@
+@import "../sass/variables.scss";
+@import "../sass/mixin";
+
+.wrapper {
+  width: $screenWidth;
+  margin: 0 auto;
+  display: flex;
+}
+
+.image {
+  width: 50%;
+  height: 100vh;
+  object-fit: cover;
+
+  img {
+    width: 100%;
+
+  }
+}
+
+.signin {
+  width: 50%;
+}
+
+.socialEnter {
+  button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.125rem solid $purple;
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+}
+
+.separator {
+  width: 100%;
+  text-align: center;
+  position: relative;
+
+  p {
+    margin: 0 0.5rem;
+    font-size: 1rem;
+    color: rgba(102, 102, 102, 0.25);
+  }
+
+  &:before {
+    content: "";
+    background-color: rgba(102, 102, 102, 0.25);
+    height: 0.125rem;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    right: 53%;
+    top: 50%;
+  }
+
+  &:after {
+    content: "";
+    background-color: rgba(102, 102, 102, 0.25);
+    height: 0.125rem;
+    display: inline-block;
+    position: absolute;
+    left: 53%;
+    right: 0;
+    top: 50%;
+  }
+}
+.form {
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.125rem solid $purple;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: 21px;
+  }
+
+  button {
+    @include button($purple, $white);
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.125rem solid $purple;
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+}
