@@ -7,7 +7,6 @@ import { MdFavoriteBorder } from "react-icons/md";
 import logo from "../../assets/images/header-logo.png";
 import searchIcon from "../../assets/images/icons/search-icon.png";
 import { useAppSelector } from "../../hooks/typedHooks";
-import { clsx } from "clsx";
 
 export default function Header() {
   const totaWishListProducts = useAppSelector((state) => state.wishList.totalProducts);
@@ -52,9 +51,11 @@ export default function Header() {
               )}
             </span>
           </Link>
-          <span className={s.user}>
+          <Link to="/login">
+            <span className={s.user}>
             <AiOutlineUser />
-          </span>
+            </span>
+          </Link>
           <Link to="/cart">
             <span className={s.cart}>
             <FiShoppingCart />

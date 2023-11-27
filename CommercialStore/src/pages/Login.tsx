@@ -1,7 +1,11 @@
 import React from 'react'
+import s from '../style/pages/Login.module.scss';
 
-export default function Login() {
+export default function 
+() {
   return (
-    <div>Login</div>
+    <div className={s.wrapper}>
+
+    </div>
   )
 }
