@@ -6,6 +6,7 @@ import store from "./redux/store.ts";
 import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import './firebase.ts';
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <BrowserRouter>
