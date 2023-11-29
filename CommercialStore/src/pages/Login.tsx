@@ -52,14 +52,15 @@ export default function Login() {
         <div className={s.form}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <label>
-              <p>User name or email address</p>
+              <p>Email address</p>
               <input
                 {...register("userName", { required: true })}
+                type="email"
                 aria-invalid={errors.userName ? "true" : "false"}
               />
               {errors.userName?.type === "required" && (
                 <p role="alert" className={s.errorMessage}>
-                  User name(email) is required
+                  Email is required
                 </p>
               )}
             </label>
