@@ -9,20 +9,32 @@
 
 .image {
   width: 50%;
-  height: 100vh;
   object-fit: cover;
 
   img {
     width: 100%;
-
+    height: 100%;
   }
 }
 
 .signin {
-  width: 50%;
+  width: 40%;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 3.75rem 0 3rem;
+  font-size: $font-size-heading;
+  font-weight: $font-weight-black;
+  font-family: $titlesFont;
+  color: rgba(51, 51, 51, 1);
 }
 
 .socialEnter {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+
   button {
     width: 100%;
     display: flex;
@@ -31,6 +43,23 @@
     border: 0.125rem solid $purple;
     border-radius: 0.5rem;
     padding: 1rem;
+    column-gap: 1rem;
+
+    &:hover {
+      background-color: rgba($purple, 0.1);
+    }
+  }
+
+  p {
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    font-family: $textFont;
+    color: $purple;
+  }
+
+  svg {
+    height: 1.5rem;
+    width: 1.5rem;
   }
 }
 
@@ -38,10 +67,12 @@
   width: 100%;
   text-align: center;
   position: relative;
+  margin: 3rem 0 3rem;
 
   p {
-    margin: 0 0.5rem;
-    font-size: 1rem;
+    font-size: $font-size-medium;
+    font-weight: $font-weight-normal;
+    font-family: $titlesFont;
     color: rgba(102, 102, 102, 0.25);
   }
 
@@ -67,31 +98,97 @@
     top: 50%;
   }
 }
+
 .form {
+  label {
+    position: relative;
+  }
+
   form {
     display: flex;
     flex-direction: column;
+    row-gap: 2rem;
+
+    p {
+      font-size: $font-size-medium;
+      font-weight: $font-weight-normal;
+      font-family: $textFont;
+
+      margin-bottom: 0.6rem;
+    }
   }
 
   input {
     width: 100%;
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
     border: 0.125rem solid $purple;
     border-radius: 0.5rem;
     padding: 1rem;
-    font-size: 21px;
+    font-size: $font-size-medium;
+    font-weight: $font-weight-normal;
+    font-family: $textFont;
   }
 
   button {
     @include button($purple, $white);
-    width: 30%;
+    width: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 0.125rem solid $purple;
     border-radius: 0.5rem;
     padding: 1rem;
+  }
+
+  .errorMessage {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0 0 0 0.5rem;
+    font-size: $font-size-small;
+    font-weight: $font-weight-normal;
+    font-family: $textFont;
+    color: red;
+  }
+}
+
+.facebookIcon {
+  color: #1877f2;
+}
+
+.buttonContainer {
+  button {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+
+  svg {
+    font-size: 1rem;
+    color: $steelGray;
+  }
+}
+
+.passwordState {
+  display: flex;
+
+  span {
+    display: flex;
+    align-items: center;
+    column-gap: 0.25rem;
+  }
+
+  .stateValue {
+    font-size: $font-size-small;
+    font-weight: $font-weight-bold;
+    font-family: $textFont;
+    color: $steelGray;
+    margin: 0;
   }
 }
