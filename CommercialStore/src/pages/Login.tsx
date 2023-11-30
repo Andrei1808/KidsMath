@@ -1,23 +1,32 @@
 import React, { useState } from "react";
 import s from "../style/pages/Login.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookSquare } from "react-icons/fa";
 import signInImage from "../assets/images/imagesRegistration/sign-in-image.png";
 import { BiSolidHide, BiSolidShow } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 interface IFormInput {
-  userName: number | string;
-  userPassword: number | string;
+  userEmail:  string;
+  userPassword:  string;
 }
 
 export default function Login() {
+
+  const dispatch = useDispatch();
+
+
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm<IFormInput>({});
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+console.log(data);
+  };
 
   const [isVisible, setIsVisible] = useState(true);
 
@@ -35,7 +44,9 @@ export default function Login() {
         <img src={signInImage} alt="sign-in-image" />
       </div>
       <div className={s.signin}>
-        <h2 className={s.title}>Sign In Page</h2>
+      <div className={s.titleContainer} >
+          <h2 className={s.title}>Sign In Page</h2>
+          </div>
         <div className={s.socialEnter}>
           <button>
             <FcGoogle />
@@ -51,23 +62,24 @@ export default function Login() {
         </div>
         <div className={s.form}>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <label>
-              <p>Email address</p>
+
+            <label  className={s.emailLabel}>
+              <p className={s.inputTitle}>Email address</p>
               <input
-                {...register("userName", { required: true })}
+                {...register("userEmail", { required: true })}
                 type="email"
-                aria-invalid={errors.userName ? "true" : "false"}
+                aria-invalid={errors.userEmail ? "true" : "false"}
               />
-              {errors.userName?.type === "required" && (
+              {errors.userEmail?.type === "required" && (
                 <p role="alert" className={s.errorMessage}>
                   Email is required
                 </p>
               )}
             </label>
 
-            <label>
-              <div className={s.titleContainer}>
-                <p>Password</p>
+            <label  className={s.passwordLabel}>
+              <div className={s.passwordTitleContainer}>
+                <p className={s.inputTitle}>Password</p>
                 <div  className={s.passwordState} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} >
                   {isVisible ? (
                     <span >
@@ -107,9 +119,10 @@ export default function Login() {
                 </p>
               )}
             </label>
+
             <div className={s.buttonContainer}>
               <button type="submit">Sign in</button>
-              <p>Don’t have an account? Sign up </p>
+             <p>Don’t have an account? <Link to='/signup'><span>Sign up</span> </Link></p>
             </div>
           </form>
         </div>

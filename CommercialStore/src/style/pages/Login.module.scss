@@ -23,7 +23,6 @@
 }
 
 .title {
-  margin: 3.75rem 0 3rem;
   font-size: $font-size-heading;
   font-weight: $font-weight-black;
   font-family: $titlesFont;
@@ -108,28 +107,6 @@
     display: flex;
     flex-direction: column;
     row-gap: 2rem;
-
-    p {
-      font-size: $font-size-medium;
-      font-weight: $font-weight-normal;
-      font-family: $textFont;
-
-      margin-bottom: 0.6rem;
-    }
-  }
-
-  input {
-    width: 100%;
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    border: 0.125rem solid $purple;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    font-size: $font-size-medium;
-    font-weight: $font-weight-normal;
-    font-family: $textFont;
   }
 
   button {
@@ -142,17 +119,53 @@
     border-radius: 0.5rem;
     padding: 1rem;
   }
+}
 
-  .errorMessage {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    margin: 0 0 0 0.5rem;
-    font-size: $font-size-small;
+.emailLabel,
+.passwordLabel {
+  input {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.125rem solid $purple;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: $font-size-medium;
     font-weight: $font-weight-normal;
     font-family: $textFont;
-    color: red;
   }
+}
+
+.termsLabel {
+  color: $steelGray;
+
+  .checkboxContainer{
+    display: flex;
+    align-items: center;
+  }
+}
+
+.inputTitle {
+  font-size: $font-size-medium;
+  font-weight: $font-weight-normal;
+  font-family: $textFont;
+  margin-bottom: 0.6rem;
+}
+
+.checkboxTitle {
+  font-size: $font-size-medium;
+  font-weight: $font-weight-normal;
+  font-family: $textFont;
+  margin-left: 0.5rem;
+}
+
+.errorMessage {
+  margin-top: 0.5rem;
+  font-size: $font-size-small;
+  font-weight: $font-weight-normal;
+  font-family: $textFont;
+  color: red;
 }
 
 .facebookIcon {
@@ -160,12 +173,34 @@
 }
 
 .buttonContainer {
+  font-size: $font-size-normal;
+  font-weight: $font-weight-normal;
+  font-family: $textFont;
+  color: $dark;
+  margin-top: 0.5rem;
   button {
     margin-bottom: 0.5rem;
+  }
+
+  span {
+    text-decoration: underline;
+    margin-top: 0.625rem;
   }
 }
 
 .titleContainer {
+  margin: 3.75rem 0 3rem;
+
+  p {
+    font-size: $font-size-normal;
+    font-weight: $font-weight-normal;
+    font-family: $textFont;
+    color: $steelGray;
+    margin-top: 0.625rem;
+  }
+}
+
+.passwordTitleContainer {
   display: flex;
   justify-content: space-between;
 
