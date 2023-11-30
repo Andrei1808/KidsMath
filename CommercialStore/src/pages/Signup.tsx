@@ -137,7 +137,7 @@ export default function Login() {
                   aria-invalid={errors.terms ? "true" : "false"}
                 />
                 <p className={s.checkboxTitle}>
-                  Agree to our Terms of use and Privacy Policy
+                  Agree to our <Link to='#'>Terms of use</Link> and <Link to='#'>Privacy Policy</Link>
                 </p>
               </div>
               {errors.terms?.type === "required" && (

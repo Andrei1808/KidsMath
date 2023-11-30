@@ -19,7 +19,7 @@
 
 .signin {
   width: 40%;
-  margin: 0 auto;
+  margin: 0 auto 5rem;
 }
 
 .title {
@@ -143,6 +143,12 @@
   .checkboxContainer{
     display: flex;
     align-items: center;
+
+    a{
+      text-decoration: underline;
+      color: $dark;
+      cursor: pointer;
+    }
   }
 }
 
