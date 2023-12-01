@@ -7,7 +7,8 @@ import { FaFacebookSquare } from "react-icons/fa";
 import signUpnImage from "../assets/images/imagesRegistration/sign-up-image.png";
 import { BiSolidHide, BiSolidShow } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
+import { userActions } from "../redux/slices/userSlice";
 
 interface IFormInput {
   userEmail: string;
@@ -18,17 +19,27 @@ interface IFormInput {
 
 export default function Login() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm<IFormInput>({});
+
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, data.userEmail, data.userPassword)
-      .then(console.log)
-      .catch(console.log);
+      .then(({user}) => {
+        console.log(user);
+        dispatch(userActions.setUser({
+          email: user.email,
+          id: user.uid,
+          token: user.refreshToken,
+        }));
+        navigate('/');
+      })
+      .catch();
   };
 
   const [isVisible, setIsVisible] = useState(true);
@@ -151,7 +162,7 @@ export default function Login() {
               <div className={s.checkboxContainer}>
                 <input
                   {...register("subscribe", {
-                    required: true,
+                    required: false,
                   })}
                   type="checkbox"
                 />
@@ -164,10 +175,10 @@ export default function Login() {
             <div className={s.buttonContainer}>
               <button type="submit">Sign up</button>
               <p>
-                Already have an account?{" "}
+                Already have an account?
                 <Link to="/login">
                   <span>Log in</span>
-                </Link>{" "}
+                </Link>
               </p>
             </div>
           </form>
