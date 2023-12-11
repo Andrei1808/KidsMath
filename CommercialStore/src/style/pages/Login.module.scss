@@ -22,6 +22,16 @@
   margin: 0 auto 5rem;
 }
 
+.regWarning{
+  font-size: $font-size-medium;
+  font-weight: $font-weight-black;
+  font-family: $titlesFont;
+  color: red;
+  width: fit-content;
+  padding: 0.5rem;
+  background-color: rgba(red, 0.1);
+}
+
 .title {
   font-size: $font-size-heading;
   font-weight: $font-weight-black;

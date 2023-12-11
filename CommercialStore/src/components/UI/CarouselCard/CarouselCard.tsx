@@ -6,8 +6,9 @@ import s from "./CarouselCard.module.scss";
 import { toast } from "react-toastify";
 import { FiShoppingCart } from "react-icons/fi";
 import { cartActions } from "../../../redux/slices/cartSlice";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
+import { userActions } from "../../../redux/slices/userSlice";
 
 export interface carouselCard {
   item: {
@@ -27,14 +28,14 @@ export default function CarouselCard({ item }: carouselCard) {
   const { isAuth } = useAuth();
   const navigate = useNavigate();
 
-
-
-
   const addToWishList = () => {
     if (isAuth) {
       dispatch(wishListActions.addItem(item));
       toast.success("Product added successfully to your wish list");
     } else {
+      dispatch(userActions.previousUrl({
+        previousUrl:true }
+      ))
       navigate("/login");
     }
   };
@@ -54,6 +55,9 @@ export default function CarouselCard({ item }: carouselCard) {
       );
       toast.success("Product added successfully to your cart");
     } else {
+      dispatch(userActions.previousUrl({
+        previousUrl:true }
+      ))
       navigate("/login");
     }
   };

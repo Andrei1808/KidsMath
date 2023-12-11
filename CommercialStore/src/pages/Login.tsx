@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import s from "../style/pages/Login.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -7,9 +7,10 @@ import { FaFacebookSquare } from "react-icons/fa";
 import signInImage from "../assets/images/imagesRegistration/sign-in-image.png";
 import { BiSolidHide, BiSolidShow } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { userActions } from "../redux/slices/userSlice";
-
+import { useAuth } from "../hooks/useAuth";
+import { useAppSelector } from "../hooks/typedHooks";
 
 interface IFormInput {
   userEmail:  string;
@@ -19,6 +20,9 @@ interface IFormInput {
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { isAuth } = useAuth();
+  const { previousUrl }= useAppSelector((state) => state.user);
+ 
 
   const {
     register,
@@ -56,6 +60,9 @@ export default function Login() {
         <img src={signInImage} alt="sign-in-image" />
       </div>
       <div className={s.signin}>
+        {
+          (!isAuth && previousUrl )? <div className={s.regWarning}>You need to be logged in to use the wish list or cart.</div> : ''
+        }
       <div className={s.titleContainer} >
           <h2 className={s.title}>Sign In Page</h2>
           </div>
