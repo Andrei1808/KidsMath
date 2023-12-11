@@ -5,15 +5,25 @@ import { PiHandbagSimple, PiSignOut } from "react-icons/pi";
 import s from "./Sidebar.module.scss";
 import { Link, useLocation } from "react-router-dom";
 import clsx from "clsx";
+import { useAuth } from "../../hooks/useAuth";
+import { useDispatch } from "react-redux";
+import { userActions } from "../../redux/slices/userSlice";
 
 export default function Sidebar() {
   const location = useLocation();
   const path = location.pathname;
+  const { isAuth, email } = useAuth();
+  const dispatch = useDispatch();
+
+  const signOut = () => {
+    dispatch(userActions.removeUser());
+  };
 
   return (
     <section className={s.sidebar}>
       <div className={s.userName}>
-        <h2>Hello Andrei</h2>
+        {isAuth ? <h2>Hello { email }</h2> : <h2>Hello guest</h2>}
+        
         <p>Welcome to your Account</p>
       </div>
       <ul className={s.navigate}>
@@ -66,7 +76,7 @@ export default function Sidebar() {
           </button>
         </li>
         <li>
-          <button>
+          <button onClick={signOut}>
             <p className={s.navigateItem}>
               <span>
                 <PiSignOut />
