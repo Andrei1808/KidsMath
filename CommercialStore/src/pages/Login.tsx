@@ -7,7 +7,9 @@ import { FaFacebookSquare } from "react-icons/fa";
 import signInImage from "../assets/images/imagesRegistration/sign-in-image.png";
 import { BiSolidHide, BiSolidShow } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { userActions } from "../redux/slices/userSlice";
+
 
 interface IFormInput {
   userEmail:  string;
@@ -15,9 +17,8 @@ interface IFormInput {
 }
 
 export default function Login() {
-
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
 
   const {
     register,
@@ -25,7 +26,18 @@ export default function Login() {
     handleSubmit,
   } = useForm<IFormInput>({});
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-console.log(data);
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, data.userEmail, data.userPassword)
+    .then(({user}) => {
+      console.log(user);
+      dispatch(userActions.setUser({
+        email: user.email,
+        id: user.uid,
+        token: user.refreshToken,
+      }));
+      navigate('/home');
+    })
+      .catch(()=>alert('Invalid user'));
   };
 
   const [isVisible, setIsVisible] = useState(true);
