@@ -6,6 +6,9 @@ import { MdFavoriteBorder } from "react-icons/md";
 import Loader from "../../Loader/Loader";
 import { useDispatch } from "react-redux";
 import { wishListActions } from "../../../redux/slices/wishListSlice";
+import { userActions } from "../../../redux/slices/userSlice";
+import { useAuth } from "../../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 interface productData {
   products: productInterface[];
@@ -13,6 +16,8 @@ interface productData {
 
 export default function ProductList({ products }: productData) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isAuth } = useAuth();
 
   return (
       <div className={s.wrapper}>
@@ -21,7 +26,14 @@ export default function ProductList({ products }: productData) {
             
             products.map((item) => {
               const addItemToFavorite = () => {
-                dispatch(wishListActions.addItem(item));
+                if (isAuth) {
+                  dispatch(wishListActions.addItem(item));
+                } else {
+                  dispatch(userActions.previousUrl({
+                    previousUrl:true }
+                  ))
+                  navigate("/login");
+                }
               };
 
               return (
