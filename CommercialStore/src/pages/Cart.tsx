@@ -13,23 +13,22 @@ export default function Cart() {
 
   return (
     <Helmet title="Cart">
-      {cartItems.length ? (
-        <main>
-          <div className={s.wrapper}>
-            <section className={s.path}>path</section>
+      <div className={s.wrapper}>
+        <section className={s.path}>path</section>
+        <Sidebar />
 
+        {cartItems.length ? (
+          <section className={s.cart}>
+            <h2>Cart</h2>
             <section className={s.login}>
-              <p>
+            <p>
                 Please fill in the fields below and click place order to
                 complete your purchase!
                 <br />
                 Already registered? <Link to="/login">Please login here</Link>
               </p>
             </section>
-
-            <Sidebar />
-
-            <section className={s.products}>
+            <div className={s.products}>
               <div className={s.title}>
                 <h5>product details</h5>
                 <h5>price</h5>
@@ -41,9 +40,8 @@ export default function Cart() {
               {cartItems.map((item, index) => {
                 return <CartCard item={item} index={index} key={item.id} />;
               })}
-            </section>
-
-            <section className={s.totalPriceInfo}>
+            </div>
+            <div className={s.totalPriceInfo}>
               <div className={s.discount}>
                 <h2>Discount Codes</h2>
                 <p>Enter your coupon code if you have one</p>
@@ -63,12 +61,12 @@ export default function Cart() {
                 </div>
                 <button>Proceed To Checkout</button>
               </div>
-            </section>
-          </div>
-        </main>
-      ) : (
-        <EmptyCart />
-      )}
+            </div>
+          </section>
+        ) : (
+          <EmptyCart />
+        )}
+      </div>
     </Helmet>
   );
 }

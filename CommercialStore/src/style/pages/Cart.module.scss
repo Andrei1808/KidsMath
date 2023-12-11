@@ -19,6 +19,16 @@
   margin-bottom: 2.875rem;
 }
 
+.cart{
+  h2 {
+    font-family: $titlesFont;
+    font-size: $font-size-extra-large;
+    font-weight: $font-weight-bold;
+    color: $dark;
+    margin-bottom: 1.25rem;
+  }
+}
+
 .login {
   grid-area: login;
   margin-bottom: 2.875rem;
