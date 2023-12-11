@@ -7,22 +7,21 @@ import { FaFacebookSquare } from "react-icons/fa";
 import signInImage from "../assets/images/imagesRegistration/sign-in-image.png";
 import { BiSolidHide, BiSolidShow } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { userActions } from "../redux/slices/userSlice";
 import { useAuth } from "../hooks/useAuth";
 import { useAppSelector } from "../hooks/typedHooks";
 
 interface IFormInput {
-  userEmail:  string;
-  userPassword:  string;
+  userEmail: string;
+  userPassword: string;
 }
 
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isAuth } = useAuth();
-  const { previousUrl }= useAppSelector((state) => state.user);
- 
+  const { previousUrl } = useAppSelector((state) => state.user);
 
   const {
     register,
@@ -32,16 +31,18 @@ export default function Login() {
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, data.userEmail, data.userPassword)
-    .then(({user}) => {
-      console.log(user);
-      dispatch(userActions.setUser({
-        email: user.email,
-        id: user.uid,
-        token: user.refreshToken,
-      }));
-      navigate('/home');
-    })
-      .catch(()=>alert('Invalid user'));
+      .then(({ user }) => {
+        console.log(user);
+        dispatch(
+          userActions.setUser({
+            email: user.email,
+            id: user.uid,
+            token: user.refreshToken,
+          })
+        );
+        navigate("/home");
+      })
+      .catch(() => alert("Invalid user"));
   };
 
   const [isVisible, setIsVisible] = useState(true);
@@ -60,12 +61,16 @@ export default function Login() {
         <img src={signInImage} alt="sign-in-image" />
       </div>
       <div className={s.signin}>
-        {
-          (!isAuth && previousUrl )? <div className={s.regWarning}>You need to be logged in to use the wish list or cart.</div> : ''
-        }
-      <div className={s.titleContainer} >
-          <h2 className={s.title}>Sign In Page</h2>
+        {!isAuth && previousUrl ? (
+          <div className={s.regWarning}>
+            You need to be logged in to use the wish list.
           </div>
+        ) : (
+          ""
+        )}
+        <div className={s.titleContainer}>
+          <h2 className={s.title}>Sign In Page</h2>
+        </div>
         <div className={s.socialEnter}>
           <button>
             <FcGoogle />
@@ -81,8 +86,7 @@ export default function Login() {
         </div>
         <div className={s.form}>
           <form onSubmit={handleSubmit(onSubmit)}>
-
-            <label  className={s.emailLabel}>
+            <label className={s.emailLabel}>
               <p className={s.inputTitle}>Email address</p>
               <input
                 {...register("userEmail", { required: true })}
@@ -96,12 +100,16 @@ export default function Login() {
               )}
             </label>
 
-            <label  className={s.passwordLabel}>
+            <label className={s.passwordLabel}>
               <div className={s.passwordTitleContainer}>
                 <p className={s.inputTitle}>Password</p>
-                <div  className={s.passwordState} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} >
+                <div
+                  className={s.passwordState}
+                  onMouseDown={handleMouseDown}
+                  onMouseUp={handleMouseUp}
+                >
                   {isVisible ? (
-                    <span >
+                    <span>
                       <BiSolidHide /> <p className={s.stateValue}>Hide</p>
                     </span>
                   ) : (
@@ -141,7 +149,12 @@ export default function Login() {
 
             <div className={s.buttonContainer}>
               <button type="submit">Sign in</button>
-             <p>Don’t have an account? <Link to='/signup'><span>Sign up</span> </Link></p>
+              <p>
+                Don’t have an account?{" "}
+                <Link to="/signup">
+                  <span>Sign up</span>{" "}
+                </Link>
+              </p>
             </div>
           </form>
         </div>

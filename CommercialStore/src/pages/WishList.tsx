@@ -26,7 +26,7 @@ export default function WishList() {
         <section className={s.wishList}>
           <h2>Wishlist</h2>
           <div className={s.products}>
-            {wishListItems.length !== 0 ? (
+            {wishListItems.length ? (
               wishListItems.map((item, index) => {
                 
                 const removeFromWishList = () => {

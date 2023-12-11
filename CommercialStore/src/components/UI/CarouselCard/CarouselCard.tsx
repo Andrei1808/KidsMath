@@ -41,7 +41,6 @@ export default function CarouselCard({ item }: carouselCard) {
   };
 
   const addToCart = () => {
-    if (isAuth) {
       dispatch(
         cartActions.addItem({
           id: item.id,
@@ -54,12 +53,6 @@ export default function CarouselCard({ item }: carouselCard) {
         })
       );
       toast.success("Product added successfully to your cart");
-    } else {
-      dispatch(userActions.previousUrl({
-        previousUrl:true }
-      ))
-      navigate("/login");
-    }
   };
 
   return item ? (
