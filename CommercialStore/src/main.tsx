@@ -7,9 +7,11 @@ import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import './firebase.ts';
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-    <BrowserRouter>
+  <BrowserRouter>
+    <ScrollToTop/>
       <Provider store={store}>
         <ToastContainer
           position="top-right"
