@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { productInterface, useProducts } from "../../../hooks/useProducts";
-import Helmet from "../../Helmet/Helmet";
+import { productInterface } from "../../../hooks/useProducts";
 import s from "./ProductList.module.scss";
 import { MdFavoriteBorder } from "react-icons/md";
 import { useDispatch } from "react-redux";
@@ -29,7 +28,7 @@ export default function ProductList({ products }: productData) {
                   dispatch(wishListActions.addItem(item));
                 } else {
                   dispatch(userActions.previousUrl({
-                    previousUrl:true }
+                    previousUrl:true, }
                   ))
                   navigate("/login");
                 }

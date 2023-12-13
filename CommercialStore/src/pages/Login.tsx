@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import s from "../style/pages/Login.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookSquare } from "react-icons/fa";
 import signInImage from "../assets/images/imagesRegistration/sign-in-image.png";
 import { BiSolidHide, BiSolidShow } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { userActions } from "../redux/slices/userSlice";
 import { useAuth } from "../hooks/useAuth";
 import { useAppSelector } from "../hooks/typedHooks";
@@ -20,16 +20,19 @@ interface IFormInput {
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const { isAuth } = useAuth();
   const { previousUrl } = useAppSelector((state) => state.user);
 
   const [isCorrectUser, setIsCorrectUser] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
 
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm<IFormInput>({});
+
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, data.userEmail, data.userPassword)
@@ -46,7 +49,24 @@ export default function Login() {
       .catch(() => setIsCorrectUser(false));
   };
 
-  const [isVisible, setIsVisible] = useState(true);
+  const authWithGoogle = () => {
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+signInWithPopup(auth, provider)
+  .then((result) => {
+    const user = result.user;
+    dispatch(
+      userActions.setUser({
+        email: user.email,
+        id: user.uid,
+        token: user.refreshToken,
+      })
+    );
+    navigate("/cart");
+  }).catch(() => {
+
+  });
+  }
 
   const handleMouseDown = () => {
     setIsVisible(false);
@@ -73,7 +93,7 @@ export default function Login() {
           <h2 className={s.title}>Sign In Page</h2>
         </div>
         <div className={s.socialEnter}>
-          <button>
+          <button onClick={authWithGoogle}>
             <FcGoogle />
             <p>Continue With Google</p>
           </button>
