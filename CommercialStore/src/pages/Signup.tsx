@@ -39,7 +39,7 @@ export default function Login() {
         }));
         navigate('/');
       })
-      .catch();
+      .catch(()=> alert('SignUp component'));
   };
 
   const [isVisible, setIsVisible] = useState(true);

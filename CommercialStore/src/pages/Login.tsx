@@ -7,7 +7,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 import signInImage from "../assets/images/imagesRegistration/sign-in-image.png";
 import { BiSolidHide, BiSolidShow } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { userActions } from "../redux/slices/userSlice";
 import { useAuth } from "../hooks/useAuth";
 import { useAppSelector } from "../hooks/typedHooks";
@@ -23,6 +23,8 @@ export default function Login() {
   const { isAuth } = useAuth();
   const { previousUrl } = useAppSelector((state) => state.user);
 
+  const [isCorrectUser, setIsCorrectUser] = useState(true);
+
   const {
     register,
     formState: { errors },
@@ -32,7 +34,6 @@ export default function Login() {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, data.userEmail, data.userPassword)
       .then(({ user }) => {
-        console.log(user);
         dispatch(
           userActions.setUser({
             email: user.email,
@@ -40,9 +41,9 @@ export default function Login() {
             token: user.refreshToken,
           })
         );
-        navigate("/home");
+        navigate("/cart");
       })
-      .catch(() => alert("Invalid user"));
+      .catch(() => setIsCorrectUser(false));
   };
 
   const [isVisible, setIsVisible] = useState(true);
@@ -85,6 +86,11 @@ export default function Login() {
           <p>OR</p>
         </div>
         <div className={s.form}>
+          {isCorrectUser ? '' : (
+          <div className={s.regWarning}>
+            This email address or password is incorrect
+          </div>
+        )}
           <form onSubmit={handleSubmit(onSubmit)}>
             <label className={s.emailLabel}>
               <p className={s.inputTitle}>Email address</p>

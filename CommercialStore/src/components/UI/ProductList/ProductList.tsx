@@ -3,7 +3,6 @@ import { productInterface, useProducts } from "../../../hooks/useProducts";
 import Helmet from "../../Helmet/Helmet";
 import s from "./ProductList.module.scss";
 import { MdFavoriteBorder } from "react-icons/md";
-import Loader from "../../Loader/Loader";
 import { useDispatch } from "react-redux";
 import { wishListActions } from "../../../redux/slices/wishListSlice";
 import { userActions } from "../../../redux/slices/userSlice";
