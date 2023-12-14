@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
 import s from "../style/pages/Login.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { GoogleAuthProvider, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import {
+  FacebookAuthProvider,
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  getAuth,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookSquare } from "react-icons/fa";
 import signInImage from "../assets/images/imagesRegistration/sign-in-image.png";
@@ -11,6 +18,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { userActions } from "../redux/slices/userSlice";
 import { useAuth } from "../hooks/useAuth";
 import { useAppSelector } from "../hooks/typedHooks";
+import { AiFillGithub } from "react-icons/ai";
 
 interface IFormInput {
   userEmail: string;
@@ -52,21 +60,38 @@ export default function Login() {
   const authWithGoogle = () => {
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
-signInWithPopup(auth, provider)
-  .then((result) => {
-    const user = result.user;
-    dispatch(
-      userActions.setUser({
-        email: user.email,
-        id: user.uid,
-        token: user.refreshToken,
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        dispatch(
+          userActions.setUser({
+            email: user.email,
+            id: user.uid,
+            token: user.refreshToken,
+          })
+        );
+        navigate("/cart");
       })
-    );
-    navigate("/cart");
-  }).catch(() => {
+      .catch(() => {});
+  };
 
-  });
-  }
+  const authWithGitHub = () => {
+    const auth = getAuth();
+    const provider = new GithubAuthProvider();
+    signInWithPopup(auth, provider)
+    .then((result) => {
+      const user = result.user;
+      dispatch(
+        userActions.setUser({
+          email: user.email,
+          id: user.uid,
+          token: user.refreshToken,
+        })
+      );
+      navigate("/cart");
+    })
+    .catch(() => {});
+  };
 
   const handleMouseDown = () => {
     setIsVisible(false);
@@ -97,20 +122,22 @@ signInWithPopup(auth, provider)
             <FcGoogle />
             <p>Continue With Google</p>
           </button>
-          <button className={s.facebookIcon}>
-            <FaFacebookSquare />
-            <p>Continue With Facebook</p>
+          <button  onClick={authWithGitHub}>
+          <AiFillGithub />
+            <p>Continue With GitHub</p>
           </button>
         </div>
         <div className={s.separator}>
           <p>OR</p>
         </div>
         <div className={s.form}>
-          {isCorrectUser ? '' : (
-          <div className={s.regWarning}>
-            This email address or password is incorrect
-          </div>
-        )}
+          {isCorrectUser ? (
+            ""
+          ) : (
+            <div className={s.regWarning}>
+              This email address or password is incorrect
+            </div>
+          )}
           <form onSubmit={handleSubmit(onSubmit)}>
             <label className={s.emailLabel}>
               <p className={s.inputTitle}>Email address</p>
