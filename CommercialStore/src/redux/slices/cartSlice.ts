@@ -70,6 +70,12 @@ const cartSlice = createSlice({
       state.totalAmount = state.totalAmount - removeItem.totalPrice;
     },
 
+    
+    removeItems: (state) => {
+      state.cartItems = [];
+      state.totalProducts = 0;
+    },
+
     increment: (state, action: PayloadAction<cartSliceProduct>) => {
       const increaseItem = action.payload;
       state.cartItems.filter((item: cartSliceProduct) => {

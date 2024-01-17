@@ -68,6 +68,11 @@ const wishListSlice = createSlice({
       );
       state.totalProducts--;
     },
+
+    removeItems: (state) => {
+      state.wishListItems = [];
+      state.totalProducts = 0;
+    },
   },
 });
 

@@ -65,7 +65,7 @@ export default function Login() {
         const user = result.user;
         dispatch(
           userActions.setUser({
-            email: user.email,
+            email: user.displayName,
             id: user.uid,
             token: user.refreshToken,
           })
@@ -83,7 +83,7 @@ export default function Login() {
       const user = result.user;
       dispatch(
         userActions.setUser({
-          email: user.email,
+          email: user.displayName,
           id: user.uid,
           token: user.refreshToken,
         })
