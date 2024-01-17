@@ -10,11 +10,10 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
-import { FaFacebookSquare } from "react-icons/fa";
 import signInImage from "../assets/images/imagesRegistration/sign-in-image.png";
 import { BiSolidHide, BiSolidShow } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { userActions } from "../redux/slices/userSlice";
 import { useAuth } from "../hooks/useAuth";
 import { useAppSelector } from "../hooks/typedHooks";

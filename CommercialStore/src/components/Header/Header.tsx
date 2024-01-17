@@ -37,6 +37,12 @@ export default function Header() {
     );
   }
 
+  const warningMessageHandle = () => {
+    dispatch(userActions.previousUrl({
+      previousUrl:false, }
+    ))
+  }
+
   return (
     <header className={s.header}>
       <div className={s.wrapper}>
@@ -76,7 +82,7 @@ export default function Header() {
               )}
             </span>
           </Link>
-          <Link to="/login">
+          <Link to="/login" onClick={warningMessageHandle}>
             <span className={s.user}>
             <AiOutlineUser />
             </span>
