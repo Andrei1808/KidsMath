@@ -9,7 +9,7 @@ import {
   categoriesFoWomen,
   categoriesForMen,
   heroData,
-} from "../../public/data/staticData";
+} from "../assets/data/staticData";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

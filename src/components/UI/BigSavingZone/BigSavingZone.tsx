@@ -1,4 +1,4 @@
-import { bigSavingZoneData } from "../../../../public/data/staticData";
+import { bigSavingZoneData } from "../../../assets/data/staticData";
 import s from "./BigSavingZone.module.scss";
 import clsx from "clsx";
 import { GoArrowDown } from "react-icons/go";
