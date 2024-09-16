@@ -26,6 +26,6 @@
   },
   "include": [
     ".eslintrc.cjs",
-    "src"],
+    "src", "public/data"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

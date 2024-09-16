@@ -9,7 +9,7 @@ import {
   categoriesFoWomen,
   categoriesForMen,
   heroData,
-} from "../assets/data/staticData";
+} from "../../public/data/staticData";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -27,7 +27,7 @@ import { useProducts } from "../hooks/useProducts";
 
 export default function Home() {
 
- const products = useProducts(); 
+  const products = useProducts();
 
   return (
     <div>
