@@ -6,7 +6,7 @@ export const heroData = [
     title: "Low Price",
     description: "High Coziness",
     offer: "UPTO 50% OFF",
-    img: "./assets/images/imagesHome/home-coziness.png",
+    img: "src/assets/images/imagesHome/home-coziness.png",
   },
   {
     id: 2,
