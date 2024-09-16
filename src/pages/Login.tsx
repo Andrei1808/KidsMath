@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import s from "../style/pages/Login.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
 import {
-  FacebookAuthProvider,
   GithubAuthProvider,
   GoogleAuthProvider,
   getAuth,
@@ -13,7 +12,7 @@ import { FcGoogle } from "react-icons/fc";
 import signInImage from "../assets/images/imagesRegistration/sign-in-image.png";
 import { BiSolidHide, BiSolidShow } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { userActions } from "../redux/slices/userSlice";
 import { useAuth } from "../hooks/useAuth";
 import { useAppSelector } from "../hooks/typedHooks";

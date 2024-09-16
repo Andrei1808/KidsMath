@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { wishListActions } from "../../../redux/slices/wishListSlice";
 import { MdFavoriteBorder } from "react-icons/md";

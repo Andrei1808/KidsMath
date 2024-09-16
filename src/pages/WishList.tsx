@@ -1,4 +1,3 @@
-import React from "react";
 import Helmet from "../components/Helmet/Helmet";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";

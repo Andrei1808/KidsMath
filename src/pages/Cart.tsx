@@ -1,4 +1,3 @@
-import React from "react";
 import Helmet from "../components/Helmet/Helmet";
 import s from "../style/pages/Cart.module.scss";
 import Sidebar from "../components/SIdebar/Sidebar";

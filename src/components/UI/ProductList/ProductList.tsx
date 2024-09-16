@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { productInterface } from "../../../hooks/useProducts";
 import s from "./ProductList.module.scss";
 import { MdFavoriteBorder } from "react-icons/md";

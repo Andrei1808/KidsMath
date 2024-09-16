@@ -3,6 +3,11 @@ module.exports = {
     browser: true,
     es2021: true,
   },
+    settings: {
+    "react": {
+      "version": "detect" // Автоматически определяет версию React
+    }
+  },
   extends: [
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
@@ -10,6 +15,7 @@ module.exports = {
     "airbnb/hooks",
     "airbnb-typescript",
     "plugin:prettier/recommended",
+    "plugin:react/recommended", "plugin:react-hooks/recommended"
   ],
   "prettier/prettier": [
     "error",
@@ -46,6 +52,8 @@ module.exports = {
     "@typescript-eslint/explicit-module-boundary-types": "error",
     "import/no-cycle": "off",
     "react/jsx-props-no-spreading": "off",
+    "react/react-in-jsx-scope": "off",
+    "no-unused-vars": ["error", { "varsIgnorePattern": "React" }],
     "@typescript-eslint/typedef": [
       "error",
       {

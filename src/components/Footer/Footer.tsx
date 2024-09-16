@@ -1,4 +1,3 @@
-import React from "react";
 import s from "./Footer.module.scss";
 import { Link } from "react-router-dom";
 import facebook from "../../assets/images/icons/facebook.png";

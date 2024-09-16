@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import s from "./DoubleRange.module.scss";
 import ReactSlider from "react-slider";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";

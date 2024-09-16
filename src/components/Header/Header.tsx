@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import s from "./Header.module.scss";
 import { FiShoppingCart } from "react-icons/fi";

@@ -1,4 +1,3 @@
-import React from "react";
 import s from "./Categories.module.scss";
 import { staticDataCardInterface } from "../../../interfaces/DataInterfaces";
 import { BsArrowRight } from "react-icons/bs";

@@ -1,4 +1,3 @@
-import React from "react";
 import { SpinnerDotted } from "spinners-react/lib/esm/SpinnerDotted";
 import s from './Loader.module.scss'
 

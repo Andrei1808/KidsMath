@@ -1,4 +1,3 @@
-import React from "react";
 import s from "./Page404.module.scss";
 import { Link } from "react-router-dom";
 import page404 from "../../../assets/images/error-page.png";

@@ -1,4 +1,3 @@
-import React from "react";
 import { bigSavingZoneData } from "../../../assets/data/staticData";
 import s from "./BigSavingZone.module.scss";
 import clsx from "clsx";

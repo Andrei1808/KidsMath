@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
 import s from "./CartCard.module.scss";
 import { useDispatch } from "react-redux";

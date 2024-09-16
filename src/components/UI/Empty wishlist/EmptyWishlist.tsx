@@ -1,4 +1,3 @@
-import React from "react";
 import s from "./EmptyWishlist.module.scss";
 import { MdFavoriteBorder } from "react-icons/md";
 import { Link } from "react-router-dom";

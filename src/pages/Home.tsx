@@ -1,4 +1,3 @@
-import React from "react";
 import Helmet from "../components/Helmet/Helmet";
 import s from "../style/pages/Home.module.scss";
 import { Link } from "react-router-dom";

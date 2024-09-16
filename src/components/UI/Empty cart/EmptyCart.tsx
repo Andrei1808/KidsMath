@@ -1,4 +1,3 @@
-import React from "react";
 import s from "./EmptyCart.module.scss";
 import { Link } from "react-router-dom";
 import emptyCart from "../../../assets/images/empty-cart.png";

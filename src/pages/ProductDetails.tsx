@@ -1,4 +1,3 @@
-import React from "react";
 import s from "../style/pages/ProductDetails.module.scss";
 
 export default function ProductDetails() {

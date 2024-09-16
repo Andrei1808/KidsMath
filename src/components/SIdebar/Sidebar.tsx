@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { MdFavoriteBorder } from "react-icons/md";
 import { PiHandbagSimple, PiSignOut } from "react-icons/pi";
