@@ -1,0 +1,118 @@
+@import "../../style/sass/variables.scss";
+
+.header {
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: $screenWidth;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 2.5rem;
+  font-family: $textFont;
+  font-size: $font-size-large;
+  font-weight: $font-weight-medium;
+  color: $steelGray;
+
+  li:hover {
+    color: $dark;
+  }
+}
+
+.search {
+  border: none;
+  width: fit-content;
+  background-color: $whitegrey;
+  height: 2.8rem;
+  display: flex;
+  align-items: center;
+  column-gap: 0.75rem;
+  padding-left: 1.25rem;
+  border-radius: 0.5rem;
+}
+
+.searchInput {
+  border: none;
+  font-size: $font-size-normal;
+  font-family: $textFont;
+  font-weight: $font-weight-normal;
+  background-color: transparent;
+  height: 100%;
+}
+
+.searchInput::placeholder {
+  font-family: $textFont;
+  font-weight: $font-weight-normal;
+}
+
+.searchIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.icons {
+  display: flex;
+  column-gap: 0.75rem;
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: $steelGray;
+
+  :hover {
+    color: white;
+    background-color: $purple;
+
+    .counter {
+      color: $steelGray;
+      background-color: $whitegrey;
+    }
+  }
+
+  :active {
+    scale: 1.1;
+  }
+
+  a {
+    border-radius: 50%;
+  }
+}
+
+.counter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: $textFont;
+  font-size: $font-size-small;
+  padding: 0.175rem;
+  font-size: 0.7rem;
+  background-color: $purple;
+  color: $white;
+  border-top-right-radius: 0.5em;
+  border-bottom-left-radius: 0.75em;
+}
+
+.wishlist,
+.user,
+.cart {
+  width: 2.813rem;
+  height: 2.813rem;
+  background-color: $whitegrey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  position: relative;
+
+  :hover {
+    box-shadow: none;
+  }
+}

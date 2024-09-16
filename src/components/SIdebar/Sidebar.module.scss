@@ -1,0 +1,59 @@
+@import "../../style/sass/variables.scss";
+@import "../../style/sass/mixin";
+
+.userName {
+  h2 {
+    @include sectionTitle($font-size-extra-large, $font-weight-bold);
+    color: $dark;
+  }
+
+  p {
+    font-family: $titlesFont;
+    font-size: $font-size-small;
+    font-weight: $font-weight-normal;
+    color: $steelGray;
+    padding-top: 0.75rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+.navigate {
+  display: flex;
+  flex-direction: column;
+
+  li {
+    padding: 0.625rem;
+  }
+}
+
+.active {
+  background-color: $whitegrey;
+  border-top-right-radius: 0.625rem;
+  border-bottom-right-radius: 0.625rem;
+  border-left: 2px solid $dark;
+  pointer-events: none;
+
+  .navigateItem {
+    color: $dark;
+
+  }
+}
+
+.navigateItem {
+  font-family: $textFont;
+  font-size: $font-size-medium;
+  font-weight: $font-weight-medium;
+  color: $steelGray;
+  margin-left: 2.125rem;
+
+  span {
+    font-size: 1.25rem;
+    color: $steelGray;
+    margin-right: 1rem;
+  }
+
+  &:hover {
+    color: $dark;
+    scale: 1.1;
+  }
+}
