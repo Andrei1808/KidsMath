@@ -1,0 +1,199 @@
+@import "../../../style/sass/variables.scss";
+@import "../../../style/sass/mixin";
+
+.bigSavingZone {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  margin: $betweenSectionMargin;
+}
+
+.card {
+  width: calc(33% - 0.313rem);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 1.25rem;
+  }
+
+  &:nth-child(4),
+  &:nth-child(5) {
+    width: calc(50% - 0.313rem);
+  }
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+  display: flex;
+  flex-direction: column;
+  color: $dark;
+  max-width: 50%;
+  height: 100%;
+  align-items: inherit;
+  justify-content: space-evenly;
+  margin-right: 10%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.625rem;
+}
+
+.title {
+  font-family: $titlesFont;
+  font-size: $font-size-extra-large;
+  font-weight: $font-weight-bold;
+  line-height: 2.375rem;
+  width: min-content;
+  letter-spacing: 0.125rem;
+}
+
+.description {
+  font-family: $textFont;
+  font-size: $font-size-small;
+  font-weight: $font-weight-medium;
+}
+
+.offer {
+  font-family: $textFont;
+  font-size: $font-size-medium;
+  font-weight: $font-weight-bold;
+}
+
+.button {
+  @include button(transparent, $dark);
+  border: 0.125rem solid $dark;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transition-duration: 0.3s;
+  }
+
+  &:active {
+    scale: 1.1;
+  }
+
+  a {
+    display: inline-block;
+    padding: 0.5rem 1.125rem;
+  }
+}
+
+.buttonLight {
+  border: 0.125rem solid $white;
+  color: $white;
+}
+
+.limited {
+  font-family: $textFont;
+  font-size: 0.75rem;
+  font-weight: $font-weight-bold;
+  text-transform: capitalize;
+  width: fit-content;
+  background-color: $dark;
+  border-radius: 0.25rem;
+  padding: 0.75rem 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.light {
+  color: $white !important;
+}
+
+.arrow {
+  font-size: 3rem;
+}
+
+.leftPosition {
+  left: 0;
+  margin-left: 10%;
+  width: fit-content;
+}
+
+.infoRight {
+  width: 100%;
+  align-items: end;
+  text-align: end;
+}
+
+.fashion {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.fashionItem {
+  width: 50%;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.fashionContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $white;
+  width: 75%;
+
+  h2 {
+    text-transform: uppercase;
+    font-family: $titlesFont;
+    font-size: $font-size-heading;
+    font-weight: $font-weight-black;
+    letter-spacing: 0.125rem;
+    line-height: 3rem;
+  }
+
+  p {
+    font-family: $textFont;
+    font-size: 1.25rem;
+    font-weight: $font-weight-light;
+    letter-spacing: 0.175rem;
+    margin: 1.875rem auto 3.125rem;
+  }
+
+  button {
+    @include button($white, $dark);
+    text-transform: capitalize;
+    border-radius: 0.25rem;
+    border: 0.125rem solid $white;
+    font-family: $textFont;
+    font-size: $font-size-normal;
+    font-weight: $font-weight-medium;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transition-duration: 0.3s;
+      color: $white;
+    }
+
+    &:active {
+      scale: 1.1;
+    }
+
+    a {
+      display: inline-block;
+      padding: 0.5rem 1.125rem;
+    }
+  }
+}
